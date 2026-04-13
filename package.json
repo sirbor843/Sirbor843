@@ -12,9 +12,10 @@
     "url": "https://github.com/jackyzha0/quartz.git"
   },
   "scripts": {
-    "build": "npx quartz build",
-    "docs": "npx quartz build --serve -d docs",
-    "dev": "npx quartz build --serve",
+    "projects:sync": "tsx scripts/generate-projects.ts",
+    "build": "npm run projects:sync && npx quartz build",
+    "docs": "npm run projects:sync && npx quartz build --serve -d docs",
+    "dev": "npm run projects:sync && npx quartz build --serve",
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx ./quartz/util/path.test.ts && tsx ./quartz/depgraph.test.ts",
