@@ -1,0 +1,172 @@
+Dominic Bor - Software Engineer Portfolio
+
+# sidebar
+
+alt = Dominic Bor
+Dominic Bor
+Software Engineer
+
+Show Contacts
+
+Email
+dominicbor@icloud.com
+
+Website
+kdbor.engineer
+
+GitHub
+github.com/sirbor
+
+Location
+Nairobi, Kenya
+
+Socials:
+GitHub: https://github.com/sirbor
+LinkedIn: https://www.linkedin.com/in/Kd_Bor/
+Twitter/X: https://twitter.com/Kd_Bor
+Calendly: https://calendly.com/kdominicbor/30min
+
+# navbar
+
+About
+Resume
+Portfolio
+Blog
+Contact
+
+# about
+
+About me
+
+Hi, I’m Dominic Bor. I am a passionate Software Engineer based in Nairobi, Kenya. With a robust foundation in Java and the Spring ecosystem, I specialize in architecting scalable microservices, high-throughput RESTful APIs, and resilient distributed systems that deliver tangible business value across the software development lifecycle.
+
+Proficient across Java, Kotlin, Swift, Dart, and Python, I leverage Spring Boot, JPA, and Hibernate to build reliable enterprise backends, while engineering fluid mobile applications using Swift for iOS and Jetpack Compose / Flutter for Android. I implement automated CI/CD practices with Docker and AWS, orchestrate asynchronous messaging with RabbitMQ, and tap into data processing tools such as Apache Spark and Hadoop.
+
+Research-wise, I focus on scalability, reliability, and automation in data systems, along with the interaction and cooperation between humans and AI. I am always open to collaborative opportunities, innovative fintech engineering, and impactful challenges.
+
+
+## service
+
+What I'm Doing
+
+Backend & Microservices
+Architecting resilient microservices and RESTful APIs with Java, Spring Boot, JPA/Hibernate, and RabbitMQ.
+
+Mobile App Development
+Crafting native and cross-platform apps for iOS (Swift/SwiftUI) and Android (Kotlin/Compose, Flutter).
+
+Cloud & DevOps
+Containerization with Docker, CI/CD pipeline automation, and scalable deployments across AWS and OpenShift.
+
+Systems & Data Engineering
+Data processing with Spark & Hadoop, PostgreSQL database modeling, and low-level systems programming in C.
+
+
+## testimonials
+
+Testimonials & Reviews
+
+Rapid Research Engineering
+Dominic demonstrated remarkable engineering capability in architecting robust microservices and scalable RESTful APIs. His attention to detail, performance optimization, and clean architecture consistently produced stellar outcomes.
+
+Labs Afrika Team
+Working alongside Dominic was an exceptional experience. He brings versatile engineering skills across full-stack and mobile technologies, delivering dependable features with speed and clean code principles.
+
+ALX Peer Review
+Dominic is a dedicated engineer who excels at low-level systems programming in C, DevOps automation, and collaborative team sprints. A true asset to any engineering team.
+
+Open Source Community
+Dominic's open-source projects—from Android TV launchers to Unix shell implementations—reflect a deep passion for clean craftsmanship, clear documentation, and user-centric software design.
+
+
+## clients
+
+Organizations & Collaborators
+
+Labs Afrika
+Rapid Research
+KDInsight
+ALX Africa
+KD Bor Engineering
+Open Source Community
+
+
+# resume
+
+Resume
+
+Education
+
+ALX Africa / Holberton School
+2023 — 2024
+Full-Stack Software Engineering curriculum covering low-level systems programming in C, Unix process management, custom shell implementations, DevOps, CI/CD, data structures, and algorithms.
+
+Bachelor's / Advanced Technical Studies
+2018 — 2022
+Comprehensive coursework in Computer Science fundamentals, object-oriented software engineering, database management systems, distributed systems architecture, and web development.
+
+Experience
+
+Software Engineer — Rapid Research
+Nov 2022 — Present
+Architecting and maintaining scalable microservices using Java and Spring Boot. Developing high-performance RESTful APIs with JPA and Hibernate, integrating RabbitMQ message brokers, and orchestrating containerized deployments on AWS with Docker.
+
+Software Engineer — Labs Afrika
+Aug 2021 — Oct 2022
+Engineered web applications and mobile feature sets utilizing JavaScript, Angular, and Kotlin. Optimized transactional queries with PostgreSQL and contributed to CI/CD automated deployment pipelines.
+
+Software Engineer & Open Source Contributor — Independent
+2021 — Present
+Designed, developed, and deployed practical digital solutions including Jikoni (iOS food discovery app), astraLauncher (Flutter Android TV launcher), Kibeti (iOS financial wallet), and simple_shell (Unix command interpreter in C).
+
+Technical Skills
+
+Java & Spring Boot (JPA, Hibernate, Microservices) - 95%
+RESTful APIs & Messaging (RabbitMQ, Redis) - 90%
+Mobile Development (Swift, Kotlin, Flutter) - 85%
+Databases & Data (PostgreSQL, JDBC, Spark, Hadoop) - 85%
+Cloud & DevOps (Docker, AWS, CI/CD) - 80%
+Systems Programming & Python (C, Linux, POSIX, Django) - 80%
+
+
+# portfolio
+
+Portfolio
+
+Filters: All | Mobile apps | Web & backend | Systems & data
+
+Projects:
+- Jikoni: iOS Restaurant & Booking App (Swift, SwiftUI) -> https://github.com/sirbor/Jikoni
+- astraLauncher: Android TV Remote Launcher (Flutter, Dart) -> https://github.com/sirbor/astraLauncher
+- KDInsight: African Fintech Solutions & Research Platform (TypeScript) -> https://github.com/sirbor/KDInsight
+- Kibeti: Fintech Digital Wallet M-PESA Workflow (Swift) -> https://github.com/sirbor/Kibeti
+- Dukani: E-Commerce Platform (Python, Django) -> https://github.com/sirbor/Dukani
+- AirBnB Clone: Full-Stack Web Replica & RESTful API (Python, MySQL) -> https://github.com/sirbor/AirBnB_clone
+- Simple Shell: Unix Command Line Interpreter in C (C, POSIX, Linux) -> https://github.com/sirbor/simple_shell
+- Kitchen: Android Restaurant App (Kotlin, Jetpack Compose) -> https://github.com/sirbor/Kitchen
+- Flights Analysis: Aviation Analytics JKIA & Bole Airports (Python, Pandas) -> https://github.com/sirbor/FlightsAnalysis
+
+
+# blog
+
+Blog & Technical Writing
+
+- Design Patterns in Java: Singleton and Factory Pattern Deep Dive (May 27, 2024)
+- JDBC: Connecting Java Applications to Enterprise Databases (May 21, 2024)
+- Java Memory Management & Garbage Collection Essentials (May 22, 2024)
+- Architecting Resilient Microservices with Spring Boot & RabbitMQ (Apr 15, 2024)
+- Designing Remote-First Experiences for Android TV with Flutter (Mar 10, 2024)
+- Building a Unix Shell from Scratch: Lessons in Low-Level C (Jan 20, 2024)
+
+
+# contact
+
+Contact
+
+Location: Nairobi, Kenya
+Email: dominicbor@icloud.com
+Website: https://www.kdbor.engineer
+GitHub: https://github.com/sirbor
+LinkedIn: https://www.linkedin.com/in/Kd_Bor/
+Twitter/X: https://twitter.com/Kd_Bor
+Schedule Call: https://calendly.com/kdominicbor/30min

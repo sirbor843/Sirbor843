@@ -1,6 +1,6 @@
 ### Hi there, I'm [Dominic Bor !](https://www.kdbor.engineer/) 
 
-🔭 **Reseach-wise, I mainly focus on**:
+🔭 **Research-wise, I mainly focus on**:
 
 - data mining topics related to scalability, reliability, and automation 
 - information systems questions related to interaction, trade-off, and cooperation between human and “AI”
@@ -15,5 +15,5 @@
 📫 **Contact me by**:
 
 - [Mail](mailto:dominicbor@icloud.com)
-- [Twitter](https://twitter.com/Kd_Bpr)
+- [Twitter](https://twitter.com/Kd_Bor)
 - [LinkedIn](https://www.linkedin.com/in/Kd_Bor/)
