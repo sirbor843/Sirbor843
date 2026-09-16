@@ -4,7 +4,7 @@ Dominic Bor - Data & ML Systems Engineer Portfolio
 
 alt = Dominic Bor
 Dominic Bor
-Data & ML Systems Engineer
+Machine Learning Systems Engineer
 
 Show Contacts
 
@@ -24,7 +24,7 @@ Socials:
 GitHub: https://github.com/sirbor
 LinkedIn: https://www.linkedin.com/in/Kd_Bor/
 Twitter/X: https://twitter.com/Kd_Bor
-Calendly: https://calendly.com/kdominicbor/30min
+Calendly: https://calendly.com/kd_bor/30min
 
 # navbar
 
@@ -32,7 +32,7 @@ About
 Resume
 Portfolio
 Blog
-Contact
+Book a Call
 
 # about
 
@@ -170,14 +170,15 @@ Blog & Technical Writing
 - Writing a Unix Shell from Scratch in C: Lessons in Low-Level Systems (Jan 2024)
 
 
-# contact
+# booking & contact
 
-Contact
+Book a Call
 
-Location: Nairobi, Kenya
+Calendly: https://calendly.com/kd_bor/30min
+Location: Nairobi, Kenya (Remote / Global)
 Email: dominicbor44@gmail.com
 Website: https://kdbor.engineer
 GitHub: https://github.com/sirbor
 LinkedIn: https://www.linkedin.com/in/Kd_Bor/
 Twitter/X: https://twitter.com/Kd_Bor
-Schedule Call: https://calendly.com/kdominicbor/30min
+Schedule Call: https://calendly.com/kd_bor/30min

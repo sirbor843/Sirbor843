@@ -146,7 +146,7 @@
           </li>
 
           <li class="social-item">
-            <a href="https://calendly.com/kdominicbor/30min" target="_blank" rel="noopener noreferrer" class="social-link" title="Schedule 30min Meeting">
+            <a href="https://calendly.com/kd_bor/30min" target="_blank" rel="noopener noreferrer" class="social-link" title="Schedule 30min Meeting">
               <ion-icon name="calendar-outline"></ion-icon>
             </a>
           </li>
@@ -192,7 +192,7 @@
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-nav-target="contact">Book a Call</button>
           </li>
 
         </ul>
@@ -1142,44 +1142,118 @@
 
 
       <!--
-        - #CONTACT
+        - #BOOKING & CONTACT
       -->
 
       <article class="contact" data-page="contact">
 
         <header>
-          <h2 class="h2 article-title">Contact</h2>
+          <h2 class="h2 article-title">Book a Call</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127642.4746686121!2d36.75842884102927!3d-1.3032050999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1172d84d49a7%3A0xf7cf0254b297924c!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
-              width="400" height="300" loading="lazy" title="Nairobi, Kenya Map"></iframe>
-          </figure>
+        <section class="booking-intro">
+          <div class="booking-banner">
+            <h3 class="h3 booking-title">Schedule a 30-Minute Intro</h3>
+            <p class="booking-subtitle">
+              Pick a slot directly on my calendar below. Whether you want to discuss low-latency data pipelines, real-time payment layers, production ML systems, or explore full-time and contract opportunities—let's talk.
+            </p>
+
+            <div class="booking-chips">
+              <div class="booking-chip">
+                <ion-icon name="time-outline"></ion-icon>
+                <span>30-Minute Intro</span>
+              </div>
+              <div class="booking-chip">
+                <ion-icon name="videocam-outline"></ion-icon>
+                <span>Google Meet / Zoom</span>
+              </div>
+              <div class="booking-chip">
+                <ion-icon name="globe-outline"></ion-icon>
+                <span>Nairobi (UTC+3) • Open to Global Timezones</span>
+              </div>
+            </div>
+          </div>
         </section>
 
-        <section class="contact-form">
+        <!-- Calendly Inline Widget -->
+        <section class="calendly-section">
+          <div class="calendly-box">
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" 
+                 data-url="https://calendly.com/kd_bor/30min?hide_landing_page_details=0&hide_gdpr_banner=1&background_color=1e1e1f&text_color=ffffff&primary_color=ffdb70" 
+                 style="min-width:320px;height:720px;">
+            </div>
+            <!-- Calendly inline widget end -->
+          </div>
 
-          <h3 class="h3 form-title">Get in Touch</h3>
+          <div class="calendly-fallback">
+            <p class="fallback-text">Prefer opening the scheduler in a dedicated window?</p>
+            <a href="https://calendly.com/kd_bor/30min" target="_blank" rel="noopener noreferrer" class="calendly-btn">
+              <span>Open in Calendly</span>
+              <ion-icon name="open-outline"></ion-icon>
+            </a>
+          </div>
+        </section>
 
-          <form action="mailto:dominicbor44@gmail.com" method="POST" enctype="text/plain" class="form" data-form>
+        <!-- Direct & Async Contact Options -->
+        <section class="direct-contact-section">
+          <h3 class="h3 form-title">Prefer Async or Direct Email?</h3>
+          <p class="direct-contact-desc">
+            If you have technical specs, RFPs, or prefer reaching out asynchronously before scheduling a call:
+          </p>
 
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+          <div class="direct-contact-grid">
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            <div class="contact-card">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-card-info">
+                <h4 class="contact-card-title">Email Directly</h4>
+                <a href="mailto:dominicbor44@gmail.com" class="contact-card-link">dominicbor44@gmail.com</a>
+              </div>
+              <a href="mailto:dominicbor44@gmail.com" class="card-action-btn" title="Send Email">
+                <ion-icon name="paper-plane-outline"></ion-icon>
+              </a>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <div class="contact-card">
+              <div class="icon-box">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </div>
+              <div class="contact-card-info">
+                <h4 class="contact-card-title">LinkedIn</h4>
+                <a href="https://www.linkedin.com/in/Kd_Bor/" target="_blank" rel="noopener noreferrer" class="contact-card-link">linkedin.com/in/Kd_Bor</a>
+              </div>
+              <a href="https://www.linkedin.com/in/Kd_Bor/" target="_blank" rel="noopener noreferrer" class="card-action-btn" title="Open LinkedIn">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+            <div class="contact-card">
+              <div class="icon-box">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </div>
+              <div class="contact-card-info">
+                <h4 class="contact-card-title">Twitter / X</h4>
+                <a href="https://twitter.com/Kd_Bor" target="_blank" rel="noopener noreferrer" class="contact-card-link">@Kd_Bor</a>
+              </div>
+              <a href="https://twitter.com/Kd_Bor" target="_blank" rel="noopener noreferrer" class="card-action-btn" title="Open Twitter">
+                <ion-icon name="open-outline"></ion-icon>
+              </a>
+            </div>
 
-          </form>
+            <div class="contact-card">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-card-info">
+                <h4 class="contact-card-title">Location</h4>
+                <span class="contact-card-link">Nairobi, Kenya (Remote / Global)</span>
+              </div>
+            </div>
 
+          </div>
         </section>
 
       </article>
@@ -1197,6 +1271,11 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
+
+  <!--
+    - calendly widget script
+  -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <!--
     - ionicon link

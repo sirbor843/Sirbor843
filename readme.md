@@ -2,7 +2,7 @@
 
 🔭 **Research-wise, I mainly focus on**:
 
-- data and ML systems that stay fast, reliable, and cheap to run
+- data and Machine Learning systems that stay fast, reliable, and cheap to run
 - real-time payment layers, event pipelines, and automated workflows across fintech, gaming, and healthcare
 - technical writing and open-source tooling
 
@@ -15,5 +15,6 @@
 📫 **Contact me by**:
 
 - [Mail](mailto:dominicbor44@gmail.com)
+- [Book a 30-min Call](https://calendly.com/kd_bor/30min)
 - [Twitter](https://twitter.com/Kd_Bor)
 - [LinkedIn](https://www.linkedin.com/in/Kd_Bor/)

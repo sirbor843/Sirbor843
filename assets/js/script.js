@@ -115,23 +115,21 @@ for (let i = 0; i < filterBtn.length; i++) {
 
 
 
-// contact form variables
+// contact form validation (if form exists)
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
+if (form && formInputs.length > 0) {
+  for (let i = 0; i < formInputs.length; i++) {
+    formInputs[i].addEventListener("input", function () {
+      if (form.checkValidity()) {
+        formBtn?.removeAttribute("disabled");
+      } else {
+        formBtn?.setAttribute("disabled", "");
+      }
+    });
+  }
 }
 
 
@@ -140,20 +138,50 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
+const normalizePageName = function (name) {
+  if (!name) return "";
+  const clean = name.trim().toLowerCase().replace(/\s+/g, "-");
+  if (clean === "book-a-call" || clean === "book-call" || clean === "booking" || clean === "contact") {
+    return "contact";
+  }
+  return clean;
+};
+
+const switchPage = function (target) {
+  const normalizedTarget = normalizePageName(target);
+
+  for (let i = 0; i < pages.length; i++) {
+    const pageName = normalizePageName(pages[i].dataset.page);
+    if (pageName === normalizedTarget) {
+      pages[i].classList.add("active");
+      navigationLinks[i]?.classList.add("active");
+      window.scrollTo(0, 0);
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i]?.classList.remove("active");
+    }
+  }
+};
+
+// add event to all nav links
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+    const target = this.dataset.navTarget || this.innerText;
+    switchPage(target);
+    const hash = this.dataset.navTarget || (this.innerText.trim().toLowerCase() === "book a call" ? "booking" : this.innerText.trim().toLowerCase());
+    window.location.hash = hash;
   });
+}
+
+// hash-based navigation for deep-linking
+const handleHashNavigation = function () {
+  const hash = window.location.hash.replace("#", "").trim();
+  if (hash) {
+    switchPage(hash);
+  }
+};
+
+window.addEventListener("hashchange", handleHashNavigation);
+if (window.location.hash) {
+  handleHashNavigation();
 }

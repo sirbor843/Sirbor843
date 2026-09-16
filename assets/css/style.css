@@ -1122,8 +1122,199 @@ main {
 
 
 /*-----------------------------------*\
-  #CONTACT
+  #CONTACT & BOOKING
 \*-----------------------------------*/
+
+.booking-intro { margin-bottom: 25px; }
+
+.booking-banner {
+  background: var(--border-gradient-onyx);
+  border: 1px solid var(--jet);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: var(--shadow-2);
+}
+
+.booking-title {
+  margin-bottom: 10px;
+  color: var(--white-2);
+}
+
+.booking-subtitle {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.booking-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.booking-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 30px;
+  font-size: var(--fs-7);
+  color: var(--orange-yellow-crayola);
+}
+
+.booking-chip ion-icon { font-size: 16px; }
+
+.calendly-section { margin-bottom: 30px; }
+
+.calendly-box {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  height: 720px;
+  border-radius: 16px;
+  border: 1px solid var(--jet);
+  background: var(--eerie-black-2);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
+}
+
+.calendly-box .calendly-inline-widget {
+  width: 100% !important;
+  height: 720px !important;
+}
+
+.calendly-fallback {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 12px 18px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 12px;
+}
+
+.fallback-text {
+  color: var(--light-gray-70);
+  font-size: var(--fs-7);
+}
+
+.calendly-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange-yellow-crayola);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-500);
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--jet);
+  background: var(--border-gradient-onyx);
+  transition: var(--transition-1);
+}
+
+.calendly-btn:hover {
+  border-color: var(--orange-yellow-crayola);
+  color: var(--white-1);
+}
+
+.direct-contact-section { margin-top: 30px; }
+
+.direct-contact-desc {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.direct-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.contact-card {
+  position: relative;
+  background: var(--border-gradient-onyx);
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--jet);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: var(--transition-1);
+}
+
+.contact-card:hover {
+  border-color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+.contact-card .icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--orange-yellow-crayola);
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.contact-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-card-title {
+  color: var(--light-gray-70);
+  font-size: var(--fs-8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.contact-card-link {
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.contact-card-link:hover { color: var(--orange-yellow-crayola); }
+
+.card-action-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  color: var(--orange-yellow-crayola);
+  font-size: 16px;
+  flex-shrink: 0;
+  transition: var(--transition-1);
+}
+
+.card-action-btn:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--eerie-black-1);
+}
 
 .mapbox {
   position: relative;
@@ -1518,8 +1709,12 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #CONTACT
+   * #CONTACT & BOOKING
    */
+
+  .direct-contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .mapbox {
     height: 380px;
