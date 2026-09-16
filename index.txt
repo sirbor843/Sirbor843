@@ -1,15 +1,15 @@
-Dominic Bor - Software Engineer Portfolio
+Dominic Bor - Data & ML Systems Engineer Portfolio
 
 # sidebar
 
 alt = Dominic Bor
 Dominic Bor
-Software Engineer
+Data & ML Systems Engineer
 
 Show Contacts
 
 Email
-dominicbor@icloud.com
+dominicbor44@gmail.com
 
 Website
 kdbor.engineer
@@ -38,45 +38,41 @@ Contact
 
 About me
 
-Hi, I’m Dominic Bor. I am a passionate Software Engineer based in Nairobi, Kenya. With a robust foundation in Java and the Spring ecosystem, I specialize in architecting scalable microservices, high-throughput RESTful APIs, and resilient distributed systems that deliver tangible business value across the software development lifecycle.
-
-Proficient across Java, Kotlin, Swift, Dart, and Python, I leverage Spring Boot, JPA, and Hibernate to build reliable enterprise backends, while engineering fluid mobile applications using Swift for iOS and Jetpack Compose / Flutter for Android. I implement automated CI/CD practices with Docker and AWS, orchestrate asynchronous messaging with RabbitMQ, and tap into data processing tools such as Apache Spark and Hadoop.
-
-Research-wise, I focus on scalability, reliability, and automation in data systems, along with the interaction and cooperation between humans and AI. I am always open to collaborative opportunities, innovative fintech engineering, and impactful challenges.
+I build data and ML systems that stay fast, reliable, and cheap to run. Over the last few years, I’ve built real-time payment layers, event pipelines, and automated workflows across fintech, gaming, and healthcare—routinely halving latency and cutting cloud bills by over a third. I prefer working directly with users to dig through messy requirements, stress-test assumptions, and turn real-world edge cases into clean, reliable features shipped straight to production.
 
 
 ## service
 
 What I'm Doing
 
-Backend & Microservices
-Architecting resilient microservices and RESTful APIs with Java, Spring Boot, JPA/Hibernate, and RabbitMQ.
+Real-Time Payment Layers & APIs
+Integrating Stripe & M-Pesa into high-availability Go payment systems with Redis caching, cutting latency by 50%+.
 
-Mobile App Development
-Crafting native and cross-platform apps for iOS (Swift/SwiftUI) and Android (Kotlin/Compose, Flutter).
+Data Pipelines & Event Streaming
+Building event streaming pipelines with Apache Kafka, PySpark, AWS Glue, and Airflow processing millions of daily records.
 
-Cloud & DevOps
-Containerization with Docker, CI/CD pipeline automation, and scalable deployments across AWS and OpenShift.
+Production ML & Predictive Systems
+Shipping real-time churn, LTV, and spatial valuation models with Python, FastAPI, PyTorch, scikit-learn, and Docker.
 
-Systems & Data Engineering
-Data processing with Spark & Hadoop, PostgreSQL database modeling, and low-level systems programming in C.
+Cloud Infrastructure & Cost Optimization
+Cutting cloud spend by 35%+ via containerized AWS Lambda and Docker architectures with robust PostgreSQL audit trails.
 
 
 ## testimonials
 
-Testimonials & Reviews
+Professional Impact
 
-Rapid Research Engineering
-Dominic demonstrated remarkable engineering capability in architecting robust microservices and scalable RESTful APIs. His attention to detail, performance optimization, and clean architecture consistently produced stellar outcomes.
+Labs Afrika
+Partnered directly with merchants to clarify messy edge cases and transaction flows, integrating Stripe and M-Pesa into a high-availability Go payment layer. Cut validation and serving latency by over 50% while reducing cloud infrastructure spending by over 35%.
 
-Labs Afrika Team
-Working alongside Dominic was an exceptional experience. He brings versatile engineering skills across full-stack and mobile technologies, delivering dependable features with speed and clean code principles.
+Rapid Research
+Built high-throughput ETL pipelines with AWS Glue and PySpark, transforming millions of daily gaming events into structured feature sets for model evals. Shipped real-time churn and lifetime value models delivering high-freshness predictive signals to operational teams.
 
-ALX Peer Review
-Dominic is a dedicated engineer who excels at low-level systems programming in C, DevOps automation, and collaborative team sprints. A true asset to any engineering team.
+TechFlow Solutions
+Automated healthcare data reconciliation in Python, saving dozens of engineering hours weekly and eliminating manual spreadsheet errors. Migrated hundreds of gigabytes of clinical data to AWS S3 with strict schema validation.
 
-Open Source Community
-Dominic's open-source projects—from Android TV launchers to Unix shell implementations—reflect a deep passion for clean craftsmanship, clear documentation, and user-centric software design.
+GitHub Campus Expert
+Led interactive hands-on workshops on Git, open-source contribution practices, and CI/CD pipelines, mentoring developer communities on modern software engineering standards.
 
 
 ## clients
@@ -88,75 +84,90 @@ Rapid Research
 KDInsight
 ALX Africa
 KD Bor Engineering
-Open Source Community
+GitHub Campus Expert
 
 
 # resume
 
 Resume
 
-Education
+Education & Certifications
 
-ALX Africa / Holberton School
-2023 — 2024
-Full-Stack Software Engineering curriculum covering low-level systems programming in C, Unix process management, custom shell implementations, DevOps, CI/CD, data structures, and algorithms.
+KCA University
+Bachelor of Science in Information Technology
+Comprehensive academic foundation in software systems, database architecture, network infrastructure, and computer science methodologies.
 
-Bachelor's / Advanced Technical Studies
-2018 — 2022
-Comprehensive coursework in Computer Science fundamentals, object-oriented software engineering, database management systems, distributed systems architecture, and web development.
+ALX Software Engineering
+Backend Systems & Software Engineering
+Intensive program focusing on low-level systems programming in C, Unix internals, memory management, distributed backend architectures, and DevOps automation.
 
-Experience
+GitHub Campus Expert
+Technical Community Leader
+Selected and trained by GitHub to lead workshops on Git workflows, open-source development practices, and CI/CD pipelines with GitHub Actions.
 
-Software Engineer — Rapid Research
-Nov 2022 — Present
-Architecting and maintaining scalable microservices using Java and Spring Boot. Developing high-performance RESTful APIs with JPA and Hibernate, integrating RabbitMQ message brokers, and orchestrating containerized deployments on AWS with Docker.
 
-Software Engineer — Labs Afrika
-Aug 2021 — Oct 2022
-Engineered web applications and mobile feature sets utilizing JavaScript, Angular, and Kotlin. Optimized transactional queries with PostgreSQL and contributed to CI/CD automated deployment pipelines.
+Professional Experience
 
-Software Engineer & Open Source Contributor — Independent
-2021 — Present
-Designed, developed, and deployed practical digital solutions including Jikoni (iOS food discovery app), astraLauncher (Flutter Android TV launcher), Kibeti (iOS financial wallet), and simple_shell (Unix command interpreter in C).
+Labs Afrika — Data Engineer
+Nairobi, Kenya | Mar 2025 — Present
+- Partnered directly with merchants to clarify messy edge cases and transaction flows, integrating Stripe and M-Pesa into a high-availability Go payment layer.
+- Cut validation and serving latency by over 50% through streamlined Redis caching, efficient load distribution, and targeted service profiling.
+- Built real-time customer behavior pipelines using Python and Kafka to surface billing anomalies early, flag churn risks, and drive product improvements.
+- Reduced cloud infrastructure spending by over 35% by migrating batch workloads to containerized AWS Lambda and Docker architectures scaling on demand.
+- Designed robust PostgreSQL audit trails and data validation checks, halving reconciliation discrepancies while keeping tracking clean and reproducible.
+- Maintained a rapid shipping cadence, moving from PRDs and Linear tickets to tested, production-grade features using modern AI tooling.
+
+Rapid Research — Data Engineer (Gaming & Casino)
+Remote | Nov 2023 — Feb 2025
+- Built high-throughput ETL pipelines with AWS Glue and PySpark, transforming millions of daily gaming events into structured feature sets for model evals.
+- Shipped real-time churn and lifetime value models using Python, FastAPI, and Docker, delivering high-freshness predictive signals directly to operational teams.
+- Automated workflow validation and alerting in Apache Airflow, catching silent pipeline regressions in minutes rather than hours.
+- Collaborated with non-technical stakeholders to test core assumptions, clarify product requirements, and turn analytical findings into production features.
+
+TechFlow Solutions — Junior Data Engineer (Health Systems)
+Nairobi, Kenya | Jan 2022 — Oct 2023
+- Automated healthcare data reconciliation in Python, saving dozens of engineering hours weekly and eliminating manual spreadsheet errors.
+- Migrated hundreds of gigabytes of clinical data to AWS S3, implementing strict schema validation to guarantee end-to-end data integrity.
+- Built reliable SQL pipelines across Redshift and Snowflake, turning raw, unstructured logs into clean operational datasets and dashboards.
+
 
 Technical Skills
 
-Java & Spring Boot (JPA, Hibernate, Microservices) - 95%
-RESTful APIs & Messaging (RabbitMQ, Redis) - 90%
-Mobile Development (Swift, Kotlin, Flutter) - 85%
-Databases & Data (PostgreSQL, JDBC, Spark, Hadoop) - 85%
-Cloud & DevOps (Docker, AWS, CI/CD) - 80%
-Systems Programming & Python (C, Linux, POSIX, Django) - 80%
+Languages: Python, Go, TypeScript, C, SQL - 95%
+Data Streaming & Pipelines: Apache Kafka, Spark (PySpark), Airflow - 92%
+ML & Analytics: PyTorch, scikit-learn, XGBoost, Pandas - 88%
+Databases & Caching: PostgreSQL, Redis, Supabase, Redshift, Snowflake - 92%
+Cloud & Serverless: AWS (Lambda, S3, Glue), Docker, Containerization - 90%
+APIs, Protocols & DevOps: FastAPI, REST/gRPC, CI/CD, GitHub Actions - 90%
 
 
 # portfolio
 
-Portfolio
+Selected Projects
 
-Filters: All | Mobile apps | Web & backend | Systems & data
+Filters: All | Data & ml | Systems & backend | Applications
 
-Projects:
-- Jikoni: iOS Restaurant & Booking App (Swift, SwiftUI) -> https://github.com/sirbor/Jikoni
-- astraLauncher: Android TV Remote Launcher (Flutter, Dart) -> https://github.com/sirbor/astraLauncher
-- KDInsight: African Fintech Solutions & Research Platform (TypeScript) -> https://github.com/sirbor/KDInsight
-- Kibeti: Fintech Digital Wallet M-PESA Workflow (Swift) -> https://github.com/sirbor/Kibeti
-- Dukani: E-Commerce Platform (Python, Django) -> https://github.com/sirbor/Dukani
-- AirBnB Clone: Full-Stack Web Replica & RESTful API (Python, MySQL) -> https://github.com/sirbor/AirBnB_clone
-- Simple Shell: Unix Command Line Interpreter in C (C, POSIX, Linux) -> https://github.com/sirbor/simple_shell
-- Kitchen: Android Restaurant App (Kotlin, Jetpack Compose) -> https://github.com/sirbor/Kitchen
-- Flights Analysis: Aviation Analytics JKIA & Bole Airports (Python, Pandas) -> https://github.com/sirbor/FlightsAnalysis
+- Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand & budget trade-offs -> https://github.com/sirbor/FlightsAnalysis
+- Property GIS Land Valuation: Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation model -> https://github.com/sirbor
+- Health Insurance Claims Analytics: Python, SQL, Apache Airflow, Tableau | Automated ETL audit pipelines -> https://github.com/sirbor
+- High-Availability Payment Layer: Go, Redis, Stripe, M-Pesa | Low-latency payment validation -> https://github.com/sirbor/Kibeti
+- Gaming Event ETL & Churn Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput feature store -> https://github.com/sirbor
+- KDInsight: TypeScript, Next.js | African fintech solutions & research -> https://github.com/sirbor/KDInsight
+- Jikoni: Swift, SwiftUI | iOS restaurant & appointment booking app -> https://github.com/sirbor/Jikoni
+- astraLauncher: Flutter, Dart | Remote-first Android TV launcher -> https://github.com/sirbor/astraLauncher
+- Simple Shell: C, POSIX, Linux | Unix command line interpreter in C -> https://github.com/sirbor/simple_shell
 
 
 # blog
 
 Blog & Technical Writing
 
-- Design Patterns in Java: Singleton and Factory Pattern Deep Dive (May 27, 2024)
-- JDBC: Connecting Java Applications to Enterprise Databases (May 21, 2024)
-- Java Memory Management & Garbage Collection Essentials (May 22, 2024)
-- Architecting Resilient Microservices with Spring Boot & RabbitMQ (Apr 15, 2024)
-- Designing Remote-First Experiences for Android TV with Flutter (Mar 10, 2024)
-- Building a Unix Shell from Scratch: Lessons in Low-Level C (Jan 20, 2024)
+- Cutting Serving Latency by 50% with Redis Caching and Go Service Profiling (Mar 2025)
+- Building Resilient PySpark & AWS Glue Pipelines for Millions of Daily Events (Jan 2025)
+- Automating Workflow Validation & Alerting in Apache Airflow (Oct 2024)
+- Deploying Real-Time Churn & LTV Models with Python, FastAPI, and Docker (Jul 2024)
+- Building an End-to-End Spatial Valuation Model with GeoPandas and PostGIS (May 2024)
+- Writing a Unix Shell from Scratch in C: Lessons in Low-Level Systems (Jan 2024)
 
 
 # contact
@@ -164,8 +175,8 @@ Blog & Technical Writing
 Contact
 
 Location: Nairobi, Kenya
-Email: dominicbor@icloud.com
-Website: https://www.kdbor.engineer
+Email: dominicbor44@gmail.com
+Website: https://kdbor.engineer
 GitHub: https://github.com/sirbor
 LinkedIn: https://www.linkedin.com/in/Kd_Bor/
 Twitter/X: https://twitter.com/Kd_Bor

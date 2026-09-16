@@ -2,18 +2,18 @@
 
 🔭 **Research-wise, I mainly focus on**:
 
-- data mining topics related to scalability, reliability, and automation 
-- information systems questions related to interaction, trade-off, and cooperation between human and “AI”
-- Technical reports and writings
+- data and ML systems that stay fast, reliable, and cheap to run
+- real-time payment layers, event pipelines, and automated workflows across fintech, gaming, and healthcare
+- technical writing and open-source tooling
 
 😄 **I am open to**:
 
-- collaboration opportunities (anytime & anywhere & any type)
-- Projects on ios and android development
-- Data engineering and analysis projects
+- collaboration opportunities on Data & ML infrastructure
+- high-throughput event streaming & payment layer projects
+- open-source and developer community initiatives
 
 📫 **Contact me by**:
 
-- [Mail](mailto:dominicbor@icloud.com)
+- [Mail](mailto:dominicbor44@gmail.com)
 - [Twitter](https://twitter.com/Kd_Bor)
 - [LinkedIn](https://www.linkedin.com/in/Kd_Bor/)
