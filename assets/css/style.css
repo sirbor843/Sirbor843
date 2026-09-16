@@ -839,6 +839,43 @@ main {
 
 .skills-title { margin-bottom: 20px; }
 
+.skills-card { padding: 24px; }
+
+.skills-tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.skills-tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 12px;
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  transition: var(--transition-1);
+}
+
+.skills-tag-item:hover {
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+.skills-tag-item .tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-gradient-yellow);
+  box-shadow: 0 0 6px hsla(45, 100%, 72%, 0.4);
+}
+
 .skills-list { padding: 20px; }
 
 

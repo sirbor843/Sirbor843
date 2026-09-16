@@ -45,14 +45,20 @@ I build data and ML systems that stay fast, reliable, and cheap to run. Over the
 
 What I'm Doing
 
-Real-Time Payment Layers & APIs
+Payment Integration & APIs
 Integrating Stripe & M-Pesa into high-availability Go payment systems with Redis caching, cutting latency by 50%+.
+
+Enterprise Systems — ERP, POS & E-Commerce
+Architecting resilient backends for ERP operations, POS terminal integrations, and e-commerce platforms with automated multi-channel inventory synchronization.
 
 Data Pipelines & Event Streaming
 Building event streaming pipelines with Apache Kafka, PySpark, AWS Glue, and Airflow processing millions of daily records.
 
 Production ML & Predictive Systems
 Shipping real-time churn, LTV, and spatial valuation models with Python, FastAPI, PyTorch, scikit-learn, and Docker.
+
+AI Integration & Intelligent Workflows
+Embedding modern LLM APIs, retrieval-augmented generation (RAG), and agentic task automation into operational business tools and products.
 
 Cloud Infrastructure & Cost Optimization
 Cutting cloud spend by 35%+ via containerized AWS Lambda and Docker architectures with robust PostgreSQL audit trails.
@@ -133,12 +139,7 @@ Nairobi, Kenya | Jan 2022 — Oct 2023
 
 Technical Skills
 
-Languages: Python, Go, TypeScript, C, SQL - 95%
-Data Streaming & Pipelines: Apache Kafka, Spark (PySpark), Airflow - 92%
-ML & Analytics: PyTorch, scikit-learn, XGBoost, Pandas - 88%
-Databases & Caching: PostgreSQL, Redis, Supabase, Redshift, Snowflake - 92%
-Cloud & Serverless: AWS (Lambda, S3, Glue), Docker, Containerization - 90%
-APIs, Protocols & DevOps: FastAPI, REST/gRPC, CI/CD, GitHub Actions - 90%
+TypeScript, Go, C, Python, Swift, Kotlin, Dart & Flutter
 
 
 # portfolio
@@ -150,12 +151,11 @@ Filters: All | Data & ml | Systems & backend | Applications
 - Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand & budget trade-offs -> https://github.com/sirbor/FlightsAnalysis
 - Property GIS Land Valuation: Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation model -> https://github.com/sirbor
 - Health Insurance Claims Analytics: Python, SQL, Apache Airflow, Tableau | Automated ETL audit pipelines -> https://github.com/sirbor
-- High-Availability Payment Layer: Go, Redis, Stripe, M-Pesa | Low-latency payment validation -> https://github.com/sirbor/Kibeti
-- Gaming Event ETL & Churn Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput feature store -> https://github.com/sirbor
-- KDInsight: TypeScript, Next.js | African fintech solutions & research -> https://github.com/sirbor/KDInsight
+- High-Availability Payment System: Go, Redis, Stripe, M-Pesa | Low-latency payment validation & settlement -> https://github.com/sirbor/Kibeti
+- Gaming Event ETL & Predictive Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput telemetry & churn models -> https://github.com/sirbor
 - Jikoni: Swift, SwiftUI | iOS restaurant & appointment booking app -> https://github.com/sirbor/Jikoni
 - astraLauncher: Flutter, Dart | Remote-first Android TV launcher -> https://github.com/sirbor/astraLauncher
-- Simple Shell: C, POSIX, Linux | Unix command line interpreter in C -> https://github.com/sirbor/simple_shell
+- Command Line Calculator: C, POSIX, Linux | High-performance CLI scientific calculator in C -> https://github.com/sirbor/Commandline_Calculator
 
 
 # blog
