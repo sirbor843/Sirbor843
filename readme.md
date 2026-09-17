@@ -8,8 +8,8 @@
 
 😄 **I am open to**:
 
-- collaboration opportunities on Data & ML infrastructure
-- high-throughput event streaming & payment layer projects
+- collaboration opportunities on Data and ML infrastructure
+- high-throughput event streaming and payment layer projects
 - open-source and developer community initiatives
 
 📫 **Contact me by**:

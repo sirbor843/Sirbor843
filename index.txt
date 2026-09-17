@@ -1,4 +1,4 @@
-Dominic Bor - Data & ML Systems Engineer Portfolio
+Dominic Bor - Data and ML Systems Engineer Portfolio
 
 # sidebar
 
@@ -45,22 +45,22 @@ I build data and ML systems that stay fast, reliable, and cheap to run. Over the
 
 What I'm Doing
 
-Payment Integration & APIs
-Integrating Stripe & M-Pesa into high-availability Go payment systems with Redis caching, cutting latency by 50%+.
+Payment Integration and APIs
+Integrating Stripe and M-Pesa into high-availability Go payment systems with Redis caching, cutting latency by 50%+.
 
-Enterprise Systems — ERP, POS & E-Commerce
+Enterprise Systems — ERP, POS and E-Commerce
 Architecting resilient backends for ERP operations, POS terminal integrations, and e-commerce platforms with automated multi-channel inventory synchronization.
 
-Data Pipelines & Event Streaming
+Data Pipelines and Event Streaming
 Building event streaming pipelines with Apache Kafka, PySpark, AWS Glue, and Airflow processing millions of daily records.
 
-Production ML & Predictive Systems
+Production ML and Predictive Systems
 Shipping real-time churn, LTV, and spatial valuation models with Python, FastAPI, PyTorch, scikit-learn, and Docker.
 
-AI Integration & Intelligent Workflows
+AI Integration and Intelligent Workflows
 Embedding modern LLM APIs, retrieval-augmented generation (RAG), and agentic task automation into operational business tools and products.
 
-Cloud Infrastructure & Cost Optimization
+Cloud Infrastructure and Cost Optimization
 Cutting cloud spend by 35%+ via containerized AWS Lambda and Docker architectures with robust PostgreSQL audit trails.
 
 
@@ -83,7 +83,7 @@ Led interactive hands-on workshops on Git, open-source contribution practices, a
 
 ## clients
 
-Organizations & Collaborators
+Organizations and Collaborators
 
 Labs Afrika
 Rapid Research
@@ -97,14 +97,14 @@ GitHub Campus Expert
 
 Resume
 
-Education & Certifications
+Education and Certifications
 
 KCA University
 Bachelor of Science in Information Technology
 Comprehensive academic foundation in software systems, database architecture, network infrastructure, and computer science methodologies.
 
 ALX Software Engineering
-Backend Systems & Software Engineering
+Backend Systems and Software Engineering
 Intensive program focusing on low-level systems programming in C, Unix internals, memory management, distributed backend architectures, and DevOps automation.
 
 GitHub Campus Expert
@@ -123,7 +123,7 @@ Nairobi, Kenya | Mar 2025 — Present
 - Designed robust PostgreSQL audit trails and data validation checks, halving reconciliation discrepancies while keeping tracking clean and reproducible.
 - Maintained a rapid shipping cadence, moving from PRDs and Linear tickets to tested, production-grade features using modern AI tooling.
 
-Rapid Research — Data Engineer (Gaming & Casino)
+Rapid Research — Data Engineer (Gaming and Casino)
 Remote | Nov 2023 — Feb 2025
 - Built high-throughput ETL pipelines with AWS Glue and PySpark, transforming millions of daily gaming events into structured feature sets for model evals.
 - Shipped real-time churn and lifetime value models using Python, FastAPI, and Docker, delivering high-freshness predictive signals directly to operational teams.
@@ -139,38 +139,38 @@ Nairobi, Kenya | Jan 2022 — Oct 2023
 
 Technical Skills
 
-TypeScript, Go, C, Python, Swift, Kotlin, Dart & Flutter
+TypeScript, Go, C, Python, Swift, Kotlin, Dart and Flutter
 
 
 # portfolio
 
 Selected Projects
 
-Filters: All | Data & ml | Systems & backend | Applications
+Filters: All | Data and ml | Systems and backend | Applications
 
-- Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand & budget trade-offs -> https://github.com/sirbor/FlightsAnalysis
+- Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand and budget trade-offs -> https://github.com/sirbor/FlightsAnalysis
 - Property GIS Land Valuation: Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation model -> https://github.com/sirbor
 - Health Insurance Claims Analytics: Python, SQL, Apache Airflow, Tableau | Automated ETL audit pipelines -> https://github.com/sirbor
-- High-Availability Payment System: Go, Redis, Stripe, M-Pesa | Low-latency payment validation & settlement -> https://github.com/sirbor/Kibeti
-- Gaming Event ETL & Predictive Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput telemetry & churn models -> https://github.com/sirbor
-- Jikoni: Swift, SwiftUI | iOS restaurant & appointment booking app -> https://github.com/sirbor/Jikoni
+- High-Availability Payment System: Go, Redis, Stripe, M-Pesa | Low-latency payment validation and settlement -> https://github.com/sirbor/Kibeti
+- Gaming Event ETL and Predictive Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput telemetry and churn models -> https://github.com/sirbor
+- Jikoni: Swift, SwiftUI | iOS restaurant and appointment booking app -> https://github.com/sirbor/Jikoni
 - astraLauncher: Flutter, Dart | Remote-first Android TV launcher -> https://github.com/sirbor/astraLauncher
 - Command Line Calculator: C, POSIX, Linux | High-performance CLI scientific calculator in C -> https://github.com/sirbor/Commandline_Calculator
 
 
 # blog
 
-Blog & Technical Writing
+Blog and Technical Writing
 
 - Cutting Serving Latency by 50% with Redis Caching and Go Service Profiling (Mar 2025)
-- Building Resilient PySpark & AWS Glue Pipelines for Millions of Daily Events (Jan 2025)
-- Automating Workflow Validation & Alerting in Apache Airflow (Oct 2024)
-- Deploying Real-Time Churn & LTV Models with Python, FastAPI, and Docker (Jul 2024)
+- Building Resilient PySpark and AWS Glue Pipelines for Millions of Daily Events (Jan 2025)
+- Automating Workflow Validation and Alerting in Apache Airflow (Oct 2024)
+- Deploying Real-Time Churn and LTV Models with Python, FastAPI, and Docker (Jul 2024)
 - Building an End-to-End Spatial Valuation Model with GeoPandas and PostGIS (May 2024)
 - Writing a Unix Shell from Scratch in C: Lessons in Low-Level Systems (Jan 2024)
 
 
-# booking & contact
+# booking and contact
 
 Book a Call
 
