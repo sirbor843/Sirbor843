@@ -15,16 +15,16 @@ Website
 kdbor.engineer
 
 GitHub
-github.com/sirbor
+github.com/sirbor843
 
 Location
 Nairobi, Kenya
 
 Socials:
-GitHub: https://github.com/sirbor
-LinkedIn: https://www.linkedin.com/in/Kd_Bor/
-Twitter/X: https://twitter.com/Kd_Bor
-Calendly: https://calendly.com/kd_bor/30min
+GitHub: https://github.com/sirbor843
+LinkedIn: https://www.linkedin.com/in/sirbor843/
+Twitter/X: https://twitter.com/sirbor843
+Calendly: https://calendly.com/sirbor843/30min
 
 # navbar
 
@@ -174,11 +174,11 @@ Blog and Technical Writing
 
 Book a Call
 
-Calendly: https://calendly.com/kd_bor/30min
+Calendly: https://calendly.com/sirbor843/30min
 Location: Nairobi, Kenya (Remote / Global)
 Email: dominicbor44@gmail.com
 Website: https://kdbor.engineer
-GitHub: https://github.com/sirbor
-LinkedIn: https://www.linkedin.com/in/Kd_Bor/
-Twitter/X: https://twitter.com/Kd_Bor
-Schedule Call: https://calendly.com/kd_bor/30min
+GitHub: https://github.com/sirbor843
+LinkedIn: https://www.linkedin.com/in/sirbor843/
+Twitter/X: https://twitter.com/sirbor843
+Schedule Call: https://calendly.com/sirbor843/30min

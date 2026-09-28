@@ -15,6 +15,6 @@
 📫 **Contact me by**:
 
 - [Mail](mailto:dominicbor44@gmail.com)
-- [Book a 30-min Call](https://calendly.com/kd_bor/30min)
-- [Twitter](https://twitter.com/Kd_Bor)
-- [LinkedIn](https://www.linkedin.com/in/Kd_Bor/)
+- [Book a 30-min Call](https://calendly.com/sirbor843/30min)
+- [Twitter](https://twitter.com/sirbor843)
+- [LinkedIn](https://www.linkedin.com/in/sirbor843/)
