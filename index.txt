@@ -148,14 +148,14 @@ Selected Projects
 
 Filters: All | Data and ml | Systems and backend | Applications
 
-- Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand and budget trade-offs -> https://github.com/sirbor/FlightsAnalysis
-- Property GIS Land Valuation: Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation model -> https://github.com/sirbor
-- Health Insurance Claims Analytics: Python, SQL, Apache Airflow, Tableau | Automated ETL audit pipelines -> https://github.com/sirbor
-- High-Availability Payment System: Go, Redis, Stripe, M-Pesa | Low-latency payment validation and settlement -> https://github.com/sirbor/Kibeti
-- Gaming Event ETL and Predictive Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput telemetry and churn models -> https://github.com/sirbor
-- Jikoni: Swift, SwiftUI | iOS restaurant and appointment booking app -> https://github.com/sirbor/Jikoni
-- astraLauncher: Flutter, Dart | Remote-first Android TV launcher -> https://github.com/sirbor/astraLauncher
-- Command Line Calculator: C, POSIX, Linux | High-performance CLI scientific calculator in C -> https://github.com/sirbor/Commandline_Calculator
+- Fuel Prices and Airfare Analysis: Python, SQL, Pandas, Tableau | Seasonal demand and budget trade-offs -> https://github.com/sirbor843/FlightsAnalysis
+- Property GIS Land Valuation: Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation model -> https://github.com/sirbor843
+- Health Insurance Claims Analytics: Python, SQL, Apache Airflow, Tableau | Automated ETL audit pipelines -> https://github.com/sirbor843
+- High-Availability Payment System: Go, Redis, Stripe, M-Pesa | Low-latency payment validation and settlement -> https://github.com/sirbor843/Kibeti
+- Gaming Event ETL and Predictive Models: AWS Glue, PySpark, FastAPI, Docker | High-throughput telemetry and churn models -> https://github.com/sirbor843
+- Jikoni: Swift, SwiftUI | iOS restaurant and appointment booking app -> https://github.com/sirbor843/Jikoni
+- astraLauncher: Flutter, Dart | Remote-first Android TV launcher -> https://github.com/sirbor843/astraLauncher
+- Command Line Calculator: C, POSIX, Linux | High-performance CLI scientific calculator in C -> https://github.com/sirbor843/Commandline_Calculator
 
 
 # blog
