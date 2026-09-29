@@ -3,7 +3,7 @@
 **Research-wise, I mainly focus on**:
 
 - data and Machine Learning systems that stay fast, reliable, and cheap to run
-- real-time payment layers, event pipelines, and automated workflows across fintech, gaming, and healthcare
+- real-time payment layers, event pipelines, and automated workflows across fintech,agriculture, gaming, and healthcare
 - technical writing and open-source tooling
 - building cli tools, libraries, and frameworks for developers.
 - ios, android, crossplatfork and web app developement.
