@@ -582,11 +582,14 @@
         <ul>${p.highlights.map((h) => `<li>${esc(h)}</li>`).join('')}</ul>
         <h3>Stack</h3>
         <div class="tags">${p.stack.map((t) => `<button type="button" class="tag" data-modal-skill="${esc(t)}">${esc(t)}</button>`).join('')}</div>
+        ${p.repo ? '' : `<p class="private-note"><ion-icon name="lock-closed-outline"></ion-icon> ${esc(p.privateNote || 'The code is private.')}</p>`}
         <div class="modal-actions">
-          <a class="btn btn-primary" href="${p.repo}" target="_blank" rel="noopener noreferrer">
+          ${p.repo
+            ? `<a class="btn btn-primary" href="${p.repo}" target="_blank" rel="noopener noreferrer">
             <ion-icon name="logo-github"></ion-icon> View on GitHub
-          </a>
-          <a class="btn btn-ghost" href="#contact" data-modal-contact>
+          </a>`
+            : ''}
+          <a class="btn ${p.repo ? 'btn-ghost' : 'btn-primary'}" href="#contact" data-modal-contact>
             <ion-icon name="chatbubbles-outline"></ion-icon> Discuss this project
           </a>
         </div>

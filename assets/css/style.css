@@ -2789,6 +2789,15 @@ dialog::backdrop {
   color: var(--accent);
 }
 
+.private-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
 .modal-actions {
   display: flex;
   flex-wrap: wrap;

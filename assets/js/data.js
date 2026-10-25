@@ -124,7 +124,9 @@ window.SITE = {
         'Redis caching and idempotent webhook handling for safe retries.',
         'Designed for sub-second validation on the hot path.'
       ],
-      repo: 'https://github.com/sirbor843/Kibeti',
+      // production work at Labs Afrika: no public repo
+      repo: null,
+      privateNote: 'Production work at Labs Afrika; the code is private.',
       featured: true
     },
     {

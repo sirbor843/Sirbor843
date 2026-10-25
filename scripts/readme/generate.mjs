@@ -13,6 +13,15 @@ import { join } from 'node:path';
 const LOGIN = 'sirbor843';
 const FEATURED = ['Commandline_Calculator', 'astraLauncher', 'Jikoni', 'FlightsAnalysis', 'simple_shell', 'Kibeti'];
 
+// clearer one-liners for cards whose GitHub description is terse
+const DESCRIPTIONS = {
+  simple_shell: 'A Unix shell written from scratch in C: fork/exec, pipes, signals, and built-ins.',
+  Commandline_Calculator: 'A scientific calculator for the terminal, written in C for POSIX systems.',
+  Kibeti: 'An iOS take on the M-Pesa mobile-money app, built in Swift.',
+  FlightsAnalysis: 'Departure and arrival analysis between JKIA (Nairobi) and Bole (Addis Ababa).',
+  Jikoni: 'An iOS restaurant app for booking appointments and showcasing menus and recipes.'
+};
+
 const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
 const MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace";
 
@@ -346,7 +355,7 @@ function projectCard(repo, t) {
   const W = 480;
   const H = 150;
   const lang = repo.primaryLanguage;
-  const desc = wrap(repo.description || 'No description yet.', 58, 2)
+  const desc = wrap(DESCRIPTIONS[repo.name] || repo.description || 'No description yet.', 58, 2)
     .map((l, i) => `<text x="24" y="${78 + i * 20}" class="sans" font-size="13.5" fill="${t.text2}">${esc(l)}</text>`)
     .join('');
   const meta = [

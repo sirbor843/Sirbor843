@@ -59,12 +59,6 @@ I build data and ML systems that stay **fast**, **reliable**, and **cheap to run
   <img alt="Contribution heatmap for the last 12 months" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/activity-dark.svg" width="100%" />
 </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-light.svg" />
-  <img alt="A snake eating the contribution graph" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-dark.svg" width="100%" />
-</picture>
-
 ### Build log
 
 <picture>
