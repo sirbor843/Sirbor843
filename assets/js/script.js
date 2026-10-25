@@ -70,11 +70,11 @@
   // print = résumé: expand every role while printing, restore afterwards
   let openBeforePrint = [];
   addEventListener('beforeprint', () => {
-    openBeforePrint = $$('.job details').map((d) => d.open);
-    $$('.job details').forEach((d) => (d.open = true));
+    openBeforePrint = $$('.xp details').map((d) => d.open);
+    $$('.xp details').forEach((d) => (d.open = true));
   });
   addEventListener('afterprint', () => {
-    $$('.job details').forEach((d, i) => (d.open = openBeforePrint[i]));
+    $$('.xp details').forEach((d, i) => (d.open = openBeforePrint[i]));
   });
 
   function printResume() {
@@ -173,42 +173,56 @@
 
   /* ------------------------------------------------------- header & nav */
 
-  const header = $('[data-header]');
   const progress = $('[data-scroll-progress]');
-  const nav = $('[data-nav]');
-  const menuBtn = $('[data-menu-toggle]');
 
   function onScroll() {
     const max = document.documentElement.scrollHeight - innerHeight;
     progress.style.transform = 'scaleX(' + (max > 0 ? scrollY / max : 0) + ')';
-    header.classList.toggle('scrolled', scrollY > 8);
   }
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  function setMenu(open) {
-    nav.classList.toggle('open', open);
-    menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.innerHTML = '<ion-icon name="' + (open ? 'close-outline' : 'menu-outline') + '"></ion-icon>';
+  // soft accent glow that follows the cursor (mouse only, skipped when motion is reduced)
+  const spotlight = $('[data-spotlight]');
+  if (matchMedia('(pointer: fine)').matches) {
+    let frame = 0;
+    addEventListener(
+      'pointermove',
+      (e) => {
+        if (motionOff() || reducedMotion) return;
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          spotlight.style.setProperty('--x', e.clientX + 'px');
+          spotlight.style.setProperty('--y', e.clientY + 'px');
+          spotlight.classList.add('on');
+        });
+      },
+      { passive: true }
+    );
   }
-  menuBtn.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  $$('[data-nav-link]').forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-  // highlight the nav link for the section in view
+  // highlight the nav link for the last section whose top passed 40% of the viewport
   const navLinks = $$('[data-nav-link]');
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (!e.isIntersecting) return;
-        navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-      });
+  const navSections = navLinks.map((a) => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  let navFrame = 0;
+  function updateActiveNav() {
+    const line = innerHeight * 0.4;
+    let current = navSections[0];
+    for (const sec of navSections) if (sec.getBoundingClientRect().top <= line) current = sec;
+    // at the very bottom, the last section wins even if it's short
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) current = navSections[navSections.length - 1];
+    navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  }
+  addEventListener(
+    'scroll',
+    () => {
+      cancelAnimationFrame(navFrame);
+      navFrame = requestAnimationFrame(updateActiveNav);
     },
-    { rootMargin: '-45% 0px -50% 0px' }
+    { passive: true }
   );
-  navLinks.forEach((a) => {
-    const sec = document.getElementById(a.getAttribute('href').slice(1));
-    if (sec) sectionObserver.observe(sec);
-  });
+  addEventListener('resize', updateActiveNav);
+  updateActiveNav();
 
   $$('[data-mod-key]').forEach((k) => (k.textContent = isMac ? '⌘K' : 'Ctrl K'));
   $$('[data-copy-email]').forEach((b) => b.addEventListener('click', copyEmail));
@@ -651,21 +665,24 @@
   const emphasize = (s) =>
     esc(s).replace(/(over \d+%|\d+%\+?|halving [a-z ]+discrepancies|millions of daily [a-z ]+events|minutes rather than hours|dozens of engineering hours)/gi, '<strong>$1</strong>');
 
+  const SHOWN_BULLETS = 3;
   $('[data-experience]').innerHTML = S.experience
-    .map(
-      (j, i) => `
-    <li class="job">
-      <details class="card" ${i === 0 ? 'open' : ''}>
-        <summary>
-          <h3>${esc(j.title)} · ${esc(j.company)}</h3>
-          <span class="job-meta"><span class="job-domain">${esc(j.domain)}</span> · ${esc(j.location)} · <span class="mono">${esc(j.start)} — ${esc(j.end)}</span></span>
-          <ion-icon class="job-toggle" name="chevron-down-outline"></ion-icon>
-        </summary>
-        <ul>${j.bullets.map((b) => `<li>${emphasize(b)}</li>`).join('')}</ul>
+    .map((j) => {
+      const more = j.bullets.slice(SHOWN_BULLETS);
+      return `
+    <li class="xp">
+      <p class="xp-date mono">${esc(j.start)} — ${esc(j.end)}</p>
+      <div class="xp-body">
+        <h3>${esc(j.title)} <span class="xp-at">· ${esc(j.company)}</span></h3>
+        <p class="xp-meta">${esc(j.domain)} · ${esc(j.location)}</p>
+        <ul>${j.bullets.slice(0, SHOWN_BULLETS).map((b) => `<li>${emphasize(b)}</li>`).join('')}</ul>
+        ${more.length
+          ? `<details><summary>${more.length} more</summary><ul>${more.map((b) => `<li>${emphasize(b)}</li>`).join('')}</ul></details>`
+          : ''}
         <div class="tags">${j.stack.map((t) => `<button type="button" class="tag" data-pick-skill="${esc(t)}">${esc(t)}</button>`).join('')}</div>
-      </details>
-    </li>`
-    )
+      </div>
+    </li>`;
+    })
     .join('');
 
   $('[data-education]').innerHTML = S.education
@@ -1713,7 +1730,7 @@
     const items = [
       ...[
         ['top', 'Home', 'home-outline'],
-        ['services', 'What I build', 'construct-outline'],
+        ['about', 'About', 'person-outline'],
         ['work', 'Projects', 'grid-outline'],
         ['systems', 'Architecture explorer', 'git-network-outline'],
         ['experience', 'Experience', 'briefcase-outline'],

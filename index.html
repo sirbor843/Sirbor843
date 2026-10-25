@@ -71,45 +71,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
-    <div class="bg-grid" aria-hidden="true"></div>
-
-    <!-- ============ HEADER ============ -->
-    <header class="site-header" data-header>
-      <div class="container header-inner">
-        <a href="#top" class="brand" aria-label="Dominic Bor — home">
-          <img src="./assets/images/my-avatar.png" alt="" width="32" height="32" />
-          <span class="brand-name">dominic<span class="accent">.bor</span></span>
-        </a>
-
-        <nav class="nav" aria-label="Primary" data-nav>
-          <a href="#work" data-nav-link>Work</a>
-          <a href="#systems" data-nav-link>Systems</a>
-          <a href="#experience" data-nav-link>Experience</a>
-          <a href="#skills" data-nav-link>Skills</a>
-          <a href="#github" data-nav-link>GitHub</a>
-          <a href="#writing" data-nav-link>Writing</a>
-          <a href="#contact" data-nav-link>Contact</a>
-        </nav>
-
-        <div class="header-actions">
-          <button class="kbd-btn" type="button" data-palette-open aria-label="Open command palette">
-            <ion-icon name="search-outline"></ion-icon>
-            <span class="kbd-label">Search</span>
-            <kbd data-mod-key>⌘K</kbd>
-          </button>
-          <button class="icon-btn" type="button" data-customize-toggle aria-label="Customize appearance" aria-expanded="false" aria-controls="customize">
-            <ion-icon name="color-palette-outline"></ion-icon>
-          </button>
-          <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
-            <ion-icon name="moon-outline" class="theme-icon-dark"></ion-icon>
-            <ion-icon name="sunny-outline" class="theme-icon-light"></ion-icon>
-          </button>
-          <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
-            <ion-icon name="menu-outline"></ion-icon>
-          </button>
-        </div>
-      </div>
-    </header>
+    <div class="spotlight" data-spotlight aria-hidden="true"></div>
 
     <header class="print-only print-head">
       <h1>Dominic Bor</h1>
@@ -117,55 +79,142 @@
       <p>dominicbor44@gmail.com · kdbor.engineer · github.com/sirbor843 · linkedin.com/in/sirbor843</p>
     </header>
 
-    <main id="main">
-      <!-- ============ HERO ============ -->
-      <section class="hero container" id="top">
-        <div class="hero-copy">
+    <div class="layout" id="top">
+      <!-- ============ LEFT: identity + section nav (sticky on desktop) ============ -->
+      <header class="side" data-header>
+        <div class="side-top">
           <p class="status-pill">
             <span class="pulse" aria-hidden="true"></span>
             Open to contract &amp; full-time ·
-            <span class="mono">Nairobi <span data-local-time>--:--</span> UTC+3</span>
+            <span class="mono">Nairobi <span data-local-time>--:--</span></span>
           </p>
 
-          <h1 class="hero-title">
-            Dominic Bor
-            <span class="hero-sub">Data &amp; ML Systems Engineer</span>
-          </h1>
-
-          <p class="hero-lede">
+          <h1 class="side-name"><a href="#top">Dominic Bor</a></h1>
+          <p class="side-role">Data &amp; ML Systems Engineer</p>
+          <p class="side-lede">
             I build
             <span class="sr-only">real-time payment layers, event pipelines, production ML, and LLM workflows</span>
             <span class="typed" data-typed aria-hidden="true">real-time payment layers</span><span class="caret" aria-hidden="true"></span>
-            <br />that stay fast, reliable, and cheap to run.
+            that stay fast, reliable, and cheap to run.
           </p>
 
-          <p class="hero-text">
-            Across fintech, gaming, and healthcare I've shipped payment layers,
-            event pipelines, and automated workflows — routinely halving latency
-            and cutting cloud bills by over a third. I work directly with users
-            to dig through messy requirements and turn real-world edge cases
-            into clean, reliable features in production.
-          </p>
+          <nav class="side-nav" aria-label="Sections" data-nav>
+            <a href="#about" data-nav-link><span class="nav-line"></span>About</a>
+            <a href="#experience" data-nav-link><span class="nav-line"></span>Experience</a>
+            <a href="#work" data-nav-link><span class="nav-line"></span>Projects</a>
+            <a href="#systems" data-nav-link><span class="nav-line"></span>Systems</a>
+            <a href="#github" data-nav-link><span class="nav-line"></span>Open source</a>
+            <a href="#writing" data-nav-link><span class="nav-line"></span>Writing</a>
+            <a href="#contact" data-nav-link><span class="nav-line"></span>Contact</a>
+          </nav>
+        </div>
 
-          <div class="hero-cta">
+        <div class="side-bottom">
+          <div class="side-cta">
             <a href="#contact" class="btn btn-primary">
-              <ion-icon name="calendar-outline"></ion-icon> Book a 30-min call
-            </a>
-            <a href="#work" class="btn btn-ghost">
-              View work <ion-icon name="arrow-down-outline"></ion-icon>
+              <ion-icon name="calendar-outline"></ion-icon> Book a call
             </a>
             <button type="button" class="btn btn-ghost" data-print-resume>
               <ion-icon name="download-outline"></ion-icon> <span>Résumé</span>
             </button>
           </div>
 
-          <ul class="hero-social" aria-label="Profiles">
-            <li><a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
-            <li><a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-            <li><a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><ion-icon name="logo-twitter"></ion-icon></a></li>
-            <li><a href="mailto:dominicbor44@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a></li>
-          </ul>
+          <div class="side-tools">
+            <ul class="side-social" aria-label="Profiles">
+              <li><a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
+              <li><a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+              <li><a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><ion-icon name="logo-twitter"></ion-icon></a></li>
+              <li><a href="mailto:dominicbor44@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a></li>
+            </ul>
+            <div class="side-actions">
+              <button class="kbd-btn" type="button" data-palette-open aria-label="Open command palette">
+                <ion-icon name="search-outline"></ion-icon>
+                <kbd data-mod-key>⌘K</kbd>
+              </button>
+              <button class="icon-btn" type="button" data-customize-toggle aria-label="Customize appearance" aria-expanded="false" aria-controls="customize">
+                <ion-icon name="color-palette-outline"></ion-icon>
+              </button>
+              <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
+                <ion-icon name="moon-outline" class="theme-icon-dark"></ion-icon>
+                <ion-icon name="sunny-outline" class="theme-icon-light"></ion-icon>
+              </button>
+              <div class="customize card" id="customize" data-customize role="dialog" aria-label="Customize appearance" hidden>
+                <div class="customize-row">
+                  <span class="customize-label">Accent</span>
+                  <div class="swatches" role="radiogroup" aria-label="Accent color" data-swatches>
+                    <button type="button" role="radio" class="swatch" data-accent-choice="teal" aria-label="Teal"></button>
+                    <button type="button" role="radio" class="swatch" data-accent-choice="violet" aria-label="Violet"></button>
+                    <button type="button" role="radio" class="swatch" data-accent-choice="blue" aria-label="Blue"></button>
+                    <button type="button" role="radio" class="swatch" data-accent-choice="amber" aria-label="Amber"></button>
+                    <button type="button" role="radio" class="swatch" data-accent-choice="rose" aria-label="Rose"></button>
+                  </div>
+                </div>
+                <div class="customize-row">
+                  <span class="customize-label">Theme</span>
+                  <div class="segmented" role="group" aria-label="Theme" data-theme-choices>
+                    <button type="button" data-theme-choice="dark">Dark</button>
+                    <button type="button" data-theme-choice="light">Light</button>
+                  </div>
+                </div>
+                <div class="customize-row">
+                  <span class="customize-label">Motion</span>
+                  <div class="segmented" role="group" aria-label="Motion" data-motion-choices>
+                    <button type="button" data-motion-choice="full">Full</button>
+                    <button type="button" data-motion-choice="off">Reduced</button>
+                  </div>
+                </div>
+                <p class="customize-note">Saved in this browser only.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </header>
+
+      <!-- ============ RIGHT: scrolling content ============ -->
+      <main id="main" class="content">
+        <!-- ============ ABOUT ============ -->
+        <section class="section" id="about">
+          <header class="section-head">
+            <h2 class="section-title">About</h2>
+          </header>
+          <div class="prose">
+            <p>
+              I build data and ML systems that stay fast, reliable, and cheap to run.
+              Across fintech, gaming, and healthcare I've shipped
+              <strong>real-time payment layers</strong>, <strong>event pipelines</strong>, and
+              <strong>automated workflows</strong>, routinely halving latency and cutting cloud
+              bills by over a third.
+            </p>
+            <p>
+              I prefer working directly with users: digging through messy requirements,
+              stress-testing assumptions, and turning real-world edge cases into clean,
+              reliable features shipped straight to production. Right now I'm a data engineer at
+              <strong>Labs Afrika</strong>, working on payments infrastructure across Stripe and M-Pesa.
+            </p>
+            <p>
+              Outside work I write about systems and performance, build developer tooling, and
+              mentor through the developer community I led as a GitHub Campus Expert.
+            </p>
+          </div>
+
+          <div class="impact" aria-label="Impact in numbers">
+        <div class="stat">
+          <span class="stat-value"><span data-count="50">0</span>%+</span>
+          <span class="stat-label">serving latency cut with Redis caching &amp; Go profiling</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-count="35">0</span>%+</span>
+          <span class="stat-label">cloud spend reduced via Lambda + Docker</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">10<sup>6</sup>+ <small>/day</small></span>
+          <span class="stat-label">events processed through Glue &amp; PySpark</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-years>4</span>+ <small>yrs</small></span>
+          <span class="stat-label">shipping production data systems</span>
+        </div>
+          </div>
 
         <!-- simulated telemetry console -->
         <aside class="console card" aria-label="Simulated service telemetry">
@@ -201,37 +250,8 @@
           <pre class="console-log mono" data-console-log aria-hidden="true"></pre>
           <p class="console-note">Simulated telemetry, for illustration only.</p>
         </aside>
-      </section>
 
-      <!-- ============ IMPACT ============ -->
-      <section class="container" aria-label="Impact in numbers">
-        <div class="impact">
-        <div class="stat">
-          <span class="stat-value"><span data-count="50">0</span>%+</span>
-          <span class="stat-label">serving latency cut with Redis caching &amp; Go profiling</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value"><span data-count="35">0</span>%+</span>
-          <span class="stat-label">cloud spend reduced via Lambda + Docker</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">10<sup>6</sup>+ <small>/day</small></span>
-          <span class="stat-label">events processed through Glue &amp; PySpark</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value"><span data-years>4</span>+ <small>yrs</small></span>
-          <span class="stat-label">shipping production data systems</span>
-        </div>
-        </div>
-      </section>
-
-      <!-- ============ SERVICES ============ -->
-      <section class="section container" id="services">
-        <header class="section-head">
-          <p class="eyebrow">01 · capabilities</p>
-          <h2>What I build</h2>
-        </header>
-
+          <h3 class="sub-head about-sub">What I build</h3>
         <ul class="services">
           <li class="service card">
             <ion-icon name="card-outline"></ion-icon>
@@ -264,306 +284,307 @@
             <p>35%+ lower spend via containerized Lambda, rightsizing, and PostgreSQL audit trails you can trust.</p>
           </li>
         </ul>
-      </section>
+        </section>
 
-      <!-- ============ WORK ============ -->
-      <section class="section container" id="work">
-        <header class="section-head">
-          <p class="eyebrow">02 · selected work</p>
-          <h2>Projects</h2>
-        </header>
+        <!-- ============ EXPERIENCE ============ -->
+        <section class="section" id="experience">
+          <header class="section-head">
+            <h2 class="section-title">Experience</h2>
+          </header>
 
-        <div class="toolbar">
-          <div class="segmented" role="group" aria-label="Filter projects" data-project-filters>
-            <button type="button" aria-pressed="true" data-filter="all">All</button>
-            <button type="button" aria-pressed="false" data-filter="data">Data &amp; ML</button>
-            <button type="button" aria-pressed="false" data-filter="systems">Systems</button>
-            <button type="button" aria-pressed="false" data-filter="apps">Apps</button>
-          </div>
-          <label class="search">
-            <ion-icon name="search-outline"></ion-icon>
-            <input type="search" placeholder="Filter by name or tech…" data-project-search aria-label="Filter projects by name or technology" />
-          </label>
-        </div>
-        <p class="active-skill" data-active-skill hidden></p>
-
-        <ul class="projects" data-projects></ul>
-        <noscript>
-          <p class="empty">
-            Projects, experience and the interactive sections need JavaScript.
-            Browse my work on <a class="accent" href="https://github.com/sirbor843">GitHub</a>.
-          </p>
-        </noscript>
-        <p class="empty" data-projects-empty hidden>No projects match that filter.</p>
-      </section>
-
-      <!-- ============ SYSTEMS ============ -->
-      <section class="section container" id="systems">
-        <header class="section-head">
-          <p class="eyebrow">03 · architecture</p>
-          <h2>Systems I build</h2>
-          <p class="section-lede">Reference architectures from production work. Pick a system, then click any component to see how it's used.</p>
-        </header>
-
-        <div class="segmented" role="group" aria-label="Choose architecture" data-arch-tabs></div>
-        <div class="arch card">
-          <p class="arch-caption" data-arch-caption></p>
-          <div class="arch-flow" data-arch-flow></div>
-          <div class="arch-detail" data-arch-detail aria-live="polite"></div>
-        </div>
-      </section>
-
-      <!-- ============ EXPERIENCE ============ -->
-      <section class="section container" id="experience">
-        <header class="section-head">
-          <p class="eyebrow">04 · experience</p>
-          <h2>Where I've shipped<span class="print-only">Experience</span></h2>
-        </header>
-
-        <div class="exp-layout">
-          <ol class="timeline" data-experience></ol>
-
-          <aside class="edu">
-            <h3 class="sub-head"><ion-icon name="school-outline"></ion-icon> Education &amp; community</h3>
-            <ul data-education></ul>
-          </aside>
-        </div>
-      </section>
-
-      <!-- ============ SKILLS ============ -->
-      <section class="section container" id="skills">
-        <header class="section-head">
-          <p class="eyebrow">05 · stack</p>
-          <h2>Skills explorer<span class="print-only">Skills</span></h2>
-          <p class="section-lede">Click a technology to see the roles and projects where I've used it.</p>
-        </header>
-
-        <div class="skills-layout">
-          <div class="skills" data-skills></div>
-          <div class="skill-panel card" data-skill-panel aria-live="polite">
-            <p class="muted">Select a skill to trace it through my work.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ GITHUB ============ -->
-      <section class="section container" id="github">
-        <header class="section-head">
-          <p class="eyebrow">06 · open source</p>
-          <h2>Live from GitHub</h2>
-          <p class="section-lede">Pulled live from the public GitHub API: what I'm building, in what, and what shipped most recently.</p>
-        </header>
-
-        <div class="gh" data-gh>
-          <div class="gh-stats" data-gh-stats>
-            <div class="stat skeleton"></div><div class="stat skeleton"></div><div class="stat skeleton"></div>
-          </div>
-          <div class="gh-body">
-            <div class="card gh-langs">
-              <h3 class="sub-head">Languages <span class="muted">· share of public repos</span></h3>
-              <div data-gh-langs><div class="skeleton tall"></div></div>
-            </div>
-            <ul class="gh-repos" data-gh-repos></ul>
-          </div>
-          <div class="card gh-log">
-            <h3 class="sub-head">
-              <ion-icon name="pulse-outline"></ion-icon> Build log
-              <span class="muted">· latest commits across my most active public repos</span>
-            </h3>
-            <ol class="log" data-gh-log>
-              <li class="skeleton"></li>
-            </ol>
-          </div>
-          <p class="gh-error" data-gh-error hidden></p>
-          <a class="btn btn-ghost" href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">
-            <ion-icon name="logo-github"></ion-icon> All repositories
-          </a>
-        </div>
-      </section>
-
-      <!-- ============ WRITING ============ -->
-      <section class="section container" id="writing">
-        <header class="section-head">
-          <p class="eyebrow">07 · writing</p>
-          <h2>Technical writing</h2>
-        </header>
-        <ul class="posts" data-posts></ul>
-      </section>
-
-      <!-- ============ TERMINAL ============ -->
-      <section class="section container" id="terminal">
-        <header class="section-head">
-          <p class="eyebrow">08 · shell</p>
-          <h2>Prefer a terminal?</h2>
-          <p class="section-lede">Type <code>help</code> to explore this portfolio from the command line.</p>
-        </header>
-
-        <div class="term card" data-term>
-          <div class="console-bar">
-            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-            <span class="mono">guest@kdbor: ~</span>
-          </div>
-          <div class="term-body mono" data-term-body>
-            <div class="term-out" data-term-out role="log" aria-live="polite"></div>
-            <form class="term-line" data-term-form autocomplete="off">
-              <label for="term-input" class="prompt">guest@kdbor:~$</label>
-              <input id="term-input" class="term-input" data-term-input spellcheck="false" autocapitalize="off" />
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============ CONTACT ============ -->
-      <section class="section container" id="contact">
-        <header class="section-head">
-          <p class="eyebrow">09 · contact</p>
-          <h2>Let's build something</h2>
-          <p class="section-lede">
-            Low-latency pipelines, payment layers, production ML, or a full-time
-            role — pick a slot, or reach out async with specs and RFPs.
-          </p>
-        </header>
-
-        <div class="contact-layout">
-          <div class="card scheduler">
-            <div class="scheduler-head">
-              <div>
-                <h3 data-event-title>Intro call</h3>
-                <p class="muted">
-                  <span data-tz-text>Times show in your timezone<span data-visitor-tz></span>.</span>
-                  <label class="tz-pick" data-tz-pick hidden>
-                    Times in
-                    <select data-tz-select aria-label="Your timezone"></select>
-                  </label>
-                  It's <span class="mono" data-local-time>--:--</span> in Nairobi.
-                </p>
-              </div>
-              <div class="chips">
-                <span class="chip"><ion-icon name="time-outline"></ion-icon> <span data-duration-label>45 min</span></span>
-                <span class="chip"><ion-icon name="videocam-outline"></ion-icon> <span data-location-label>Google Meet</span></span>
-              </div>
-            </div>
-
-            <div class="scheduler-frame" data-scheduler-frame aria-busy="true">
-              <div class="scheduler-skeleton" aria-hidden="true">
-                <div class="sk-bar"></div>
-                <div class="sk-grid" data-sk-grid></div>
-              </div>
-            </div>
-
-            <!-- native booker: availability + booking via the Cal.com API -->
-            <div class="booker" data-booker hidden>
-              <div class="booker-cal">
-                <div class="booker-month">
-                  <button type="button" class="icon-btn" data-cal-prev aria-label="Previous month">
-                    <ion-icon name="chevron-back-outline"></ion-icon>
-                  </button>
-                  <h4 data-cal-title aria-live="polite"></h4>
-                  <button type="button" class="icon-btn" data-cal-next aria-label="Next month">
-                    <ion-icon name="chevron-forward-outline"></ion-icon>
-                  </button>
-                </div>
-                <div class="booker-dow" aria-hidden="true">
-                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
-                </div>
-                <div class="booker-days" data-cal-days></div>
-              </div>
-
-              <div class="booker-side">
-                <section data-step="times">
-                  <h4 class="booker-side-title" data-day-title>Pick a day</h4>
-                  <ul class="booker-times" data-times></ul>
-                  <p class="booker-note" data-times-note></p>
-                </section>
-
-                <form data-step="form" class="booker-form" novalidate hidden>
-                  <button type="button" class="booker-back" data-back>
-                    <ion-icon name="arrow-back-outline"></ion-icon> Change time
-                  </button>
-                  <p class="booker-summary" data-summary></p>
-                  <label>Name <input name="name" autocomplete="name" required maxlength="120" /></label>
-                  <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
-                  <label>
-                    <span>Anything I should prepare? <span class="muted">(optional)</span></span>
-                    <textarea name="notes" rows="3" maxlength="2000"></textarea>
-                  </label>
-                  <div data-questions></div>
-                  <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
-                  <p class="booker-error" data-form-error role="alert" hidden></p>
-                  <button type="submit" class="btn btn-primary" data-submit>
-                    <ion-icon name="checkmark-outline"></ion-icon> <span>Confirm booking</span>
-                  </button>
-                </form>
-
-                <section data-step="done" class="booker-done" hidden tabindex="-1">
-                  <ion-icon name="checkmark-circle"></ion-icon>
-                  <h4 data-done-title>You're booked.</h4>
-                  <p data-done-text></p>
-                  <p class="booker-links" data-done-links></p>
-                </section>
-              </div>
-            </div>
-
-
-            <p class="scheduler-alt" data-scheduler-alt>
-              Prefer the booking page?
-              <a href="https://cal.com/sirbor843/meeting" target="_blank" rel="noopener noreferrer">Open it on Cal.com</a>
-              or <a href="mailto:dominicbor44@gmail.com">email me</a>.
-            </p>
-          </div>
-
-          <ul class="contact-cards">
-            <li class="card contact-card">
-              <ion-icon name="mail-outline"></ion-icon>
-              <div>
-                <h3>Email</h3>
-                <a href="mailto:dominicbor44@gmail.com">dominicbor44@gmail.com</a>
-              </div>
-              <button type="button" class="icon-btn" data-copy-email aria-label="Copy email address">
-                <ion-icon name="copy-outline"></ion-icon>
+          <div class="exp-layout">
+            <div>
+              <ol class="timeline" data-experience></ol>
+              <button type="button" class="arrow-link" data-print-resume>
+                View full résumé <ion-icon name="arrow-forward-outline"></ion-icon>
               </button>
-            </li>
-            <li class="card contact-card">
-              <ion-icon name="logo-linkedin"></ion-icon>
-              <div>
-                <h3>LinkedIn</h3>
-                <a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer">in/sirbor843</a>
-              </div>
-            </li>
-            <li class="card contact-card">
-              <ion-icon name="logo-github"></ion-icon>
-              <div>
-                <h3>GitHub</h3>
-                <a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
-              </div>
-            </li>
-            <li class="card contact-card">
-              <ion-icon name="logo-twitter"></ion-icon>
-              <div>
-                <h3>Twitter / X</h3>
-                <a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
-              </div>
-            </li>
-            <li class="card contact-card">
-              <ion-icon name="location-outline"></ion-icon>
-              <div>
-                <h3>Location</h3>
-                <span>Nairobi, Kenya · remote / global</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
+            </div>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p>© <span data-year></span> Dominic Bor · <a href="https://kdbor.engineer">kdbor.engineer</a> · <a href="https://github.com/sirbor843/Sirbor843">source</a></p>
-        <p class="muted mono">
-          Hand-written HTML, CSS &amp; JS · no build step · press <kbd data-mod-key>⌘K</kbd>
-        </p>
-      </div>
-    </footer>
+            <aside class="edu">
+              <h3 class="sub-head"><ion-icon name="school-outline"></ion-icon> Education &amp; community</h3>
+              <ul data-education></ul>
+            </aside>
+          </div>
+        </section>
+
+        <!-- ============ WORK ============ -->
+        <section class="section" id="work">
+          <header class="section-head">
+            <h2 class="section-title">Projects</h2>
+          </header>
+
+          <div class="toolbar">
+            <div class="segmented" role="group" aria-label="Filter projects" data-project-filters>
+              <button type="button" aria-pressed="true" data-filter="all">All</button>
+              <button type="button" aria-pressed="false" data-filter="data">Data &amp; ML</button>
+              <button type="button" aria-pressed="false" data-filter="systems">Systems</button>
+              <button type="button" aria-pressed="false" data-filter="apps">Apps</button>
+            </div>
+            <label class="search">
+              <ion-icon name="search-outline"></ion-icon>
+              <input type="search" placeholder="Filter by name or tech…" data-project-search aria-label="Filter projects by name or technology" />
+            </label>
+          </div>
+          <p class="active-skill" data-active-skill hidden></p>
+
+          <ul class="projects" data-projects></ul>
+          <noscript>
+            <p class="empty">
+              Projects, experience and the interactive sections need JavaScript.
+              Browse my work on <a class="accent" href="https://github.com/sirbor843">GitHub</a>.
+            </p>
+          </noscript>
+          <p class="empty" data-projects-empty hidden>No projects match that filter.</p>
+        </section>
+
+        <!-- ============ SYSTEMS ============ -->
+        <section class="section" id="systems">
+          <header class="section-head">
+            <h2 class="section-title">Systems</h2>
+            <p class="section-lede">Reference architectures from production work. Pick a system, then click any component to see how it's used.</p>
+          </header>
+
+          <div class="segmented" role="group" aria-label="Choose architecture" data-arch-tabs></div>
+          <div class="arch card">
+            <p class="arch-caption" data-arch-caption></p>
+            <div class="arch-flow" data-arch-flow></div>
+            <div class="arch-detail" data-arch-detail aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- ============ SKILLS ============ -->
+        <section class="section" id="skills">
+          <header class="section-head">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-lede">Click a technology to see the roles and projects where I've used it.</p>
+          </header>
+
+          <div class="skills-layout">
+            <div class="skills" data-skills></div>
+            <div class="skill-panel card" data-skill-panel aria-live="polite">
+              <p class="muted">Select a skill to trace it through my work.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ GITHUB ============ -->
+        <section class="section" id="github">
+          <header class="section-head">
+            <h2 class="section-title">Open source</h2>
+            <p class="section-lede">Pulled live from the public GitHub API: what I'm building, in what, and what shipped most recently.</p>
+          </header>
+
+          <div class="gh" data-gh>
+            <div class="gh-stats" data-gh-stats>
+              <div class="stat skeleton"></div><div class="stat skeleton"></div><div class="stat skeleton"></div>
+            </div>
+            <div class="gh-body">
+              <div class="card gh-langs">
+                <h3 class="sub-head">Languages <span class="muted">· share of public repos</span></h3>
+                <div data-gh-langs><div class="skeleton tall"></div></div>
+              </div>
+              <ul class="gh-repos" data-gh-repos></ul>
+            </div>
+            <div class="card gh-log">
+              <h3 class="sub-head">
+                <ion-icon name="pulse-outline"></ion-icon> Build log
+                <span class="muted">· latest commits across my most active public repos</span>
+              </h3>
+              <ol class="log" data-gh-log>
+                <li class="skeleton"></li>
+              </ol>
+            </div>
+            <p class="gh-error" data-gh-error hidden></p>
+            <a class="btn btn-ghost" href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-github"></ion-icon> All repositories
+            </a>
+          </div>
+        </section>
+
+        <!-- ============ WRITING ============ -->
+        <section class="section" id="writing">
+          <header class="section-head">
+            <h2 class="section-title">Writing</h2>
+          </header>
+          <ul class="posts" data-posts></ul>
+        </section>
+
+        <!-- ============ TERMINAL ============ -->
+        <section class="section" id="terminal">
+          <header class="section-head">
+            <h2 class="section-title">Terminal</h2>
+            <p class="section-lede">Type <code>help</code> to explore this portfolio from the command line.</p>
+          </header>
+
+          <div class="term card" data-term>
+            <div class="console-bar">
+              <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="mono">guest@kdbor: ~</span>
+            </div>
+            <div class="term-body mono" data-term-body>
+              <div class="term-out" data-term-out role="log" aria-live="polite"></div>
+              <form class="term-line" data-term-form autocomplete="off">
+                <label for="term-input" class="prompt">guest@kdbor:~$</label>
+                <input id="term-input" class="term-input" data-term-input spellcheck="false" autocapitalize="off" />
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section class="section" id="contact">
+          <header class="section-head">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-big">Let's build something.</p>
+            <p class="section-lede">
+              Low-latency pipelines, payment layers, production ML, or a full-time
+              role — pick a slot, or reach out async with specs and RFPs.
+            </p>
+          </header>
+
+          <div class="contact-layout">
+            <div class="card scheduler">
+              <div class="scheduler-head">
+                <div>
+                  <h3 data-event-title>Intro call</h3>
+                  <p class="muted">
+                    <span data-tz-text>Times show in your timezone<span data-visitor-tz></span>.</span>
+                    <label class="tz-pick" data-tz-pick hidden>
+                      Times in
+                      <select data-tz-select aria-label="Your timezone"></select>
+                    </label>
+                    It's <span class="mono" data-local-time>--:--</span> in Nairobi.
+                  </p>
+                </div>
+                <div class="chips">
+                  <span class="chip"><ion-icon name="time-outline"></ion-icon> <span data-duration-label>45 min</span></span>
+                  <span class="chip"><ion-icon name="videocam-outline"></ion-icon> <span data-location-label>Google Meet</span></span>
+                </div>
+              </div>
+
+              <div class="scheduler-frame" data-scheduler-frame aria-busy="true">
+                <div class="scheduler-skeleton" aria-hidden="true">
+                  <div class="sk-bar"></div>
+                  <div class="sk-grid" data-sk-grid></div>
+                </div>
+              </div>
+
+              <!-- native booker: availability + booking via the Cal.com API -->
+              <div class="booker" data-booker hidden>
+                <div class="booker-cal">
+                  <div class="booker-month">
+                    <button type="button" class="icon-btn" data-cal-prev aria-label="Previous month">
+                      <ion-icon name="chevron-back-outline"></ion-icon>
+                    </button>
+                    <h4 data-cal-title aria-live="polite"></h4>
+                    <button type="button" class="icon-btn" data-cal-next aria-label="Next month">
+                      <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </button>
+                  </div>
+                  <div class="booker-dow" aria-hidden="true">
+                    <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                  </div>
+                  <div class="booker-days" data-cal-days></div>
+                </div>
+
+                <div class="booker-side">
+                  <section data-step="times">
+                    <h4 class="booker-side-title" data-day-title>Pick a day</h4>
+                    <ul class="booker-times" data-times></ul>
+                    <p class="booker-note" data-times-note></p>
+                  </section>
+
+                  <form data-step="form" class="booker-form" novalidate hidden>
+                    <button type="button" class="booker-back" data-back>
+                      <ion-icon name="arrow-back-outline"></ion-icon> Change time
+                    </button>
+                    <p class="booker-summary" data-summary></p>
+                    <label>Name <input name="name" autocomplete="name" required maxlength="120" /></label>
+                    <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+                    <label>
+                      <span>Anything I should prepare? <span class="muted">(optional)</span></span>
+                      <textarea name="notes" rows="3" maxlength="2000"></textarea>
+                    </label>
+                    <div data-questions></div>
+                    <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+                    <p class="booker-error" data-form-error role="alert" hidden></p>
+                    <button type="submit" class="btn btn-primary" data-submit>
+                      <ion-icon name="checkmark-outline"></ion-icon> <span>Confirm booking</span>
+                    </button>
+                  </form>
+
+                  <section data-step="done" class="booker-done" hidden tabindex="-1">
+                    <ion-icon name="checkmark-circle"></ion-icon>
+                    <h4 data-done-title>You're booked.</h4>
+                    <p data-done-text></p>
+                    <p class="booker-links" data-done-links></p>
+                  </section>
+                </div>
+              </div>
+
+
+              <p class="scheduler-alt" data-scheduler-alt>
+                Prefer the booking page?
+                <a href="https://cal.com/sirbor843/meeting" target="_blank" rel="noopener noreferrer">Open it on Cal.com</a>
+                or <a href="mailto:dominicbor44@gmail.com">email me</a>.
+              </p>
+            </div>
+
+            <ul class="contact-cards">
+              <li class="card contact-card">
+                <ion-icon name="mail-outline"></ion-icon>
+                <div>
+                  <h3>Email</h3>
+                  <a href="mailto:dominicbor44@gmail.com">dominicbor44@gmail.com</a>
+                </div>
+                <button type="button" class="icon-btn" data-copy-email aria-label="Copy email address">
+                  <ion-icon name="copy-outline"></ion-icon>
+                </button>
+              </li>
+              <li class="card contact-card">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                <div>
+                  <h3>LinkedIn</h3>
+                  <a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer">in/sirbor843</a>
+                </div>
+              </li>
+              <li class="card contact-card">
+                <ion-icon name="logo-github"></ion-icon>
+                <div>
+                  <h3>GitHub</h3>
+                  <a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
+                </div>
+              </li>
+              <li class="card contact-card">
+                <ion-icon name="logo-twitter"></ion-icon>
+                <div>
+                  <h3>Twitter / X</h3>
+                  <a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
+                </div>
+              </li>
+              <li class="card contact-card">
+                <ion-icon name="location-outline"></ion-icon>
+                <div>
+                  <h3>Location</h3>
+                  <span>Nairobi, Kenya · remote / global</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <p>
+            Built by hand with HTML, CSS, and JavaScript, no framework and no build step. Booking runs on
+            the Cal.com API, live stats on the GitHub API, deployed on Vercel. Layout inspired by
+            <a href="https://brittanychiang.com" target="_blank" rel="noopener noreferrer">Brittany Chiang</a>.
+          </p>
+          <p class="muted mono">
+            © <span data-year></span> Dominic Bor · <a href="https://github.com/sirbor843/Sirbor843">source</a> · press <kbd data-mod-key>⌘K</kbd>
+          </p>
+        </footer>
+      </main>
+    </div>
 
     <!-- ============ COMMAND PALETTE ============ -->
     <dialog class="palette" data-palette aria-label="Command palette">
@@ -586,35 +607,6 @@
       </button>
       <div data-modal-body></div>
     </dialog>
-
-    <!-- ============ CUSTOMIZE ============ -->
-    <div class="customize card" id="customize" data-customize role="dialog" aria-label="Customize appearance" hidden>
-      <div class="customize-row">
-        <span class="customize-label">Accent</span>
-        <div class="swatches" role="radiogroup" aria-label="Accent color" data-swatches>
-          <button type="button" role="radio" class="swatch" data-accent-choice="teal" aria-label="Teal"></button>
-          <button type="button" role="radio" class="swatch" data-accent-choice="violet" aria-label="Violet"></button>
-          <button type="button" role="radio" class="swatch" data-accent-choice="blue" aria-label="Blue"></button>
-          <button type="button" role="radio" class="swatch" data-accent-choice="amber" aria-label="Amber"></button>
-          <button type="button" role="radio" class="swatch" data-accent-choice="rose" aria-label="Rose"></button>
-        </div>
-      </div>
-      <div class="customize-row">
-        <span class="customize-label">Theme</span>
-        <div class="segmented" role="group" aria-label="Theme" data-theme-choices>
-          <button type="button" data-theme-choice="dark">Dark</button>
-          <button type="button" data-theme-choice="light">Light</button>
-        </div>
-      </div>
-      <div class="customize-row">
-        <span class="customize-label">Motion</span>
-        <div class="segmented" role="group" aria-label="Motion" data-motion-choices>
-          <button type="button" data-motion-choice="full">Full</button>
-          <button type="button" data-motion-choice="off">Reduced</button>
-        </div>
-      </div>
-      <p class="customize-note">Saved in this browser only.</p>
-    </div>
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
