@@ -2602,11 +2602,25 @@ button.tag:hover {
   letter-spacing: 0;
 }
 
+/* values stay on one line; anything too long ends in an ellipsis */
 .contact-card a,
 .contact-card span {
+  display: block;
   font-size: 15px;
   font-weight: 500;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact-card > ion-icon,
+.contact-card > .icon-btn {
+  flex-shrink: 0;
+}
+
+/* the long values (email, location) get the full row */
+.contact-card.wide {
+  grid-column: 1 / -1;
 }
 
 .contact-card a:hover {
