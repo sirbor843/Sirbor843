@@ -427,9 +427,9 @@ function bannerSvg(t) {
 <rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="18" fill="none" stroke="${t.border}"/>
 
 <g class="in">
-  <rect x="72" y="58" width="300" height="30" rx="15" fill="${t.card2}" stroke="${t.border}"/>
+  <rect x="72" y="58" width="326" height="30" rx="15" fill="${t.card2}" stroke="${t.border}"/>
   <circle cx="92" cy="73" r="4.5" fill="#0ca30c"/>
-  <text x="106" y="78" class="sans" font-size="13" fill="${t.text2}">Open to contract &amp; full-time · Nairobi</text>
+  <text x="106" y="78" class="sans" font-size="13" fill="${t.text2}">Open to remote work · New York (ET)</text>
 </g>
 <text x="70" y="150" class="sans in" style="animation-delay:.1s" font-size="64" font-weight="800" letter-spacing="-1.5" fill="${t.text}">Dominic Bor</text>
 <text x="72" y="182" class="mono in" style="animation-delay:.2s" font-size="16" fill="${t.muted}">Data &amp; ML Systems Engineer</text>

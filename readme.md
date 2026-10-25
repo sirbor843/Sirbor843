@@ -22,7 +22,7 @@
 ```ts
 const dominic = {
   role:    "Data & ML Systems Engineer",
-  base:    "Nairobi, Kenya (UTC+3) · remote-friendly",
+  base:    "New York, NY (ET) · mostly remote",
   now:     "Data Engineer @ Labs Afrika: payment infrastructure on Stripe + M-Pesa",
   builds:  ["real-time payment layers", "event pipelines", "production ML", "LLM workflows"],
   impact:  { latency: "-50%", cloudSpend: "-35%", eventsPerDay: "1e6+" },

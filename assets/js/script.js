@@ -1621,7 +1621,7 @@
         const info = [
           `<span class="hl">guest@kdbor</span>`,
           `<span class="hl">role</span>    ${P.role}`,
-          `<span class="hl">loc</span>     ${P.location} (UTC+3)`,
+          `<span class="hl">loc</span>     ${P.location} (ET) · mostly remote`,
           `<span class="hl">uptime</span>  ${yearsShipping()}+ years in production`,
           `<span class="hl">langs</span>   Python · Go · TypeScript · SQL · C`
         ];

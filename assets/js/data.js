@@ -12,8 +12,8 @@ window.SITE = {
     role: 'Data & ML Systems Engineer',
     email: 'dominicbor44@gmail.com',
     website: 'https://kdbor.engineer',
-    location: 'Nairobi, Kenya',
-    timezone: 'Africa/Nairobi',
+    location: 'New York, NY',
+    timezone: 'America/New_York',
     // Cal.com public event type the on-site booker reads and books
     cal: {
       username: 'sirbor843',
