@@ -22,7 +22,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/readme/whoami-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="./assets/readme/whoami-light.svg" />
-  <img alt="whoami: Data and ML Systems Engineer based in New York, mostly remote, now at Labs Afrika on Stripe and M-Pesa payments. Impact: 50%+ lower serving latency, 35%+ lower cloud spend, a million-plus events per day, half the reconciliation errors." src="./assets/readme/whoami-dark.svg" width="100%" />
+  <img alt="whoami: Data and ML Systems Engineer based in New York, mostly remote, now a data engineer at Labs Afrika on Stripe and M-Pesa payment infrastructure." src="./assets/readme/whoami-dark.svg" width="100%" />
 </picture>
 
 I build data and ML systems that stay **fast**, **reliable**, and **cheap to run**: real-time payment layers, event pipelines, and production models across **fintech, gaming, and healthcare**. I work best close to the people using the system, turning messy requirements and real-world edge cases into features that hold up in production.

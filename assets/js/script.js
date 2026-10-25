@@ -318,7 +318,6 @@
   $$('[data-mod-key]').forEach((k) => (k.textContent = isMac ? '⌘K' : 'Ctrl K'));
   $$('[data-copy-email]').forEach((b) => b.addEventListener('click', copyEmail));
   $('[data-year]').textContent = new Date().getFullYear();
-  $('[data-years]').textContent = yearsShipping();
 
   /* ---------------------------------------------------------- local time */
 

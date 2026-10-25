@@ -490,18 +490,12 @@ function whoamiSvg(t) {
   const rows = [
     ['role', 'Data & ML Systems Engineer'],
     ['based', 'New York, NY (ET) · mostly remote'],
-    ['now', 'Labs Afrika · payments on Stripe + M-Pesa'],
-    ['builds', 'payments · pipelines · production ML · LLM apps'],
+    ['now', 'Data Engineer @ Labs Afrika · payment infrastructure on Stripe + M-Pesa'],
+    ['builds', 'real-time payment layers · event pipelines · production ML · LLM workflows'],
     ['domains', 'fintech · gaming · healthcare'],
     ['open to', 'contract · short-term · long-term · full-time']
   ];
-  const tiles = [
-    ['50%+', 'lower serving latency', 'Redis · Go profiling'],
-    ['35%+', 'lower cloud spend', 'Lambda · Docker'],
-    ['10⁶+', 'events per day', 'AWS Glue · PySpark'],
-    ['½', 'the reconciliation errors', 'Postgres audit trails']
-  ];
-  const termW = 520;
+  const termW = W;
   const rowSvg = rows
     .map(([k, v], i) => {
       const y = 104 + i * 34;
@@ -512,21 +506,7 @@ function whoamiSvg(t) {
       </g>`;
     })
     .join('');
-  const tileW = (W - termW - 20 - 12) / 2;
-  const tileH = 128;
-  const tileSvg = tiles
-    .map(([v, l, how], i) => {
-      const x = termW + 20 + (i % 2) * (tileW + 12);
-      const y = 18 + Math.floor(i / 2) * (tileH + 12) + 30;
-      return `<g class="rise" style="animation-delay:${0.4 + i * 0.15}s">
-        <rect x="${x + 0.5}" y="${y + 0.5}" width="${tileW - 1}" height="${tileH - 1}" rx="12" fill="${t.card}" stroke="${t.border}"/>
-        <text x="${x + 18}" y="${y + 50}" class="sans" font-size="34" font-weight="800" letter-spacing="-1" fill="${t.accent}">${esc(v)}</text>
-        <text x="${x + 18}" y="${y + 78}" class="sans" font-size="13.5" font-weight="600" fill="${t.text}">${esc(l)}</text>
-        <text x="${x + 18}" y="${y + 104}" class="mono" font-size="11" fill="${t.muted}">${esc(how)}</text>
-      </g>`;
-    })
-    .join('');
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="whoami: Data and ML Systems Engineer in New York; impact: 50% lower latency, 35% lower cloud spend, a million-plus events a day, half the reconciliation discrepancies">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="whoami: Data and ML Systems Engineer based in New York, mostly remote">
 <title>whoami · Dominic Bor</title>
 <style>
   .sans { font-family: ${SANS}; } .mono { font-family: ${MONO}; }
@@ -545,8 +525,6 @@ function whoamiSvg(t) {
 <text x="28" y="80" class="mono" font-size="13" fill="${t.text2}"><tspan fill="${t.accent}">$</tspan> whoami --verbose</text>
 ${rowSvg}
 <text x="28" y="${104 + rows.length * 34 + 4}" class="mono" font-size="13" fill="${t.accent}">$ <tspan class="caret" fill="${t.accent}">▍</tspan></text>
-<text x="${termW + 20}" y="34" class="mono" font-size="11" font-weight="600" letter-spacing="1.6" fill="${t.muted}">IMPACT · IN PRODUCTION</text>
-${tileSvg}
 </svg>`;
 }
 
