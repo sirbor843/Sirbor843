@@ -8,7 +8,8 @@
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motionOff = () => document.documentElement.getAttribute('data-motion') === 'off';
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches || motionOff();
   const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
 
   const esc = (s) =>
@@ -99,6 +100,75 @@
   const toggleTheme = () => setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 
   $('[data-theme-toggle]').addEventListener('click', toggleTheme);
+
+  /* ------------------------------------------------------------ customize */
+
+  const ACCENTS = ['teal', 'violet', 'blue', 'amber', 'rose'];
+  const customize = $('[data-customize]');
+  const customizeBtn = $('[data-customize-toggle]');
+
+  function syncCustomize() {
+    const accent = document.documentElement.getAttribute('data-accent') || 'teal';
+    $$('[data-accent-choice]').forEach((b) => b.setAttribute('aria-checked', String(b.dataset.accentChoice === accent)));
+    $$('[data-theme-choice]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.themeChoice === currentTheme())));
+    $$('[data-motion-choice]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.motionChoice === (motionOff() ? 'off' : 'full'))));
+  }
+
+  function setAccent(a) {
+    if (!ACCENTS.includes(a)) return false;
+    if (a === 'teal') document.documentElement.removeAttribute('data-accent');
+    else document.documentElement.setAttribute('data-accent', a);
+    storage.set('accent', a);
+    themeListeners.forEach((fn) => fn(currentTheme())); // repaint canvas-drawn parts
+    syncCustomize();
+    return true;
+  }
+
+  function setMotion(m) {
+    if (m === 'off') document.documentElement.setAttribute('data-motion', 'off');
+    else document.documentElement.removeAttribute('data-motion');
+    storage.set('motion', m === 'off' ? 'off' : 'full');
+    syncCustomize();
+  }
+
+  function openCustomize(open = customize.hidden) {
+    customize.hidden = !open;
+    customizeBtn.setAttribute('aria-expanded', String(open));
+    if (open) {
+      syncCustomize();
+      ($('[aria-checked="true"]', customize) || $('button', customize)).focus();
+    }
+  }
+
+  customizeBtn.addEventListener('click', () => openCustomize());
+  customize.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-accent-choice]');
+    const t = e.target.closest('[data-theme-choice]');
+    const m = e.target.closest('[data-motion-choice]');
+    if (a) setAccent(a.dataset.accentChoice);
+    if (t) setTheme(t.dataset.themeChoice);
+    if (m) setMotion(m.dataset.motionChoice);
+  });
+  // arrow keys move between accent swatches, like a radio group
+  $('[data-swatches]').addEventListener('keydown', (e) => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
+    const list = $$('[data-accent-choice]');
+    const i = list.indexOf(document.activeElement);
+    const next = list[(i + (e.key === 'ArrowLeft' || e.key === 'ArrowUp' ? -1 : 1) + list.length) % list.length];
+    next.focus();
+    setAccent(next.dataset.accentChoice);
+  });
+  document.addEventListener('click', (e) => {
+    if (!customize.hidden && !customize.contains(e.target) && !customizeBtn.contains(e.target)) openCustomize(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !customize.hidden) {
+      openCustomize(false);
+      customizeBtn.focus();
+    }
+  });
+  themeListeners.push(syncCustomize);
   themeMeta.setAttribute('content', currentTheme() === 'dark' ? '#0a0c10' : '#f6f7f9');
 
   /* ------------------------------------------------------- header & nav */
@@ -173,6 +243,13 @@
     let text = words[0];
     let deleting = false;
     function step() {
+      if (motionOff()) {
+        // motion turned off in Customize: swap whole words, slowly
+        el.textContent = words[(i = (i + 1) % words.length)];
+        text = el.textContent;
+        deleting = false;
+        return setTimeout(step, 3500);
+      }
       const target = words[i];
       if (!deleting) {
         text = target.slice(0, text.length + 1);
@@ -436,6 +513,7 @@
       )
       .join('');
     projectEmpty.hidden = items.length > 0;
+    decorateProjects();
 
     if (projectState.skill) {
       activeSkillEl.hidden = false;
@@ -779,18 +857,142 @@
   }
 
   let ghData = null;
+  let ghPromise = null;
+  // one request set shared by the GitHub section, project cards, and terminal
+  const getGitHub = () =>
+    ghPromise ||
+    (ghPromise = loadGitHub().then((d) => {
+      ghData = d;
+      decorateProjects();
+      return d;
+    }));
+
+  // live stars / language / last push on cards whose repo exists on GitHub
+  function repoFor(p) {
+    const m = /github\.com\/[^/]+\/([^/?#]+)/i.exec(p.repo || '');
+    return m && ghData ? ghData.repos.find((r) => r.name.toLowerCase() === m[1].toLowerCase()) : null;
+  }
+
+  function decorateProjects() {
+    if (!ghData) return;
+    $$('[data-open-project]', projectList).forEach((btn) => {
+      const p = S.projects.find((x) => x.id === btn.dataset.openProject);
+      const r = p && repoFor(p);
+      const body = $('.project-body', btn);
+      if (!r || !body || $('.project-live', body)) return;
+      // only when the repo matches the card: a language outside the stack means the link is off
+      if (r.language && !p.stack.some((t) => lc(t) === lc(r.language))) return;
+      body.insertAdjacentHTML(
+        'beforeend',
+        `<p class="project-live" title="Live from GitHub">
+          ${r.stars ? `<span><ion-icon name="star-outline"></ion-icon>${r.stars}</span>` : ''}
+          ${r.language ? `<span><ion-icon name="code-slash-outline"></ion-icon>${esc(r.language)}</span>` : ''}
+          <span><ion-icon name="git-commit-outline"></ion-icon>updated ${timeAgo(r.pushed_at)}</span>
+        </p>`
+      );
+    });
+  }
+
+  new IntersectionObserver(
+    (entries, obs) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      obs.disconnect();
+      getGitHub().catch(() => {}); // cards simply stay without stats
+    },
+    { rootMargin: '400px' }
+  ).observe($('#work'));
+
+  /* ----------------------------------------------------------- build log */
+
+  // GitHub's events API no longer carries commit messages, so read the latest
+  // commits from the most recently pushed repos instead.
+  const LOG_CACHE_KEY = 'gh-log-v1';
+
+  async function loadBuildLog(data) {
+    try {
+      const cached = JSON.parse(sessionStorage.getItem(LOG_CACHE_KEY) || 'null');
+      if (cached && Date.now() - cached.t < GH_TTL) return cached.entries;
+    } catch (e) {
+      /* ignore */
+    }
+    const active = data.repos
+      .filter((r) => !r.fork)
+      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+      .slice(0, 4);
+    const lists = await Promise.all(
+      active.map(async (r) => {
+        const res = await fetch(`https://api.github.com/repos/${P.handle}/${encodeURIComponent(r.name)}/commits?per_page=6`);
+        if (!res.ok) return [];
+        return (await res.json()).map((c) => ({
+          repo: r.name,
+          sha: c.sha.slice(0, 7),
+          url: c.html_url,
+          msg: (c.commit.message || '').split('\n')[0],
+          date: c.commit.author.date
+        }));
+      })
+    );
+    const entries = lists
+      .flat()
+      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .slice(0, 10);
+    try {
+      sessionStorage.setItem(LOG_CACHE_KEY, JSON.stringify({ t: Date.now(), entries }));
+    } catch (e) {
+      /* ignore */
+    }
+    return entries;
+  }
+
+  function dayLabel(iso) {
+    const d = new Date(iso);
+    const key = (x) => x.toDateString();
+    const today = new Date();
+    const yesterday = new Date(Date.now() - 864e5);
+    if (key(d) === key(today)) return 'Today';
+    if (key(d) === key(yesterday)) return 'Yesterday';
+    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: d.getFullYear() === today.getFullYear() ? undefined : 'numeric' });
+  }
+
+  function renderBuildLog(entries) {
+    const el = $('[data-gh-log]');
+    if (!entries.length) {
+      el.innerHTML = '<li class="muted">No recent public commits.</li>';
+      return;
+    }
+    let last = '';
+    el.innerHTML = entries
+      .map((e) => {
+        const day = dayLabel(e.date);
+        const head = day !== last ? `<li class="log-day">${esc(day)}</li>` : '';
+        last = day;
+        return `${head}<li class="log-item">
+          <a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">
+            <span class="log-repo">${esc(e.repo)}</span>
+            <span class="log-msg">${esc(e.msg)}</span>
+            <span class="log-sha mono">${esc(e.sha)}</span>
+          </a>
+        </li>`;
+      })
+      .join('');
+  }
+
   const ghObserver = new IntersectionObserver(
     (entries, obs) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       obs.disconnect();
-      loadGitHub()
+      getGitHub()
         .then((d) => {
-          ghData = d;
           renderGitHub(d);
+          loadBuildLog(d)
+            .then(renderBuildLog)
+            .catch(() => ($('[data-gh-log]').closest('.gh-log').hidden = true));
+          return d;
         })
         .catch((err) => {
           $('[data-gh-stats]').innerHTML = '';
           $('[data-gh-langs]').closest('.gh-langs').hidden = true;
+          $('[data-gh-log]').closest('.gh-log').hidden = true;
           const el = $('[data-gh-error]');
           el.hidden = false;
           el.textContent = "Couldn't reach the GitHub API right now (" + err.message + '). Browse the repositories directly instead.';
@@ -1348,6 +1550,7 @@
           ['ls / cat <file>', 'browse files'],
           ['neofetch', 'system info'],
           ['theme [dark|light]', 'switch theme'],
+          ['accent <color>', 'teal · violet · blue · amber · rose'],
           ['clear', 'clear the screen']
         ]
           .map(([c, d]) => '<span class="hl">' + c.padEnd(20) + '</span>' + d)
@@ -1409,6 +1612,10 @@
         setTheme(t);
         return 'Theme set to ' + t + '.';
       },
+      accent: (args) =>
+        setAccent((args[0] || '').toLowerCase())
+          ? 'Accent set to ' + esc(args[0].toLowerCase()) + '.'
+          : 'Usage: accent ' + ACCENTS.join(' | '),
       date: () => new Date().toString(),
       echo: (args) => esc(args.join(' ')),
       history: () => history.map((h, i) => String(i + 1).padStart(3) + '  ' + esc(h)).join('\n'),
@@ -1520,6 +1727,7 @@
       { group: 'Actions', label: 'Copy email address', icon: 'copy-outline', run: copyEmail },
       { group: 'Actions', label: 'Download résumé (PDF)', icon: 'download-outline', keywords: 'resume cv print', run: printResume },
       { group: 'Actions', label: 'Toggle light / dark theme', icon: 'contrast-outline', run: toggleTheme },
+      { group: 'Actions', label: 'Customize appearance', icon: 'color-palette-outline', keywords: 'accent color motion theme', run: () => setTimeout(() => openCustomize(true)) },
       {
         group: 'Actions',
         label: 'Open terminal',

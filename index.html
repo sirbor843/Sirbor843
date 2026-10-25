@@ -33,6 +33,11 @@
         try { t = localStorage.getItem('theme'); } catch (e) {}
         if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', t);
+        try {
+          var a = localStorage.getItem('accent'), m = localStorage.getItem('motion');
+          if (a) document.documentElement.setAttribute('data-accent', a);
+          if (m) document.documentElement.setAttribute('data-motion', m);
+        } catch (e) {}
       })();
     </script>
 
@@ -91,6 +96,9 @@
             <ion-icon name="search-outline"></ion-icon>
             <span class="kbd-label">Search</span>
             <kbd data-mod-key>⌘K</kbd>
+          </button>
+          <button class="icon-btn" type="button" data-customize-toggle aria-label="Customize appearance" aria-expanded="false" aria-controls="customize">
+            <ion-icon name="color-palette-outline"></ion-icon>
           </button>
           <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
             <ion-icon name="moon-outline" class="theme-icon-dark"></ion-icon>
@@ -343,7 +351,7 @@
         <header class="section-head">
           <p class="eyebrow">06 · open source</p>
           <h2>Live from GitHub</h2>
-          <p class="section-lede">Pulled from the public GitHub API when you load the page.</p>
+          <p class="section-lede">Pulled live from the public GitHub API: what I'm building, in what, and what shipped most recently.</p>
         </header>
 
         <div class="gh" data-gh>
@@ -356,6 +364,15 @@
               <div data-gh-langs><div class="skeleton tall"></div></div>
             </div>
             <ul class="gh-repos" data-gh-repos></ul>
+          </div>
+          <div class="card gh-log">
+            <h3 class="sub-head">
+              <ion-icon name="pulse-outline"></ion-icon> Build log
+              <span class="muted">· latest commits across my most active public repos</span>
+            </h3>
+            <ol class="log" data-gh-log>
+              <li class="skeleton"></li>
+            </ol>
           </div>
           <p class="gh-error" data-gh-error hidden></p>
           <a class="btn btn-ghost" href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">
@@ -569,6 +586,35 @@
       </button>
       <div data-modal-body></div>
     </dialog>
+
+    <!-- ============ CUSTOMIZE ============ -->
+    <div class="customize card" id="customize" data-customize role="dialog" aria-label="Customize appearance" hidden>
+      <div class="customize-row">
+        <span class="customize-label">Accent</span>
+        <div class="swatches" role="radiogroup" aria-label="Accent color" data-swatches>
+          <button type="button" role="radio" class="swatch" data-accent-choice="teal" aria-label="Teal"></button>
+          <button type="button" role="radio" class="swatch" data-accent-choice="violet" aria-label="Violet"></button>
+          <button type="button" role="radio" class="swatch" data-accent-choice="blue" aria-label="Blue"></button>
+          <button type="button" role="radio" class="swatch" data-accent-choice="amber" aria-label="Amber"></button>
+          <button type="button" role="radio" class="swatch" data-accent-choice="rose" aria-label="Rose"></button>
+        </div>
+      </div>
+      <div class="customize-row">
+        <span class="customize-label">Theme</span>
+        <div class="segmented" role="group" aria-label="Theme" data-theme-choices>
+          <button type="button" data-theme-choice="dark">Dark</button>
+          <button type="button" data-theme-choice="light">Light</button>
+        </div>
+      </div>
+      <div class="customize-row">
+        <span class="customize-label">Motion</span>
+        <div class="segmented" role="group" aria-label="Motion" data-motion-choices>
+          <button type="button" data-motion-choice="full">Full</button>
+          <button type="button" data-motion-choice="off">Reduced</button>
+        </div>
+      </div>
+      <p class="customize-note">Saved in this browser only.</p>
+    </div>
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 
