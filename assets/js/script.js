@@ -99,7 +99,19 @@
   const currentTheme = () => document.documentElement.getAttribute('data-theme');
   const toggleTheme = () => setTheme(currentTheme() === 'dark' ? 'light' : 'dark');
 
-  $('[data-theme-toggle]').addEventListener('click', toggleTheme);
+  // circular reveal from the click point (View Transitions API), instant otherwise
+  function revealTheme(e) {
+    if (!document.startViewTransition || motionOff() || reducedMotion) return toggleTheme();
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    document.documentElement.style.setProperty('--vt-x', x + 'px');
+    document.documentElement.style.setProperty('--vt-y', y + 'px');
+    document.documentElement.style.setProperty('--vt-r', radius + 'px');
+    document.startViewTransition(toggleTheme);
+  }
+  $('[data-theme-toggle]').addEventListener('click', revealTheme);
 
   /* ------------------------------------------------------------ customize */
 
@@ -1955,6 +1967,98 @@
         openPalette();
       }
     });
+  })();
+
+  /* ------------------------------------------------------------- flourish */
+
+  // tool logo marquee: the list twice for a seamless loop
+  (function marquee() {
+    const track = $('[data-marquee]');
+    const item = ([name, slug], dup) =>
+      `<li${dup ? ' aria-hidden="true"' : ''}><span class="logo" style="--icon:url('https://cdn.jsdelivr.net/npm/simple-icons@13/icons/${slug}.svg')"></span>${esc(name)}</li>`;
+    track.innerHTML = S.tools.map((t) => item(t, false)).join('') + S.tools.map((t) => item(t, true)).join('');
+  })();
+
+  const fancyMotion = () => !(reducedMotion || motionOff());
+
+  // 3D tilt with a soft glare on case and project cards (fine pointers only)
+  if (matchMedia('(pointer: fine)').matches) {
+    const tiltable = '.case-card, .content .project';
+    document.addEventListener('pointermove', (e) => {
+      const card = e.target.closest(tiltable);
+      if (!card || !fancyMotion()) return;
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      card.classList.add('tilt');
+      card.style.setProperty('--ry', ((px - 0.5) * 6).toFixed(2) + 'deg');
+      card.style.setProperty('--rx', ((0.5 - py) * 6).toFixed(2) + 'deg');
+      card.style.setProperty('--gx', (px * 100).toFixed(1) + '%');
+      card.style.setProperty('--gy', (py * 100).toFixed(1) + '%');
+    });
+    document.addEventListener(
+      'pointerout',
+      (e) => {
+        const card = e.target.closest(tiltable);
+        if (card && !card.contains(e.relatedTarget)) {
+          card.style.setProperty('--rx', '0deg');
+          card.style.setProperty('--ry', '0deg');
+        }
+      },
+      true
+    );
+  }
+
+  // section labels decode from random glyphs the first time they appear
+  (function scramble() {
+    if (!fancyMotion()) return;
+    const glyphs = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+=<>/';
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          obs.unobserve(e.target);
+          const el = e.target;
+          const final = el.textContent;
+          el.setAttribute('aria-label', final);
+          const start = performance.now();
+          const dur = 650;
+          (function frame(now) {
+            const p = Math.min(1, (now - start) / dur);
+            const shown = Math.floor(p * final.length);
+            el.textContent = final
+              .split('')
+              .map((ch, i) => (i < shown || ch === ' ' ? ch : glyphs[(Math.random() * glyphs.length) | 0]))
+              .join('');
+            if (p < 1) requestAnimationFrame(frame);
+            else el.textContent = final;
+          })(start);
+        });
+      },
+      { rootMargin: '0px 0px -15% 0px' }
+    );
+    $$('.section-title').forEach((t) => obs.observe(t));
+  })();
+
+  // back to top, with a ring that fills as you scroll
+  (function toTop() {
+    const btn = $('[data-to-top]');
+    const ring = $('[data-to-top-ring]');
+    const C = 2 * Math.PI * 20;
+    ring.style.strokeDasharray = C;
+    let frame = 0;
+    function update() {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const p = max > 0 ? scrollY / max : 0;
+      btn.hidden = scrollY < innerHeight * 0.8;
+      ring.style.strokeDashoffset = String(C * (1 - p));
+    }
+    addEventListener('scroll', () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    }, { passive: true });
+    btn.addEventListener('click', () => scrollTo({ top: 0, behavior: fancyMotion() ? 'smooth' : 'auto' }));
+    update();
   })();
 
   /* -------------------------------------------------------------- reveal */

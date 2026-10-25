@@ -694,6 +694,7 @@ button.tag:hover {
 
   .content {
     width: 56%;
+    min-width: 0; /* wide children (the marquee track) must not stretch the column */
     padding-block: 88px 0;
   }
 }
@@ -3617,6 +3618,248 @@ dialog::backdrop {
   }
 }
 
+/* ==========================================================================
+   Flourish: marquee, tilt, grain, shimmer, theme reveal, back to top
+   ========================================================================== */
+
+/* tool logo marquee */
+.marquee {
+  margin-top: 40px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border, var(--border));
+  background: var(--glass, var(--surface));
+  font-size: 13px;
+  white-space: nowrap;
+  color: var(--text-2);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.marquee-track li:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* monochrome logos tinted by the theme: the SVG is a mask, the color is ours */
+.logo {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+
+.marquee-track li:hover .logo {
+  background: var(--accent);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: auto;
+    animation: none;
+  }
+  .marquee-track li[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+:root[data-motion='off'] .marquee {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+:root[data-motion='off'] .marquee-track {
+  flex-wrap: wrap;
+  width: auto;
+  animation: none;
+}
+
+:root[data-motion='off'] .marquee-track li[aria-hidden='true'] {
+  display: none;
+}
+
+/* 3D tilt with a glare that follows the pointer */
+.case-card,
+.content .project {
+  position: relative;
+}
+
+.tilt,
+.tilt:hover {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-2px) !important;
+  transition: transform 0.18s ease-out, border-color 0.2s, background 0.2s, opacity 0.2s !important;
+}
+
+.tilt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.09), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.tilt:hover::after {
+  opacity: 1;
+}
+
+/* film grain over the aurora: depth for the glass, no gradient banding */
+.aurora::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+:root[data-theme='light'] .aurora::after {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+/* name: a slow accent shimmer */
+.side-name a {
+  background: linear-gradient(110deg, var(--text) 0%, var(--text) 40%, var(--accent) 50%, var(--text) 60%, var(--text) 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: name-shimmer 9s ease-in-out infinite;
+}
+
+@keyframes name-shimmer {
+  0%,
+  55% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .side-name a {
+    animation: none;
+    background: none;
+    color: var(--text);
+  }
+}
+
+:root[data-motion='off'] .side-name a {
+  animation: none;
+  background: none;
+  color: var(--text);
+}
+
+/* theme switch: the new theme grows out of the toggle */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0 at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+  to {
+    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 50%));
+  }
+}
+
+/* back to top, ring fills with scroll progress */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 55;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border, var(--border));
+  background: var(--glass-strong, var(--surface));
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: inset 0 1px 0 var(--glass-edge, transparent), var(--glass-shadow, var(--shadow));
+  color: var(--text);
+  font-size: 18px;
+  animation: pop 0.2s var(--ease);
+  transition: transform 0.2s var(--ease);
+}
+
+.to-top:hover {
+  transform: translateY(-2px);
+}
+
+.to-top[hidden] {
+  display: none;
+}
+
+.to-top svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.to-top circle {
+  fill: none;
+  stroke-width: 2;
+}
+
+.to-top-track {
+  stroke: var(--glass-border, var(--border));
+}
+
+.to-top-ring {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
 /* ---------- print: a one-document résumé ---------- */
 @media print {
   :root,
@@ -3670,6 +3913,8 @@ dialog::backdrop {
   .scroll-progress,
   .spotlight,
   .aurora,
+  .to-top,
+  .marquee,
   .skip-link,
   #about .impact,
   #about .console,

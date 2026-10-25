@@ -220,6 +220,10 @@
         </div>
           </div>
 
+          <div class="marquee" aria-label="Tools I work with">
+            <ul class="marquee-track" data-marquee></ul>
+          </div>
+
         <!-- simulated telemetry console -->
         <aside class="console card" aria-label="Simulated service telemetry">
           <div class="console-bar">
@@ -678,6 +682,14 @@
       </button>
       <div data-modal-body></div>
     </dialog>
+
+    <button type="button" class="to-top" data-to-top aria-label="Back to top" hidden>
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle class="to-top-track" cx="22" cy="22" r="20" />
+        <circle class="to-top-ring" cx="22" cy="22" r="20" data-to-top-ring />
+      </svg>
+      <ion-icon name="arrow-up-outline"></ion-icon>
+    </button>
 
     <div class="toast" data-toast role="status" aria-live="polite"></div>
 

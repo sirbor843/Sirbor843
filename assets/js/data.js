@@ -27,6 +27,16 @@ window.SITE = {
     careerStart: '2022-01-01'
   },
 
+  // logo marquee: [label, simple-icons slug]
+  tools: [
+    ['Python', 'python'], ['Go', 'go'], ['TypeScript', 'typescript'], ['SQL / PostgreSQL', 'postgresql'],
+    ['Apache Kafka', 'apachekafka'], ['Apache Spark', 'apachespark'], ['Apache Airflow', 'apacheairflow'],
+    ['Snowflake', 'snowflake'], ['Redis', 'redis'], ['AWS', 'amazonwebservices'], ['AWS Lambda', 'awslambda'],
+    ['Docker', 'docker'], ['FastAPI', 'fastapi'], ['PyTorch', 'pytorch'], ['scikit-learn', 'scikitlearn'],
+    ['pandas', 'pandas'], ['Stripe', 'stripe'], ['GitHub Actions', 'githubactions'], ['Linux', 'linux'],
+    ['Swift', 'swift'], ['Kotlin', 'kotlin'], ['Flutter', 'flutter'], ['C', 'c'], ['Vercel', 'vercel']
+  ],
+
   roles: [
     'real-time payment layers',
     'event streaming pipelines',
