@@ -1,81 +1,172 @@
-<div align="center">
+<a href="https://kdbor.engineer">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/readme/banner-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/readme/banner-light.svg" />
+    <img alt="Dominic Bor · Data & ML Systems Engineer · I build real-time payment layers, event pipelines, and production ML that stay fast, reliable, and cheap to run." src="./assets/readme/banner-dark.svg" width="100%" />
+  </picture>
+</a>
 
-<img src="./assets/images/my-avatar.png" width="88" alt="" />
-
-# Hi, I'm Dominic Bor
-
-**Data & ML Systems Engineer** · Nairobi, Kenya (UTC+3)
-
-I build data and ML systems that stay **fast**, **reliable**, and **cheap to run**.
-
-[![Portfolio](https://img.shields.io/badge/portfolio-kdbor.engineer-34d3b4?style=flat-square)](https://kdbor.engineer)
-[![Book a call](https://img.shields.io/badge/book-30--min%20call-0a0c10?style=flat-square&logo=caldotcom&logoColor=white)](https://cal.com/sirbor843/meeting)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-sirbor843-0a66c2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sirbor843/)
-[![X](https://img.shields.io/badge/X-@sirbor843-000?style=flat-square&logo=x&logoColor=white)](https://twitter.com/sirbor843)
-[![Email](https://img.shields.io/badge/email-dominicbor44%40gmail.com-ea4335?style=flat-square&logo=gmail&logoColor=white)](mailto:dominicbor44@gmail.com)
-
-</div>
+<p align="center">
+  <a href="https://kdbor.engineer"><img alt="Portfolio" src="https://img.shields.io/badge/portfolio-kdbor.engineer-34d3b4?style=for-the-badge&labelColor=11141a" /></a>
+  <a href="https://cal.com/sirbor843/meeting"><img alt="Book a call" src="https://img.shields.io/badge/book-45%20min%20call-34d3b4?style=for-the-badge&logo=caldotcom&logoColor=white&labelColor=11141a" /></a>
+  <a href="https://www.linkedin.com/in/sirbor843/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-sirbor843-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=11141a" /></a>
+  <a href="https://twitter.com/sirbor843"><img alt="X" src="https://img.shields.io/badge/X-@sirbor843-e8eaed?style=for-the-badge&logo=x&logoColor=white&labelColor=11141a" /></a>
+  <a href="mailto:dominicbor44@gmail.com"><img alt="Email" src="https://img.shields.io/badge/email-say%20hello-ea4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=11141a" /></a>
+</p>
 
 ---
 
-### What I do
+### `$ whoami`
 
-Over the last few years I've built real-time payment layers, event pipelines, and automated workflows across **fintech, gaming, and healthcare**. I like working directly with users: digging through messy requirements, stress-testing assumptions, and turning real-world edge cases into features that ship to production.
+```ts
+const dominic = {
+  role:    "Data & ML Systems Engineer",
+  base:    "Nairobi, Kenya (UTC+3) · remote-friendly",
+  now:     "Data Engineer @ Labs Afrika: payment infrastructure on Stripe + M-Pesa",
+  builds:  ["real-time payment layers", "event pipelines", "production ML", "LLM workflows"],
+  impact:  { latency: "-50%", cloudSpend: "-35%", eventsPerDay: "1e6+" },
+  openTo:  ["data & ML infra", "event streaming", "payment layers", "mentorship"],
+};
+```
+
+I build data and ML systems that stay **fast**, **reliable**, and **cheap to run**. Across **fintech, gaming, and healthcare** I've shipped payment layers, event pipelines, and automated workflows. I like working directly with users: digging through messy requirements, stress-testing assumptions, and turning real-world edge cases into features that ship to production.
 
 | | Impact |
-|---|---|
+|:---:|---|
 | ⚡ | **50%+** lower serving latency: Redis caching and Go service profiling on a Stripe + M-Pesa payment layer |
 | 💸 | **35%+** lower cloud spend: batch workloads moved to containerized AWS Lambda and Docker |
 | 🌊 | **Millions of events/day** turned into model-ready features with AWS Glue and PySpark |
 | 🧾 | **Half** the reconciliation discrepancies, thanks to PostgreSQL audit trails and validation checks |
 
-### Focus areas
+### GitHub at a glance
 
-- **Payments & APIs**: high-availability Go services, Stripe and M-Pesa, idempotent webhooks
-- **Data pipelines & streaming**: Kafka, PySpark, AWS Glue, Airflow, Snowflake, Redshift
-- **Production ML**: churn, LTV and spatial valuation models served with FastAPI and Docker
-- **AI integration**: LLM APIs, RAG, and agentic automation inside business tools
-- **Developer tooling**: CLI tools, libraries, and low-level systems work in C
-- **Apps**: iOS (SwiftUI), Android and cross-platform (Kotlin, Flutter), and web
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/overview-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/overview-light.svg" />
+    <img alt="GitHub stats: contributions, commits, pull requests, repositories, languages, streak" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/overview-dark.svg" width="49%" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/languages-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/languages-light.svg" />
+    <img alt="Languages by code volume across public repositories" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/languages-dark.svg" width="49%" />
+  </picture>
+</p>
 
-### Featured projects
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/activity-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/activity-light.svg" />
+  <img alt="Contribution heatmap for the last 12 months" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/activity-dark.svg" width="100%" />
+</picture>
 
-| Project | What it is | Stack |
-|---|---|---|
-| [**Kibeti**](https://github.com/sirbor843/Kibeti) | iOS take on the M-Pesa mobile-money app | Swift |
-| [**FlightsAnalysis**](https://github.com/sirbor843/FlightsAnalysis) | Departures and arrivals analysis between JKIA (Nairobi) and Bole (Addis Ababa) | Python |
-| [**Jikoni**](https://github.com/sirbor843/Jikoni) | iOS restaurant discovery and booking app | Swift · SwiftUI |
-| [**astraLauncher**](https://github.com/sirbor843/astraLauncher) | Remote-first Android TV launcher with categories, wallpapers and Watch Next | Flutter · Dart |
-| [**Commandline_Calculator**](https://github.com/sirbor843/Commandline_Calculator) | Scientific calculator for the terminal | C · POSIX |
-| [**simple_shell**](https://github.com/sirbor843/simple_shell) | A Unix shell written from scratch | C · POSIX |
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-light.svg" />
+  <img alt="A snake eating the contribution graph" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/snake-dark.svg" width="100%" />
+</picture>
 
-More on the [portfolio](https://kdbor.engineer), including architecture walkthroughs and a skills explorer.
+### Build log
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/build-log-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/build-log-light.svg" />
+  <img alt="Latest commits across my most active public repositories" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/build-log-dark.svg" width="100%" />
+</picture>
+
+### Featured work
+
+<p align="center">
+  <a href="https://github.com/sirbor843/Commandline_Calculator"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-commandline_calculator-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-commandline_calculator-light.svg" />
+    <img alt="Commandline_Calculator" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-commandline_calculator-dark.svg" width="49%" />
+  </picture></a>
+  <a href="https://github.com/sirbor843/astraLauncher"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-astralauncher-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-astralauncher-light.svg" />
+    <img alt="astraLauncher" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-astralauncher-dark.svg" width="49%" />
+  </picture></a>
+  <a href="https://github.com/sirbor843/Jikoni"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-jikoni-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-jikoni-light.svg" />
+    <img alt="Jikoni" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-jikoni-dark.svg" width="49%" />
+  </picture></a>
+  <a href="https://github.com/sirbor843/FlightsAnalysis"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-flightsanalysis-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-flightsanalysis-light.svg" />
+    <img alt="FlightsAnalysis" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-flightsanalysis-dark.svg" width="49%" />
+  </picture></a>
+  <a href="https://github.com/sirbor843/simple_shell"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-simple_shell-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-simple_shell-light.svg" />
+    <img alt="simple_shell" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-simple_shell-dark.svg" width="49%" />
+  </picture></a>
+  <a href="https://github.com/sirbor843/Kibeti"><picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-kibeti-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-kibeti-light.svg" />
+    <img alt="Kibeti" src="https://raw.githubusercontent.com/sirbor843/Sirbor843/output/project-kibeti-dark.svg" width="49%" />
+  </picture></a>
+</p>
+
+<p align="center"><a href="https://kdbor.engineer/#work">More projects, architecture walkthroughs, and a skills explorer on the portfolio →</a></p>
 
 ### Toolbox
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
-![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
-<br />
-![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
-![Spark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
-![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)
-![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-<br />
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-Lambda%20·%20Glue%20·%20S3-232F3E?style=flat-square)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![Stripe](https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white)
+<p align="center">
+  <img alt="Python, Go, TypeScript, C, Swift, Kotlin, Dart, Flutter" src="https://skillicons.dev/icons?i=py,go,ts,c,swift,kotlin,dart,flutter&theme=dark&perline=8" /><br />
+  <img alt="PostgreSQL, Redis, Kafka, AWS, Docker, FastAPI, PyTorch, scikit-learn" src="https://skillicons.dev/icons?i=postgres,redis,kafka,aws,docker,fastapi,pytorch,sklearn&theme=dark&perline=8" /><br />
+  <img alt="Linux, GitHub Actions, Vercel, Git, Bash" src="https://skillicons.dev/icons?i=linux,githubactions,vercel,git,bash&theme=dark" />
+</p>
+
+<p align="center">
+  <img alt="Apache Spark" src="https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white" />
+  <img alt="Apache Airflow" src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" />
+  <img alt="Snowflake" src="https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white" />
+  <img alt="AWS Glue" src="https://img.shields.io/badge/AWS%20Glue-232F3E?style=flat-square" />
+  <img alt="Stripe" src="https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white" />
+  <img alt="M-Pesa" src="https://img.shields.io/badge/M--Pesa-00A650?style=flat-square" />
+  <img alt="LLM APIs, RAG, agents" src="https://img.shields.io/badge/LLM%20·%20RAG%20·%20agents-11141a?style=flat-square" />
+</p>
+
+### Experience
+
+<details open>
+<summary><b>Data Engineer · Labs Afrika</b> &nbsp;<sub>Fintech · Payments · Mar 2025 to present</sub></summary>
+
+- Integrated **Stripe and M-Pesa** into a high-availability Go payment layer, working directly with merchants on edge cases and transaction flows
+- Cut validation and serving latency by **over 50%** with Redis caching, load distribution, and targeted service profiling
+- Built real-time customer behavior pipelines in Python and **Kafka** to surface billing anomalies and churn risk early
+- Reduced cloud spend by **over 35%** by moving batch workloads to containerized AWS Lambda and Docker
+- Designed PostgreSQL audit trails and validation checks, **halving reconciliation discrepancies**
+
+</details>
+
+<details>
+<summary><b>Data Engineer · Rapid Research</b> &nbsp;<sub>Gaming · Casino · Nov 2023 to Feb 2025</sub></summary>
+
+- Built high-throughput ETL with **AWS Glue and PySpark**, turning millions of daily gaming events into feature sets for model evals
+- Shipped real-time **churn and LTV models** with Python, FastAPI, and Docker
+- Automated workflow validation and alerting in **Airflow**, catching silent regressions in minutes rather than hours
+
+</details>
+
+<details>
+<summary><b>Junior Data Engineer · TechFlow Solutions</b> &nbsp;<sub>Health Systems · Jan 2022 to Oct 2023</sub></summary>
+
+- Automated healthcare data reconciliation in Python, saving dozens of engineering hours weekly
+- Migrated hundreds of gigabytes of clinical data to **AWS S3** with strict schema validation
+- Built SQL pipelines across **Redshift and Snowflake** for operational datasets and dashboards
+
+</details>
+
+<details>
+<summary><b>Education & community</b></summary>
+
+- **KCA University**, BSc Information Technology
+- **ALX Software Engineering**, backend systems: C, Unix internals, distributed backends, DevOps
+- **GitHub Campus Expert**, led workshops on Git, open source, and CI/CD with GitHub Actions
+
+</details>
 
 ### Writing
 
@@ -84,23 +175,24 @@ More on the [portfolio](https://kdbor.engineer), including architecture walkthro
 - [Automating workflow validation and alerting in Apache Airflow](https://kdbor.engineer)
 - [Writing a Unix shell from scratch in C](https://github.com/sirbor843/simple_shell)
 
-### Open to
+<br />
 
-- Collaboration on data and ML infrastructure
-- High-throughput event streaming and payment-layer projects
-- Open-source and developer community work (former **GitHub Campus Expert**)
-- Mentorship and technical writing
-
-**Best way to reach me:** [book a 30-minute call](https://cal.com/sirbor843/meeting) or [email me](mailto:dominicbor44@gmail.com).
+<a href="https://cal.com/sirbor843/meeting">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/readme/cta-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="./assets/readme/cta-light.svg" />
+    <img alt="Let's build something. Book a 45-minute intro call." src="./assets/readme/cta-dark.svg" width="100%" />
+  </picture>
+</a>
 
 ---
 
 <details>
-<summary><b>About this repo</b>: source for kdbor.engineer</summary>
+<summary><b>About this repo</b>: source for kdbor.engineer and this profile</summary>
 
 <br />
 
-This repo also hosts my portfolio site: plain HTML, CSS and JavaScript with no build step.
+This repo hosts my portfolio site (plain HTML, CSS and JavaScript, no build step) and this profile README.
 
 ```bash
 python3 -m http.server 8000   # then open http://localhost:8000
@@ -110,11 +202,13 @@ python3 -m http.server 8000   # then open http://localhost:8000
 |---|---|
 | `index.html` | Page structure and static copy |
 | `assets/js/data.js` | **All editable content**: projects, experience, skills, writing, architectures |
-| `assets/js/script.js` | Interactivity: command palette (⌘K), terminal, skills explorer, live GitHub stats |
-| `assets/css/style.css` | Design tokens, dark/light themes, print-to-résumé styles |
+| `assets/js/script.js` | Interactivity: command palette (⌘K), terminal, Cal.com booker, skills explorer, live GitHub stats |
+| `assets/css/style.css` | Design tokens, themes and accents, print-to-résumé styles |
+| `scripts/readme/generate.mjs` | Renders this README's cards (dark and light) from live GitHub data |
+| `.github/workflows/readme-cards.yml` | Regenerates the cards daily and publishes them to the `output` branch |
 
-**Scheduler.** The booking calendar talks to Cal.com's public API straight from the browser (no API key or server needed for a public event type). It reads open slots and books the event set in `cal` in `assets/js/data.js`. If the API can't be reached, the official Cal.com embed loads instead.
-
-Printing the page (or `resume` in the site terminal) produces a clean résumé PDF.
+**Scheduler.** The booking calendar talks to Cal.com's public API straight from the browser (no API key or server needed for a public event type). If the API can't be reached, the official Cal.com embed loads instead.
 
 </details>
+
+<p align="center"><sub>Cards regenerate daily from live GitHub data · designed to match <a href="https://kdbor.engineer">kdbor.engineer</a></sub></p>
