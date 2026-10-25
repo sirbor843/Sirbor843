@@ -1601,7 +1601,7 @@
         return `repos   ${ghData.user.public_repos}\nstars   ${own.reduce((s, r) => s + r.stars, 0)}\nlatest  ${esc(own[0] ? own[0].name : '-')}\n${link(P.github)}`;
       },
       contact: () =>
-        `email     ${link('mailto:' + P.email, P.email)}\nbook      ${link(P.cal.url)}\nlinkedin  ${link(P.linkedin)}\ngithub    ${link(P.github)}\ntwitter   ${link(P.twitter)}`,
+        `email     ${link('mailto:' + P.email, P.email)}\nbook      ${link(P.cal.url)}\nlinkedin  ${link(P.linkedin)}\ngithub    ${link(P.github)}\ntwitter   ${link(P.twitter)}\ngoodreads ${link(P.goodreads)}`,
       book: () => {
         scrollToId('contact');
         return 'Scrolling to the scheduler… or open ' + link(P.cal.url);
@@ -1759,6 +1759,7 @@
       },
       { group: 'Actions', label: 'GitHub profile', icon: 'logo-github', hint: '@' + P.handle, run: ext(P.github) },
       { group: 'Actions', label: 'LinkedIn profile', icon: 'logo-linkedin', run: ext(P.linkedin) },
+      { group: 'Actions', label: 'Goodreads: what I\'m reading', icon: 'book-outline', keywords: 'books reading', run: ext(P.goodreads) },
       ...S.projects.map((p) => ({ group: 'Projects', label: p.title, icon: 'cube-outline', hint: p.stack.slice(0, 2).join(' · '), keywords: p.stack.join(' '), run: () => openProject(p.id) })),
       ...S.writing.map((w) => ({ group: 'Writing', label: w.title, icon: 'reader-outline', hint: formatDate(w.date), keywords: w.category, run: ext(w.url) }))
     ];

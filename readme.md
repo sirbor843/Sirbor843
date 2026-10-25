@@ -11,6 +11,7 @@
   <a href="https://cal.com/sirbor843/meeting"><img alt="Book a call" src="https://img.shields.io/badge/book-45%20min%20call-34d3b4?style=for-the-badge&logo=caldotcom&logoColor=white&labelColor=11141a" /></a>
   <a href="https://www.linkedin.com/in/sirbor843/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-sirbor843-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=11141a" /></a>
   <a href="https://twitter.com/sirbor843"><img alt="X" src="https://img.shields.io/badge/X-@sirbor843-e8eaed?style=for-the-badge&logo=x&logoColor=white&labelColor=11141a" /></a>
+  <a href="https://www.goodreads.com/sirbor843"><img alt="Goodreads" src="https://img.shields.io/badge/Goodreads-reading-e9e5cd?style=for-the-badge&logo=goodreads&logoColor=white&labelColor=11141a" /></a>
   <a href="mailto:dominicbor44@gmail.com"><img alt="Email" src="https://img.shields.io/badge/email-say%20hello-ea4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=11141a" /></a>
 </p>
 

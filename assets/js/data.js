@@ -23,6 +23,7 @@ window.SITE = {
     github: 'https://github.com/sirbor843',
     linkedin: 'https://www.linkedin.com/in/sirbor843/',
     twitter: 'https://twitter.com/sirbor843',
+    goodreads: 'https://www.goodreads.com/sirbor843',
     careerStart: '2022-01-01'
   },
 

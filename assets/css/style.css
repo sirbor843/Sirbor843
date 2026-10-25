@@ -1386,6 +1386,8 @@ button.tag:hover {
 .arch {
   padding: 24px;
   overflow: hidden;
+  /* the diagram lays itself out by its own width, not the window's */
+  container-type: inline-size;
 }
 
 .arch-caption {
@@ -1393,24 +1395,17 @@ button.tag:hover {
   margin-bottom: 24px;
 }
 
+/* default: a vertical pipeline, one stage per row */
 .arch-flow {
   display: grid;
-  gap: 28px;
-}
-
-@media (min-width: 900px) {
-  .arch-flow {
-    grid-auto-flow: column;
-    grid-auto-columns: 1fr;
-    gap: 36px;
-  }
+  gap: 24px;
 }
 
 .arch-stage {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
   animation: fade-up 0.4s var(--ease) both;
 }
 
@@ -1422,12 +1417,22 @@ button.tag:hover {
   color: var(--muted);
 }
 
-/* animated connector between stages */
+.arch-stage-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.arch-stage-nodes .arch-node {
+  flex: 1 1 170px;
+}
+
+/* animated connector between stages: runs down the left edge */
 .arch-stage:not(:last-child)::after {
   content: '';
   position: absolute;
-  left: 24px;
-  bottom: -24px;
+  left: 20px;
+  bottom: -22px;
   width: 2px;
   height: 20px;
   background: repeating-linear-gradient(180deg, var(--accent) 0 4px, transparent 4px 8px);
@@ -1435,7 +1440,41 @@ button.tag:hover {
   animation: flow-y 0.6s linear infinite;
 }
 
-@media (min-width: 900px) {
+/* room for a label column: stage name left, its components right */
+@container (min-width: 480px) {
+  .arch-stage {
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+/* wide: the classic left-to-right flow */
+@container (min-width: 880px) {
+  .arch-flow {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .arch-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .arch-stage-nodes {
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .arch-stage-nodes .arch-node {
+    flex: none;
+  }
+
   .arch-stage:not(:last-child)::after {
     left: auto;
     right: -32px;
@@ -1459,14 +1498,6 @@ button.tag:hover {
   to {
     background-position: 0 8px;
   }
-}
-
-.arch-stage-nodes {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  flex: 1;
-  justify-content: center;
 }
 
 .arch-node {
