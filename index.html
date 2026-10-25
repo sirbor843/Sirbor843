@@ -1,1586 +1,580 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dominic Bor - Data and ML Systems Engineer</title>
-
-    <!--
-    - favicon
-  -->
-    <link
-      rel="shortcut icon"
-      href="./assets/images/logo.ico"
-      type="image/x-icon"
+    <title>Dominic Bor — Data & ML Systems Engineer</title>
+    <meta
+      name="description"
+      content="Dominic Bor builds data and ML systems that stay fast, reliable, and cheap to run — real-time payment layers, event pipelines, and production ML across fintech, gaming, and healthcare."
     />
+    <meta name="author" content="Dominic Bor" />
+    <meta name="theme-color" content="#0a0c10" />
+    <link rel="canonical" href="https://kdbor.engineer/" />
 
-    <!--
-    - custom css link
-  -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kdbor.engineer/" />
+    <meta property="og:title" content="Dominic Bor — Data & ML Systems Engineer" />
+    <meta
+      property="og:description"
+      content="Real-time payment layers, event pipelines, and production ML that stay fast, reliable, and cheap to run."
+    />
+    <meta property="og:image" content="https://kdbor.engineer/assets/images/my-avatar.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sirbor843" />
 
-    <!--
-    - google font link
-  -->
+    <link rel="icon" href="./assets/images/my-avatar.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/images/my-avatar.png" />
+
+    <!-- set theme before paint to avoid a flash -->
+    <script>
+      (function () {
+        var t;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://api.cal.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dominic Bor",
+        "jobTitle": "Data & ML Systems Engineer",
+        "url": "https://kdbor.engineer",
+        "email": "mailto:dominicbor44@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
+        "sameAs": [
+          "https://github.com/sirbor843",
+          "https://www.linkedin.com/in/sirbor843/",
+          "https://twitter.com/sirbor843"
+        ]
+      }
+    </script>
   </head>
 
   <body>
-    <!--
-    - #MAIN
-  -->
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
 
-    <main>
-      <!--
-      - #SIDEBAR
-    -->
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a href="#top" class="brand" aria-label="Dominic Bor — home">
+          <img src="./assets/images/my-avatar.png" alt="" width="32" height="32" />
+          <span class="brand-name">dominic<span class="accent">.bor</span></span>
+        </a>
 
-      <aside class="sidebar" data-sidebar>
-        <div class="sidebar-info">
-          <figure class="avatar-box">
-            <img
-              src="./assets/images/my-avatar.png"
-              alt="Dominic Bor"
-              width="80"
-            />
-          </figure>
-
-          <div class="info-content">
-            <h1 class="name" title="Dominic Bor">Dominic Bor</h1>
-
-            <p class="title">Software Engineer</p>
-          </div>
-
-          <button class="info_more-btn" data-sidebar-btn>
-            <span>Show Contacts</span>
-
-            <ion-icon name="chevron-down"></ion-icon>
-          </button>
-        </div>
-
-        <div class="sidebar-info_more">
-          <div class="separator"></div>
-
-          <ul class="contacts-list">
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="mail-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Email</p>
-
-                <a href="mailto:dominicbor44@gmail.com" class="contact-link"
-                  >dominicbor44@gmail.com</a
-                >
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="globe-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Website</p>
-
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="contact-link"
-                  >kdbor.engineer</a
-                >
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="logo-github"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">GitHub</p>
-
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="contact-link"
-                  >github.com/sirbor843</a
-                >
-              </div>
-            </li>
-
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-
-              <div class="contact-info">
-                <p class="contact-title">Location</p>
-
-                <address>Nairobi, Kenya</address>
-              </div>
-            </li>
-          </ul>
-
-          <div class="separator"></div>
-
-          <ul class="social-list">
-            <li class="social-item">
-              <a
-                href="https://github.com/sirbor843"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-                title="GitHub"
-              >
-                <ion-icon name="logo-github"></ion-icon>
-              </a>
-            </li>
-
-            <li class="social-item">
-              <a
-                href="https://www.linkedin.com/in/sirbor843/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-                title="LinkedIn"
-              >
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-            </li>
-
-            <li class="social-item">
-              <a
-                href="https://twitter.com/Sirbor843"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-                title="Twitter / X"
-              >
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a>
-            </li>
-
-            <li class="social-item">
-              <a
-                href="https://calendly.com/sirbor843/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="social-link"
-                title="Schedule 30min Meeting"
-              >
-                <ion-icon name="calendar-outline"></ion-icon>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </aside>
-
-      <!--
-      - #main-content
-    -->
-
-      <div class="main-content">
-        <!--
-        - #NAVBAR
-      -->
-
-        <nav class="navbar">
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <button class="navbar-link active" data-nav-link>About</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Resume</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Portfolio</button>
-            </li>
-
-            <li class="navbar-item">
-              <button class="navbar-link" data-nav-link>Blog</button>
-            </li>
-
-            <li class="navbar-item">
-              <button
-                class="navbar-link"
-                data-nav-link
-                data-nav-target="contact"
-              >
-                Book a Call
-              </button>
-            </li>
-          </ul>
+        <nav class="nav" aria-label="Primary" data-nav>
+          <a href="#work" data-nav-link>Work</a>
+          <a href="#systems" data-nav-link>Systems</a>
+          <a href="#experience" data-nav-link>Experience</a>
+          <a href="#skills" data-nav-link>Skills</a>
+          <a href="#github" data-nav-link>GitHub</a>
+          <a href="#writing" data-nav-link>Writing</a>
+          <a href="#contact" data-nav-link>Contact</a>
         </nav>
 
-        <!--
-        - #ABOUT
-      -->
+        <div class="header-actions">
+          <button class="kbd-btn" type="button" data-palette-open aria-label="Open command palette">
+            <ion-icon name="search-outline"></ion-icon>
+            <span class="kbd-label">Search</span>
+            <kbd data-mod-key>⌘K</kbd>
+          </button>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Toggle color theme">
+            <ion-icon name="moon-outline" class="theme-icon-dark"></ion-icon>
+            <ion-icon name="sunny-outline" class="theme-icon-light"></ion-icon>
+          </button>
+          <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </header>
 
-        <article class="about active" data-page="about">
-          <header>
-            <h2 class="h2 article-title">About me</h2>
-          </header>
+    <header class="print-only print-head">
+      <h1>Dominic Bor</h1>
+      <p>Data &amp; ML Systems Engineer · Nairobi, Kenya (UTC+3)</p>
+      <p>dominicbor44@gmail.com · kdbor.engineer · github.com/sirbor843 · linkedin.com/in/sirbor843</p>
+    </header>
 
-          <section class="about-text">
-            <p>
-              I build data and ML systems that stay fast, reliable, and cheap to
-              run.
-            </p>
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero container" id="top">
+        <div class="hero-copy">
+          <p class="status-pill">
+            <span class="pulse" aria-hidden="true"></span>
+            Open to contract &amp; full-time ·
+            <span class="mono">Nairobi <span data-local-time>--:--</span> UTC+3</span>
+          </p>
 
-            <p>
-              Over the last few years, I’ve built real-time payment layers,
-              event pipelines, and automated workflows across fintech, gaming,
-              and healthcare—routinely halving latency and cutting cloud bills
-              by over a third.
-            </p>
+          <h1 class="hero-title">
+            Dominic Bor
+            <span class="hero-sub">Data &amp; ML Systems Engineer</span>
+          </h1>
 
-            <p>
-              I prefer working directly with users to dig through messy
-              requirements, stress-test assumptions, and turn real-world edge
-              cases into clean, reliable features shipped straight to
-              production.
-            </p>
-          </section>
+          <p class="hero-lede">
+            I build
+            <span class="sr-only">real-time payment layers, event pipelines, production ML, and LLM workflows</span>
+            <span class="typed" data-typed aria-hidden="true">real-time payment layers</span><span class="caret" aria-hidden="true"></span>
+            <br />that stay fast, reliable, and cheap to run.
+          </p>
 
-          <!--
-          - service
-        -->
+          <p class="hero-text">
+            Across fintech, gaming, and healthcare I've shipped payment layers,
+            event pipelines, and automated workflows — routinely halving latency
+            and cutting cloud bills by over a third. I work directly with users
+            to dig through messy requirements and turn real-world edge cases
+            into clean, reliable features in production.
+          </p>
 
-          <section class="service">
-            <h3 class="h3 service-title">What I'm Doing</h3>
-
-            <ul class="service-list">
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-dev.svg"
-                    alt="Payment Integration icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    Payment Integration and APIs
-                  </h4>
-
-                  <p class="service-item-text">
-                    Integrating Stripe and M-Pesa into high-availability Go
-                    payment systems with Redis caching, idempotent webhooks, and
-                    sub-second validation.
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-enterprise.svg"
-                    alt="Enterprise Systems icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    Enterprise Systems — ERP, POS and E-Commerce
-                  </h4>
-
-                  <p class="service-item-text">
-                    Architecting resilient backends for ERP operations, POS
-                    terminal integrations, and e-commerce platforms with
-                    automated multi-channel inventory synchronization.
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-photo.svg"
-                    alt="Data pipelines icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    Data Pipelines and Event Streaming
-                  </h4>
-
-                  <p class="service-item-text">
-                    Building distributed streaming pipelines with Apache Kafka,
-                    PySpark, AWS Glue, and Airflow processing millions of
-                    high-velocity daily events.
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-app.svg"
-                    alt="Production ML systems icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    Production ML and Predictive Systems
-                  </h4>
-
-                  <p class="service-item-text">
-                    Shipping real-time churn, lifetime value (LTV), and spatial
-                    valuation models with Python, FastAPI, PyTorch,
-                    scikit-learn, and Docker.
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-ai.svg"
-                    alt="AI Integration icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    AI Integration and Intelligent Workflows
-                  </h4>
-
-                  <p class="service-item-text">
-                    Embedding modern LLM APIs, retrieval-augmented generation
-                    (RAG), and agentic task automation into operational business
-                    tools and products.
-                  </p>
-                </div>
-              </li>
-
-              <li class="service-item">
-                <div class="service-icon-box">
-                  <img
-                    src="./assets/images/icon-design.svg"
-                    alt="Cloud cost optimization icon"
-                    width="40"
-                  />
-                </div>
-
-                <div class="service-content-box">
-                  <h4 class="h4 service-item-title">
-                    Cloud Infrastructure and Cost Optimization
-                  </h4>
-
-                  <p class="service-item-text">
-                    Cutting cloud spend by 35%+ via containerized AWS Lambda and
-                    Docker architectures with robust PostgreSQL audit trails and
-                    resource rightsizing.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials
-        -->
-
-          <section class="testimonials">
-            <h3 class="h3 testimonials-title">Professional Impact</h3>
-
-            <ul class="testimonials-list has-scrollbar">
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/avatar-1.png"
-                      alt="Labs Afrika"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Labs Afrika
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Partnered directly with merchants to clarify messy edge
-                      cases and transaction flows, integrating Stripe and M-Pesa
-                      into a high-availability Go payment layer. Cut validation
-                      and serving latency by over 50% while reducing cloud
-                      infrastructure spending by over 35%.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/avatar-2.png"
-                      alt="Rapid Research"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    Rapid Research
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Built high-throughput ETL pipelines with AWS Glue and
-                      PySpark, transforming millions of daily gaming events into
-                      structured feature sets for model evals. Shipped real-time
-                      churn and lifetime value models delivering high-freshness
-                      predictive signals to operational teams.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/avatar-3.png"
-                      alt="TechFlow Solutions"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    TechFlow Solutions
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Automated healthcare data reconciliation in Python, saving
-                      dozens of engineering hours weekly and eliminating manual
-                      spreadsheet errors. Migrated hundreds of gigabytes of
-                      clinical data to AWS S3 with strict schema validation.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="testimonials-item">
-                <div class="content-card" data-testimonials-item>
-                  <figure class="testimonials-avatar-box">
-                    <img
-                      src="./assets/images/avatar-4.png"
-                      alt="GitHub Campus Expert and Community"
-                      width="60"
-                      data-testimonials-avatar
-                    />
-                  </figure>
-
-                  <h4
-                    class="h4 testimonials-item-title"
-                    data-testimonials-title
-                  >
-                    GitHub Campus Expert
-                  </h4>
-
-                  <div class="testimonials-text" data-testimonials-text>
-                    <p>
-                      Led interactive hands-on workshops on Git, open-source
-                      contribution practices, and CI/CD pipelines, mentoring
-                      developer communities on modern software engineering
-                      standards.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </section>
-
-          <!--
-          - testimonials modal
-        -->
-
-          <div class="modal-container" data-modal-container>
-            <div class="overlay" data-overlay></div>
-
-            <section class="testimonials-modal">
-              <button class="modal-close-btn" data-modal-close-btn>
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-              <div class="modal-img-wrapper">
-                <figure class="modal-avatar-box">
-                  <img
-                    src="./assets/images/avatar-1.png"
-                    alt="Labs Afrika"
-                    width="80"
-                    data-modal-img
-                  />
-                </figure>
-
-                <img src="./assets/images/icon-quote.svg" alt="quote icon" />
-              </div>
-
-              <div class="modal-content">
-                <h4 class="h3 modal-title" data-modal-title>Labs Afrika</h4>
-
-                <time datetime="2025-03-01">March 2025 — Present</time>
-
-                <div data-modal-text>
-                  <p>
-                    Partnered directly with merchants to clarify messy edge
-                    cases and transaction flows, integrating Stripe and M-Pesa
-                    into a high-availability Go payment layer. Cut validation
-                    and serving latency by over 50% while reducing cloud
-                    infrastructure spending by over 35%.
-                  </p>
-                </div>
-              </div>
-            </section>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">
+              <ion-icon name="calendar-outline"></ion-icon> Book a 30-min call
+            </a>
+            <a href="#work" class="btn btn-ghost">
+              View work <ion-icon name="arrow-down-outline"></ion-icon>
+            </a>
+            <button type="button" class="btn btn-ghost" data-print-resume>
+              <ion-icon name="download-outline"></ion-icon> <span>Résumé</span>
+            </button>
           </div>
 
-          <!--
-          - clients
-        -->
+          <ul class="hero-social" aria-label="Profiles">
+            <li><a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><ion-icon name="logo-github"></ion-icon></a></li>
+            <li><a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+            <li><a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li><a href="mailto:dominicbor44@gmail.com" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a></li>
+          </ul>
+        </div>
 
-          <section class="clients">
-            <h3 class="h3 clients-title">Organizations and Collaborators</h3>
+        <!-- simulated telemetry console -->
+        <aside class="console card" aria-label="Simulated service telemetry">
+          <div class="console-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="mono">payments-api · prod</span>
+            <span class="badge badge-good"><ion-icon name="checkmark-circle"></ion-icon> healthy</span>
+          </div>
 
-            <ul class="clients-list has-scrollbar">
-              <li class="clients-item">
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Labs Afrika"
-                >
-                  <img
-                    src="./assets/images/client-labs.png"
-                    alt="Labs Afrika logo"
-                  />
-                </a>
-              </li>
+          <div class="console-grid">
+            <div class="metric">
+              <span class="metric-label">p99 latency</span>
+              <span class="metric-value"><span data-tele="latency">--</span><small>ms</small></span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">throughput</span>
+              <span class="metric-value"><span data-tele="rps">--</span><small>req/s</small></span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">cache hit</span>
+              <span class="metric-value"><span data-tele="hit">--</span><small>%</small></span>
+            </div>
+          </div>
 
-              <li class="clients-item">
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Rapid Research"
-                >
-                  <img
-                    src="./assets/images/client-rapid.png"
-                    alt="Rapid Research logo"
-                  />
-                </a>
-              </li>
+          <figure class="spark">
+            <figcaption class="spark-head">
+              <span>p99 latency, last 60s</span>
+              <span class="mono spark-readout" data-spark-readout></span>
+            </figcaption>
+            <canvas data-spark height="110" aria-label="Sparkline of p99 latency over the last 60 seconds" role="img"></canvas>
+          </figure>
 
-              <li class="clients-item">
-                <a
-                  href="https://github.com/sirbor843/KDInsight"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="KDInsight"
-                >
-                  <img
-                    src="./assets/images/logo-1-color.png"
-                    alt="KDInsight logo"
-                  />
-                </a>
-              </li>
+          <pre class="console-log mono" data-console-log aria-hidden="true"></pre>
+          <p class="console-note">Simulated telemetry, for illustration only.</p>
+        </aside>
+      </section>
 
-              <li class="clients-item">
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="ALX Africa"
-                >
-                  <img
-                    src="./assets/images/logo-2-color.png"
-                    alt="ALX Africa logo"
-                  />
-                </a>
-              </li>
+      <!-- ============ IMPACT ============ -->
+      <section class="container" aria-label="Impact in numbers">
+        <div class="impact">
+        <div class="stat">
+          <span class="stat-value"><span data-count="50">0</span>%+</span>
+          <span class="stat-label">serving latency cut with Redis caching &amp; Go profiling</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-count="35">0</span>%+</span>
+          <span class="stat-label">cloud spend reduced via Lambda + Docker</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">10<sup>6</sup>+ <small>/day</small></span>
+          <span class="stat-label">events processed through Glue &amp; PySpark</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-years>4</span>+ <small>yrs</small></span>
+          <span class="stat-label">shipping production data systems</span>
+        </div>
+        </div>
+      </section>
 
-              <li class="clients-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="KD Bor Engineering"
-                >
-                  <img
-                    src="./assets/images/logo-3-color.png"
-                    alt="KD Bor Engineering logo"
-                  />
-                </a>
-              </li>
+      <!-- ============ SERVICES ============ -->
+      <section class="section container" id="services">
+        <header class="section-head">
+          <p class="eyebrow">01 · capabilities</p>
+          <h2>What I build</h2>
+        </header>
 
-              <li class="clients-item">
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="GitHub Campus Expert"
-                >
-                  <img
-                    src="./assets/images/logo-4-color.png"
-                    alt="GitHub Campus Expert logo"
-                  />
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
+        <ul class="services">
+          <li class="service card">
+            <ion-icon name="card-outline"></ion-icon>
+            <h3>Payment integration &amp; APIs</h3>
+            <p>Stripe and M-Pesa in high-availability Go services with Redis caching, idempotent webhooks, and sub-second validation.</p>
+          </li>
+          <li class="service card">
+            <ion-icon name="git-network-outline"></ion-icon>
+            <h3>Data pipelines &amp; streaming</h3>
+            <p>Kafka, PySpark, AWS Glue and Airflow pipelines processing millions of high-velocity daily events.</p>
+          </li>
+          <li class="service card">
+            <ion-icon name="analytics-outline"></ion-icon>
+            <h3>Production ML</h3>
+            <p>Real-time churn, LTV, and spatial valuation models with FastAPI, PyTorch, scikit-learn, and Docker.</p>
+          </li>
+          <li class="service card">
+            <ion-icon name="sparkles-outline"></ion-icon>
+            <h3>AI integration</h3>
+            <p>LLM APIs, retrieval-augmented generation, and agentic task automation embedded in business tools.</p>
+          </li>
+          <li class="service card">
+            <ion-icon name="business-outline"></ion-icon>
+            <h3>Enterprise systems</h3>
+            <p>Resilient backends for ERP, POS terminals, and e-commerce with multi-channel inventory sync.</p>
+          </li>
+          <li class="service card">
+            <ion-icon name="cloud-outline"></ion-icon>
+            <h3>Cloud cost optimization</h3>
+            <p>35%+ lower spend via containerized Lambda, rightsizing, and PostgreSQL audit trails you can trust.</p>
+          </li>
+        </ul>
+      </section>
 
-        <!--
-        - #RESUME
-      -->
+      <!-- ============ WORK ============ -->
+      <section class="section container" id="work">
+        <header class="section-head">
+          <p class="eyebrow">02 · selected work</p>
+          <h2>Projects</h2>
+        </header>
 
-        <article class="resume" data-page="resume">
-          <header>
-            <h2 class="h2 article-title">Resume</h2>
-          </header>
+        <div class="toolbar">
+          <div class="segmented" role="group" aria-label="Filter projects" data-project-filters>
+            <button type="button" aria-pressed="true" data-filter="all">All</button>
+            <button type="button" aria-pressed="false" data-filter="data">Data &amp; ML</button>
+            <button type="button" aria-pressed="false" data-filter="systems">Systems</button>
+            <button type="button" aria-pressed="false" data-filter="apps">Apps</button>
+          </div>
+          <label class="search">
+            <ion-icon name="search-outline"></ion-icon>
+            <input type="search" placeholder="Filter by name or tech…" data-project-search aria-label="Filter projects by name or technology" />
+          </label>
+        </div>
+        <p class="active-skill" data-active-skill hidden></p>
 
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="book-outline"></ion-icon>
+        <ul class="projects" data-projects></ul>
+        <noscript>
+          <p class="empty">
+            Projects, experience and the interactive sections need JavaScript.
+            Browse my work on <a class="accent" href="https://github.com/sirbor843">GitHub</a>.
+          </p>
+        </noscript>
+        <p class="empty" data-projects-empty hidden>No projects match that filter.</p>
+      </section>
+
+      <!-- ============ SYSTEMS ============ -->
+      <section class="section container" id="systems">
+        <header class="section-head">
+          <p class="eyebrow">03 · architecture</p>
+          <h2>Systems I build</h2>
+          <p class="section-lede">Reference architectures from production work. Pick a system, then click any component to see how it's used.</p>
+        </header>
+
+        <div class="segmented" role="group" aria-label="Choose architecture" data-arch-tabs></div>
+        <div class="arch card">
+          <p class="arch-caption" data-arch-caption></p>
+          <div class="arch-flow" data-arch-flow></div>
+          <div class="arch-detail" data-arch-detail aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ EXPERIENCE ============ -->
+      <section class="section container" id="experience">
+        <header class="section-head">
+          <p class="eyebrow">04 · experience</p>
+          <h2>Where I've shipped<span class="print-only">Experience</span></h2>
+        </header>
+
+        <div class="exp-layout">
+          <ol class="timeline" data-experience></ol>
+
+          <aside class="edu">
+            <h3 class="sub-head"><ion-icon name="school-outline"></ion-icon> Education &amp; community</h3>
+            <ul data-education></ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="section container" id="skills">
+        <header class="section-head">
+          <p class="eyebrow">05 · stack</p>
+          <h2>Skills explorer<span class="print-only">Skills</span></h2>
+          <p class="section-lede">Click a technology to see the roles and projects where I've used it.</p>
+        </header>
+
+        <div class="skills-layout">
+          <div class="skills" data-skills></div>
+          <div class="skill-panel card" data-skill-panel aria-live="polite">
+            <p class="muted">Select a skill to trace it through my work.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ GITHUB ============ -->
+      <section class="section container" id="github">
+        <header class="section-head">
+          <p class="eyebrow">06 · open source</p>
+          <h2>Live from GitHub</h2>
+          <p class="section-lede">Pulled from the public GitHub API when you load the page.</p>
+        </header>
+
+        <div class="gh" data-gh>
+          <div class="gh-stats" data-gh-stats>
+            <div class="stat skeleton"></div><div class="stat skeleton"></div><div class="stat skeleton"></div>
+          </div>
+          <div class="gh-body">
+            <div class="card gh-langs">
+              <h3 class="sub-head">Languages <span class="muted">· share of public repos</span></h3>
+              <div data-gh-langs><div class="skeleton tall"></div></div>
+            </div>
+            <ul class="gh-repos" data-gh-repos></ul>
+          </div>
+          <p class="gh-error" data-gh-error hidden></p>
+          <a class="btn btn-ghost" href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">
+            <ion-icon name="logo-github"></ion-icon> All repositories
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ WRITING ============ -->
+      <section class="section container" id="writing">
+        <header class="section-head">
+          <p class="eyebrow">07 · writing</p>
+          <h2>Technical writing</h2>
+        </header>
+        <ul class="posts" data-posts></ul>
+      </section>
+
+      <!-- ============ TERMINAL ============ -->
+      <section class="section container" id="terminal">
+        <header class="section-head">
+          <p class="eyebrow">08 · shell</p>
+          <h2>Prefer a terminal?</h2>
+          <p class="section-lede">Type <code>help</code> to explore this portfolio from the command line.</p>
+        </header>
+
+        <div class="term card" data-term>
+          <div class="console-bar">
+            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="mono">guest@kdbor: ~</span>
+          </div>
+          <div class="term-body mono" data-term-body>
+            <div class="term-out" data-term-out role="log" aria-live="polite"></div>
+            <form class="term-line" data-term-form autocomplete="off">
+              <label for="term-input" class="prompt">guest@kdbor:~$</label>
+              <input id="term-input" class="term-input" data-term-input spellcheck="false" autocapitalize="off" />
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section container" id="contact">
+        <header class="section-head">
+          <p class="eyebrow">09 · contact</p>
+          <h2>Let's build something</h2>
+          <p class="section-lede">
+            Low-latency pipelines, payment layers, production ML, or a full-time
+            role — pick a slot, or reach out async with specs and RFPs.
+          </p>
+        </header>
+
+        <div class="contact-layout">
+          <div class="card scheduler">
+            <div class="scheduler-head">
+              <div>
+                <h3 data-event-title>Intro call</h3>
+                <p class="muted">
+                  <span data-tz-text>Times show in your timezone<span data-visitor-tz></span>.</span>
+                  <label class="tz-pick" data-tz-pick hidden>
+                    Times in
+                    <select data-tz-select aria-label="Your timezone"></select>
+                  </label>
+                  It's <span class="mono" data-local-time>--:--</span> in Nairobi.
+                </p>
               </div>
-
-              <h3 class="h3">Education and Certifications</h3>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">KCA University</h4>
-
-                <span>Bachelor of Science in Information Technology</span>
-
-                <p class="timeline-text">
-                  Comprehensive academic foundation in software systems,
-                  database architecture, network infrastructure, and computer
-                  science methodologies.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">ALX Software Engineering</h4>
-
-                <span>Backend Systems and Software Engineering</span>
-
-                <p class="timeline-text">
-                  Intensive program focusing on low-level systems programming in
-                  C, Unix internals, memory management, distributed backend
-                  architectures, and DevOps automation.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">GitHub Campus Expert</h4>
-
-                <span>Technical Community Leader</span>
-
-                <p class="timeline-text">
-                  Selected and trained by GitHub to lead workshops on Git
-                  workflows, open-source development practices, and CI/CD
-                  pipelines with GitHub Actions.
-                </p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="timeline">
-            <div class="title-wrapper">
-              <div class="icon-box">
-                <ion-icon name="briefcase-outline"></ion-icon>
-              </div>
-
-              <h3 class="h3">Professional Experience</h3>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Labs Afrika — Data Engineer
-                </h4>
-
-                <span>Nairobi, Kenya | Mar 2025 — Present</span>
-
-                <p class="timeline-text">
-                  • Partnered directly with merchants to clarify messy edge
-                  cases and transaction flows, integrating Stripe and M-Pesa
-                  into a high-availability Go payment layer.<br />
-                  • Cut validation and serving latency by over 50% through
-                  streamlined Redis caching, efficient load distribution, and
-                  targeted service profiling.<br />
-                  • Built real-time customer behavior pipelines using Python and
-                  Kafka to surface billing anomalies early, flag churn risks,
-                  and drive product improvements.<br />
-                  • Reduced cloud infrastructure spending by over 35% by
-                  migrating batch workloads to containerized AWS Lambda and
-                  Docker architectures scaling on demand.<br />
-                  • Designed robust PostgreSQL audit trails and data validation
-                  checks, halving reconciliation discrepancies while keeping
-                  tracking clean and reproducible.<br />
-                  • Maintained a rapid shipping cadence, moving from PRDs and
-                  Linear tickets to tested, production-grade features using
-                  modern AI tooling.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  Rapid Research — Data Engineer (Gaming and Casino)
-                </h4>
-
-                <span>Remote | Nov 2023 — Feb 2025</span>
-
-                <p class="timeline-text">
-                  • Built high-throughput ETL pipelines with AWS Glue and
-                  PySpark, transforming millions of daily gaming events into
-                  structured feature sets for model evals.<br />
-                  • Shipped real-time churn and lifetime value models using
-                  Python, FastAPI, and Docker, delivering high-freshness
-                  predictive signals directly to operational teams.<br />
-                  • Automated workflow validation and alerting in Apache
-                  Airflow, catching silent pipeline regressions in minutes
-                  rather than hours.<br />
-                  • Collaborated with non-technical stakeholders to test core
-                  assumptions, clarify product requirements, and turn analytical
-                  findings into production features.
-                </p>
-              </li>
-
-              <li class="timeline-item">
-                <h4 class="h4 timeline-item-title">
-                  TechFlow Solutions — Junior Data Engineer (Health Systems)
-                </h4>
-
-                <span>Nairobi, Kenya | Jan 2022 — Oct 2023</span>
-
-                <p class="timeline-text">
-                  • Automated healthcare data reconciliation in Python, saving
-                  dozens of engineering hours weekly and eliminating manual
-                  spreadsheet errors.<br />
-                  • Migrated hundreds of gigabytes of clinical data to AWS S3,
-                  implementing strict schema validation to guarantee end-to-end
-                  data integrity.<br />
-                  • Built reliable SQL pipelines across Redshift and Snowflake,
-                  turning raw, unstructured logs into clean operational datasets
-                  and dashboards.
-                </p>
-              </li>
-            </ol>
-          </section>
-
-          <section class="skill">
-            <h3 class="h3 skills-title">Technical Skills</h3>
-
-            <div class="skills-card content-card">
-              <ul class="skills-tags-list">
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">TypeScript</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">Go</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">C</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">Python</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">Swift</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">Kotlin</span>
-                </li>
-
-                <li class="skills-tag-item">
-                  <span class="tag-dot"></span>
-                  <span class="tag-name">Dart and Flutter</span>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </article>
-
-        <!--
-        - #PORTFOLIO
-      -->
-
-        <article class="portfolio" data-page="portfolio">
-          <header>
-            <h2 class="h2 article-title">Selected Projects</h2>
-          </header>
-
-          <section class="projects">
-            <ul class="filter-list">
-              <li class="filter-item">
-                <button class="active" data-filter-btn>All</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Data and ml</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Systems and backend</button>
-              </li>
-
-              <li class="filter-item">
-                <button data-filter-btn>Applications</button>
-              </li>
-            </ul>
-
-            <div class="filter-select-box">
-              <button class="filter-select" data-select>
-                <div class="select-value" data-selecct-value>
-                  Select category
-                </div>
-
-                <div class="select-icon">
-                  <ion-icon name="chevron-down"></ion-icon>
-                </div>
-              </button>
-
-              <ul class="select-list">
-                <li class="select-item">
-                  <button data-select-item>All</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Data and ml</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Systems and backend</button>
-                </li>
-
-                <li class="select-item">
-                  <button data-select-item>Applications</button>
-                </li>
-              </ul>
-            </div>
-
-            <ul class="project-list">
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="data and ml"
-              >
-                <a
-                  href="https://github.com/sirbor/FlightsAnalysis"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-9.png"
-                      alt="Fuel Prices and Airfare Analysis"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">
-                    Fuel Prices and Airfare Analysis
-                  </h3>
-
-                  <p class="project-category">
-                    Python, SQL, Pandas, Tableau | Seasonal demand and budget
-                    trade-offs
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="data and ml"
-              >
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-keja.png"
-                      alt="Property GIS Land Valuation"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">Property GIS Land Valuation</h3>
-
-                  <p class="project-category">
-                    Python, GeoPandas, PostGIS, scikit-learn | Spatial valuation
-                    model
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="data and ml"
-              >
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-1.jpg"
-                      alt="Health Insurance Claims Analytics"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">
-                    Health Insurance Claims Analytics
-                  </h3>
-
-                  <p class="project-category">
-                    Python, SQL, Apache Airflow, Tableau | Automated ETL audit
-                    pipelines
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="systems and backend"
-              >
-                <a
-                  href="https://github.com/sirbor/Kibeti"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-finje.png"
-                      alt="Payment System"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">
-                    High-Availability Payment System
-                  </h3>
-
-                  <p class="project-category">
-                    Go, Redis, Stripe, M-Pesa | Low-latency payment validation
-                    and settlement
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="data and ml"
-              >
-                <a
-                  href="https://github.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-4.png"
-                      alt="Gaming Event Streaming and Churn Models"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">
-                    Gaming Event ETL and Predictive Models
-                  </h3>
-
-                  <p class="project-category">
-                    AWS Glue, PySpark, FastAPI, Docker | High-throughput
-                    telemetry and churn models
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="applications"
-              >
-                <a
-                  href="https://github.com/sirbor843/Jikoni"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-jikoni.png"
-                      alt="Jikoni iOS Restaurant App"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">Jikoni</h3>
-
-                  <p class="project-category">
-                    Swift, SwiftUI | iOS restaurant and appointment booking app
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="applications"
-              >
-                <a
-                  href="https://github.com/sirbor843/astraLauncher"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-2.png"
-                      alt="astraLauncher Android TV"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">astraLauncher</h3>
-
-                  <p class="project-category">
-                    Flutter, Dart | Remote-first Android TV launcher
-                  </p>
-                </a>
-              </li>
-
-              <li
-                class="project-item active"
-                data-filter-item
-                data-category="systems and backend"
-              >
-                <a
-                  href="https://github.com/sirbor843/Commandline_Calculator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="project-img">
-                    <div class="project-item-icon-box">
-                      <ion-icon name="open-outline"></ion-icon>
-                    </div>
-
-                    <img
-                      src="./assets/images/project-7.png"
-                      alt="Command Line Calculator in C"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <h3 class="project-title">Command Line Calculator</h3>
-
-                  <p class="project-category">
-                    C, POSIX, Linux | High-performance CLI scientific calculator
-                    in C
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
-
-        <!--
-        - #BLOG
-      -->
-
-        <article class="blog" data-page="blog">
-          <header>
-            <h2 class="h2 article-title">Blog and Technical Writing</h2>
-          </header>
-
-          <section class="blog-posts">
-            <ul class="blog-posts-list">
-              <li class="blog-post-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-1.jpg"
-                      alt="Cutting Serving Latency in Half"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Systems and Performance</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-03-12">Mar 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Cutting Serving Latency by 50% with Redis Caching and Go
-                      Service Profiling
-                    </h3>
-
-                    <p class="blog-text">
-                      Streamlining transaction validation layers, eliminating
-                      redundant round-trips, and profiling Go payment
-                      microservices.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-2.jpg"
-                      alt="High-Throughput Gaming Pipelines"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Data Engineering</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2025-01-20">Jan 2025</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Building Resilient PySpark and AWS Glue Pipelines for
-                      Millions of Daily Events
-                    </h3>
-
-                    <p class="blog-text">
-                      Transforming massive telemetry event streams into
-                      structured feature sets for model evals and real-time
-                      operations.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-3.jpg"
-                      alt="Airflow Workflow Validation"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Data Infrastructure</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2024-10-15">Oct 2024</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Automating Workflow Validation and Alerting in Apache
-                      Airflow
-                    </h3>
-
-                    <p class="blog-text">
-                      Catching silent pipeline regressions in minutes through
-                      custom DAG sensors, schema checks, and operational Slack
-                      alerts.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-4.jpg"
-                      alt="Production Churn Models"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Machine Learning</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2024-07-10">Jul 2024</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Deploying Real-Time Churn and LTV Models with Python,
-                      FastAPI, and Docker
-                    </h3>
-
-                    <p class="blog-text">
-                      Serving high-freshness predictive signals to operational
-                      teams with low-latency containerized inference APIs.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a
-                  href="https://kdbor.engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-5.jpg"
-                      alt="Spatial Land Valuation Models"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Spatial ML</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2024-05-18">May 2024</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Building an End-to-End Spatial Valuation Model with
-                      GeoPandas and PostGIS
-                    </h3>
-
-                    <p class="blog-text">
-                      Converting registry and geographical coordinates into
-                      interpretable, stakeholder-facing pricing insights.
-                    </p>
-                  </div>
-                </a>
-              </li>
-
-              <li class="blog-post-item">
-                <a
-                  href="https://github.com/sirbor843/simple_shell"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <figure class="blog-banner-box">
-                    <img
-                      src="./assets/images/blog-6.jpg"
-                      alt="Unix Shell in C"
-                      loading="lazy"
-                    />
-                  </figure>
-
-                  <div class="blog-content">
-                    <div class="blog-meta">
-                      <p class="blog-category">Systems Programming</p>
-
-                      <span class="dot"></span>
-
-                      <time datetime="2024-01-20">Jan 2024</time>
-                    </div>
-
-                    <h3 class="h3 blog-item-title">
-                      Writing a Unix Shell from Scratch in C: Lessons in
-                      Low-Level Systems
-                    </h3>
-
-                    <p class="blog-text">
-                      Fork-exec process cycles, file descriptor piping, signal
-                      handling, and memory safety fundamentals in POSIX C.
-                    </p>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-        </article>
-
-        <!--
-        - #BOOKING AND CONTACT
-      -->
-
-        <article class="contact" data-page="contact">
-          <header>
-            <h2 class="h2 article-title">Book a Call</h2>
-          </header>
-
-          <section class="booking-intro">
-            <div class="booking-banner">
-              <h3 class="h3 booking-title">Schedule a 30-Minute Intro</h3>
-              <p class="booking-subtitle">
-                Pick a slot directly on my calendar below. Whether you want to
-                discuss low-latency data pipelines, real-time payment layers,
-                production ML systems, or explore full-time and contract
-                opportunities—let's talk.
-              </p>
-
-              <div class="booking-chips">
-                <div class="booking-chip">
-                  <ion-icon name="time-outline"></ion-icon>
-                  <span>30-Minute Intro</span>
-                </div>
-                <div class="booking-chip">
-                  <ion-icon name="videocam-outline"></ion-icon>
-                  <span>Google Meet / Zoom</span>
-                </div>
-                <div class="booking-chip">
-                  <ion-icon name="globe-outline"></ion-icon>
-                  <span>Nairobi (UTC+3) • Open to Global Timezones</span>
-                </div>
+              <div class="chips">
+                <span class="chip"><ion-icon name="time-outline"></ion-icon> <span data-duration-label>45 min</span></span>
+                <span class="chip"><ion-icon name="videocam-outline"></ion-icon> <span data-location-label>Google Meet</span></span>
               </div>
             </div>
-          </section>
 
-          <!-- Calendly Inline Widget -->
-          <section class="calendly-section">
-            <div class="calendly-box">
-              <!-- Calendly inline widget begin -->
-              <div
-                class="calendly-inline-widget"
-                data-url="https://calendly.com/sirbor843/30min?hide_landing_page_details=0&hide_gdpr_banner=1&background_color=1e1e1f&text_color=ffffff&primary_color=ffdb70"
-                style="min-width: 320px; height: 720px"
-              ></div>
-              <!-- Calendly inline widget end -->
+            <div class="scheduler-frame" data-scheduler-frame aria-busy="true">
+              <div class="scheduler-skeleton" aria-hidden="true">
+                <div class="sk-bar"></div>
+                <div class="sk-grid" data-sk-grid></div>
+              </div>
             </div>
 
-            <div class="calendly-fallback">
-              <p class="fallback-text">
-                Prefer opening the scheduler in a dedicated window?
-              </p>
-              <a
-                href="https://calendly.com/sirbor843/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="calendly-btn"
-              >
-                <span>Open in Calendly</span>
-                <ion-icon name="open-outline"></ion-icon>
-              </a>
-            </div>
-          </section>
+            <!-- native booker: availability + booking via the Cal.com API -->
+            <div class="booker" data-booker hidden>
+              <div class="booker-cal">
+                <div class="booker-month">
+                  <button type="button" class="icon-btn" data-cal-prev aria-label="Previous month">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                  </button>
+                  <h4 data-cal-title aria-live="polite"></h4>
+                  <button type="button" class="icon-btn" data-cal-next aria-label="Next month">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                  </button>
+                </div>
+                <div class="booker-dow" aria-hidden="true">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div class="booker-days" data-cal-days></div>
+              </div>
 
-          <!-- Direct and Async Contact Options -->
-          <section class="direct-contact-section">
-            <h3 class="h3 form-title">Prefer Async or Direct Email?</h3>
-            <p class="direct-contact-desc">
-              If you have technical specs, RFPs, or prefer reaching out
-              asynchronously before scheduling a call:
+              <div class="booker-side">
+                <section data-step="times">
+                  <h4 class="booker-side-title" data-day-title>Pick a day</h4>
+                  <ul class="booker-times" data-times></ul>
+                  <p class="booker-note" data-times-note></p>
+                </section>
+
+                <form data-step="form" class="booker-form" novalidate hidden>
+                  <button type="button" class="booker-back" data-back>
+                    <ion-icon name="arrow-back-outline"></ion-icon> Change time
+                  </button>
+                  <p class="booker-summary" data-summary></p>
+                  <label>Name <input name="name" autocomplete="name" required maxlength="120" /></label>
+                  <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254" /></label>
+                  <label>
+                    <span>Anything I should prepare? <span class="muted">(optional)</span></span>
+                    <textarea name="notes" rows="3" maxlength="2000"></textarea>
+                  </label>
+                  <div data-questions></div>
+                  <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+                  <p class="booker-error" data-form-error role="alert" hidden></p>
+                  <button type="submit" class="btn btn-primary" data-submit>
+                    <ion-icon name="checkmark-outline"></ion-icon> <span>Confirm booking</span>
+                  </button>
+                </form>
+
+                <section data-step="done" class="booker-done" hidden tabindex="-1">
+                  <ion-icon name="checkmark-circle"></ion-icon>
+                  <h4 data-done-title>You're booked.</h4>
+                  <p data-done-text></p>
+                  <p class="booker-links" data-done-links></p>
+                </section>
+              </div>
+            </div>
+
+
+            <p class="scheduler-alt" data-scheduler-alt>
+              Prefer the booking page?
+              <a href="https://cal.com/sirbor843/meeting" target="_blank" rel="noopener noreferrer">Open it on Cal.com</a>
+              or <a href="mailto:dominicbor44@gmail.com">email me</a>.
             </p>
+          </div>
 
-            <div class="direct-contact-grid">
-              <div class="contact-card">
-                <div class="icon-box">
-                  <ion-icon name="mail-outline"></ion-icon>
-                </div>
-                <div class="contact-card-info">
-                  <h4 class="contact-card-title">Email Directly</h4>
-                  <a
-                    href="mailto:dominicbor44@gmail.com"
-                    class="contact-card-link"
-                    >dominicbor44@gmail.com</a
-                  >
-                </div>
-                <a
-                  href="mailto:dominicbor44@gmail.com"
-                  class="card-action-btn"
-                  title="Send Email"
-                >
-                  <ion-icon name="paper-plane-outline"></ion-icon>
-                </a>
+          <ul class="contact-cards">
+            <li class="card contact-card">
+              <ion-icon name="mail-outline"></ion-icon>
+              <div>
+                <h3>Email</h3>
+                <a href="mailto:dominicbor44@gmail.com">dominicbor44@gmail.com</a>
               </div>
-
-              <div class="contact-card">
-                <div class="icon-box">
-                  <ion-icon name="logo-linkedin"></ion-icon>
-                </div>
-                <div class="contact-card-info">
-                  <h4 class="contact-card-title">LinkedIn</h4>
-                  <a
-                    href="https://www.linkedin.com/in/Kd_Bor/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-card-link"
-                    >linkedin.com/in/sirbor843</a
-                  >
-                </div>
-                <a
-                  href="https://www.linkedin.com/in/sirbor843/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-action-btn"
-                  title="Open LinkedIn"
-                >
-                  <ion-icon name="open-outline"></ion-icon>
-                </a>
+              <button type="button" class="icon-btn" data-copy-email aria-label="Copy email address">
+                <ion-icon name="copy-outline"></ion-icon>
+              </button>
+            </li>
+            <li class="card contact-card">
+              <ion-icon name="logo-linkedin"></ion-icon>
+              <div>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/sirbor843/" target="_blank" rel="noopener noreferrer">in/sirbor843</a>
               </div>
-
-              <div class="contact-card">
-                <div class="icon-box">
-                  <ion-icon name="logo-twitter"></ion-icon>
-                </div>
-                <div class="contact-card-info">
-                  <h4 class="contact-card-title">Twitter / X</h4>
-                  <a
-                    href="https://twitter.com/sirbor843"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-card-link"
-                    >@Kd_Bor</a
-                  >
-                </div>
-                <a
-                  href="https://twitter.com/sirbor843"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="card-action-btn"
-                  title="Open Twitter"
-                >
-                  <ion-icon name="open-outline"></ion-icon>
-                </a>
+            </li>
+            <li class="card contact-card">
+              <ion-icon name="logo-github"></ion-icon>
+              <div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
               </div>
-
-              <div class="contact-card">
-                <div class="icon-box">
-                  <ion-icon name="location-outline"></ion-icon>
-                </div>
-                <div class="contact-card-info">
-                  <h4 class="contact-card-title">Location</h4>
-                  <span class="contact-card-link"
-                    >Nairobi, Kenya (Remote / Global)</span
-                  >
-                </div>
+            </li>
+            <li class="card contact-card">
+              <ion-icon name="logo-twitter"></ion-icon>
+              <div>
+                <h3>Twitter / X</h3>
+                <a href="https://twitter.com/sirbor843" target="_blank" rel="noopener noreferrer">@sirbor843</a>
               </div>
-            </div>
-          </section>
-        </article>
-      </div>
+            </li>
+            <li class="card contact-card">
+              <ion-icon name="location-outline"></ion-icon>
+              <div>
+                <h3>Location</h3>
+                <span>Nairobi, Kenya · remote / global</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
 
-    <!--
-    - custom js link
-  -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> Dominic Bor · <a href="https://kdbor.engineer">kdbor.engineer</a> · <a href="https://github.com/sirbor843/Sirbor843">source</a></p>
+        <p class="muted mono">
+          Hand-written HTML, CSS &amp; JS · no build step · press <kbd data-mod-key>⌘K</kbd>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ============ COMMAND PALETTE ============ -->
+    <dialog class="palette" data-palette aria-label="Command palette">
+      <div class="palette-search">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" placeholder="Jump to a section, project, post, or action…" data-palette-input aria-label="Search commands" />
+        <kbd>esc</kbd>
+      </div>
+      <ul class="palette-list" role="listbox" data-palette-list></ul>
+      <div class="palette-foot mono">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+      </div>
+    </dialog>
+
+    <!-- ============ PROJECT MODAL ============ -->
+    <dialog class="modal" data-project-modal aria-labelledby="modal-title">
+      <button class="icon-btn modal-close" type="button" data-modal-close aria-label="Close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <div data-modal-body></div>
+    </dialog>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <script src="./assets/js/data.js"></script>
     <script src="./assets/js/script.js"></script>
-
-    <!--
-    - calendly widget script
-  -->
-    <script
-      type="text/javascript"
-      src="https://assets.calendly.com/assets/external/widget.js"
-      async
-    ></script>
-
-    <!--
-    - ionicon link
-  -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
