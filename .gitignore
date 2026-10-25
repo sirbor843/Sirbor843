@@ -1,4 +1,39 @@
-node_modules
-.vercel
-.env*.local
+# OS files
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+
+# Build output and caches
+public/
+dist/
+.quartz-cache/
+.cache/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment and secrets
+.env
 .env*
+.vercel/
+
+# Private keys (never commit these)
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+/y
+/y.pub
