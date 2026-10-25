@@ -1339,16 +1339,14 @@ button.tag:hover {
   gap: 8px;
 }
 
+/* glass cards, aligned to the column; hovering lifts one and dims the rest */
 .content .project {
-  background: transparent;
-  border-color: transparent;
-  margin-inline: -16px;
+  background: var(--glass);
+  border-color: var(--glass-border);
 }
 
 .content .project:hover {
-  transform: none;
-  background: var(--surface);
-  border-color: var(--border);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 640px) {
@@ -3107,6 +3105,194 @@ dialog::backdrop {
   }
 }
 
+/* ==========================================================================
+   Glass layer: translucent frosted surfaces over a soft aurora backdrop
+   ========================================================================== */
+
+:root[data-theme='dark'] {
+  --glass: rgba(17, 20, 26, 0.55);
+  --glass-strong: rgba(17, 20, 26, 0.78);
+  --glass-hover: rgba(31, 36, 48, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-edge: rgba(255, 255, 255, 0.07);
+  --glass-shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.55);
+  --aurora-opacity: 0.32;
+}
+
+:root[data-theme='light'] {
+  --glass: rgba(255, 255, 255, 0.58);
+  --glass-strong: rgba(255, 255, 255, 0.82);
+  --glass-hover: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(13, 17, 23, 0.08);
+  --glass-edge: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 10px 40px -16px rgba(13, 17, 23, 0.22);
+  --aurora-opacity: 0.4;
+}
+
+/* aurora: three blurred glows in the accent colors, drifting slowly */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora i {
+  position: absolute;
+  width: 52vmax;
+  height: 52vmax;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: var(--aurora-opacity);
+  animation: drift 38s ease-in-out infinite alternate;
+}
+
+.aurora i:nth-child(1) {
+  top: -18vmax;
+  left: -12vmax;
+  background: var(--accent);
+}
+
+.aurora i:nth-child(2) {
+  top: 30vh;
+  right: -20vmax;
+  background: #8b7cf6;
+  opacity: calc(var(--aurora-opacity) * 0.7);
+  animation-duration: 46s;
+  animation-delay: -12s;
+}
+
+.aurora i:nth-child(3) {
+  bottom: -26vmax;
+  left: 22vw;
+  background: var(--accent-2);
+  opacity: calc(var(--aurora-opacity) * 0.45);
+  animation-duration: 54s;
+  animation-delay: -24s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(6vw, 4vh) scale(1.08);
+  }
+  100% {
+    transform: translate(-4vw, 8vh) scale(0.95);
+  }
+}
+
+:root[data-motion='off'] .aurora i {
+  animation: none;
+}
+
+/* the frosted surfaces: large panels and controls (not every small tag) */
+.card,
+.segmented,
+.search,
+.icon-btn,
+.kbd-btn,
+.btn-ghost,
+.status-pill,
+.chip,
+.impact,
+.gh-stats {
+  background: var(--glass);
+  border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  box-shadow: inset 0 1px 0 var(--glass-edge);
+}
+
+.card {
+  box-shadow: inset 0 1px 0 var(--glass-edge), var(--glass-shadow);
+}
+
+/* overlays sit on top of busy content: denser glass */
+.palette,
+.modal,
+.customize {
+  background: var(--glass-strong);
+  border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  box-shadow: inset 0 1px 0 var(--glass-edge), var(--shadow);
+}
+
+dialog::backdrop {
+  background: rgba(5, 7, 10, 0.35);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* stat grids: the 1px "gap as divider" trick needs opaque cells, so draw
+   the dividers on the cells instead and let the container be the glass */
+.impact,
+.gh-stats {
+  gap: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.impact .stat,
+.gh-stats .stat {
+  background: transparent;
+  box-shadow: inset -1px -1px 0 var(--glass-border);
+}
+
+/* rows that highlight on hover become glass when lifted */
+.xp:hover,
+.content .project:hover,
+.post a:hover {
+  box-shadow: inset 0 1px 0 var(--glass-edge), var(--glass-shadow);
+  background: var(--glass-hover);
+  border-color: var(--glass-border);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* inner panels inside cards stay calm: a tint instead of another blur */
+.console-bar,
+.console-log,
+.console-note,
+.arch-node,
+.booker-summary {
+  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+}
+
+.segmented button[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--surface-3) 75%, transparent);
+}
+
+/* sticky mobile section labels match the glass */
+@media (max-width: 1023px) {
+  .section-title {
+    background: var(--glass-strong);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+  }
+}
+
+/* forced colors / no backdrop-filter support: fall back to solid surfaces */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card,
+  .segmented,
+  .search,
+  .icon-btn,
+  .kbd-btn,
+  .btn-ghost,
+  .status-pill,
+  .chip,
+  .impact,
+  .gh-stats,
+  .palette,
+  .modal,
+  .customize {
+    background: var(--surface);
+  }
+}
+
 /* ---------- print: a one-document résumé ---------- */
 @media print {
   :root,
@@ -3119,6 +3305,11 @@ dialog::backdrop {
     --muted: #555;
     --accent: #000;
     --border: #ccc;
+    --glass: #fff;
+    --glass-strong: #fff;
+    --glass-hover: #fff;
+    --glass-border: #fff;
+    --glass-edge: transparent;
   }
 
   @page {
@@ -3154,6 +3345,7 @@ dialog::backdrop {
   .side,
   .scroll-progress,
   .spotlight,
+  .aurora,
   .skip-link,
   #about .impact,
   #about .console,
