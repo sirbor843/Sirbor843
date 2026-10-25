@@ -484,6 +484,72 @@ function ctaSvg(t) {
 </svg>`;
 }
 
+function whoamiSvg(t) {
+  const W = 980;
+  const H = 330;
+  const rows = [
+    ['role', 'Data & ML Systems Engineer'],
+    ['based', 'New York, NY (ET) · mostly remote'],
+    ['now', 'Labs Afrika · payments on Stripe + M-Pesa'],
+    ['builds', 'payments · pipelines · production ML · LLM apps'],
+    ['domains', 'fintech · gaming · healthcare'],
+    ['open to', 'contract · short-term · long-term · full-time']
+  ];
+  const tiles = [
+    ['50%+', 'lower serving latency', 'Redis · Go profiling'],
+    ['35%+', 'lower cloud spend', 'Lambda · Docker'],
+    ['10⁶+', 'events per day', 'AWS Glue · PySpark'],
+    ['½', 'the reconciliation errors', 'Postgres audit trails']
+  ];
+  const termW = 520;
+  const rowSvg = rows
+    .map(([k, v], i) => {
+      const y = 104 + i * 34;
+      return `<g class="rise" style="animation-delay:${0.25 + i * 0.18}s">
+        <text x="28" y="${y}" class="mono" font-size="13" fill="${t.accent}">${esc(k)}</text>
+        <text x="122" y="${y}" class="mono" font-size="13" fill="${t.muted}">:</text>
+        <text x="140" y="${y}" class="sans" font-size="14.5" fill="${t.text}">${esc(v)}</text>
+      </g>`;
+    })
+    .join('');
+  const tileW = (W - termW - 20 - 12) / 2;
+  const tileH = 128;
+  const tileSvg = tiles
+    .map(([v, l, how], i) => {
+      const x = termW + 20 + (i % 2) * (tileW + 12);
+      const y = 18 + Math.floor(i / 2) * (tileH + 12) + 30;
+      return `<g class="rise" style="animation-delay:${0.4 + i * 0.15}s">
+        <rect x="${x + 0.5}" y="${y + 0.5}" width="${tileW - 1}" height="${tileH - 1}" rx="12" fill="${t.card}" stroke="${t.border}"/>
+        <text x="${x + 18}" y="${y + 50}" class="sans" font-size="34" font-weight="800" letter-spacing="-1" fill="${t.accent}">${esc(v)}</text>
+        <text x="${x + 18}" y="${y + 78}" class="sans" font-size="13.5" font-weight="600" fill="${t.text}">${esc(l)}</text>
+        <text x="${x + 18}" y="${y + 104}" class="mono" font-size="11" fill="${t.muted}">${esc(how)}</text>
+      </g>`;
+    })
+    .join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="whoami: Data and ML Systems Engineer in New York; impact: 50% lower latency, 35% lower cloud spend, a million-plus events a day, half the reconciliation discrepancies">
+<title>whoami · Dominic Bor</title>
+<style>
+  .sans { font-family: ${SANS}; } .mono { font-family: ${MONO}; }
+  .rise { opacity: 0; animation: rise .6s cubic-bezier(.22,1,.36,1) forwards; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .caret { animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .rise, .caret { animation: none; opacity: 1; } }
+</style>
+<defs><radialGradient id="wg" cx="0%" cy="0%" r="80%"><stop offset="0" stop-color="${t.glow}"/><stop offset="1" stop-color="${t.glow}" stop-opacity="0"/></radialGradient></defs>
+<rect x=".5" y=".5" width="${termW - 1}" height="${H - 1}" rx="16" fill="${t.card}" stroke="${t.border}"/>
+<rect width="${termW}" height="${H}" rx="16" fill="url(#wg)"/>
+<circle cx="28" cy="32" r="5" fill="#ff5f57"/><circle cx="46" cy="32" r="5" fill="#febc2e"/><circle cx="64" cy="32" r="5" fill="#28c840"/>
+<text x="86" y="36" class="mono" font-size="12" fill="${t.muted}">~/kdbor</text>
+<line x1="0" y1="54" x2="${termW}" y2="54" stroke="${t.border}"/>
+<text x="28" y="80" class="mono" font-size="13" fill="${t.text2}"><tspan fill="${t.accent}">$</tspan> whoami --verbose</text>
+${rowSvg}
+<text x="28" y="${104 + rows.length * 34 + 4}" class="mono" font-size="13" fill="${t.accent}">$ <tspan class="caret" fill="${t.accent}">▍</tspan></text>
+<text x="${termW + 20}" y="34" class="mono" font-size="11" font-weight="600" letter-spacing="1.6" fill="${t.muted}">IMPACT · IN PRODUCTION</text>
+${tileSvg}
+</svg>`;
+}
+
 /* ------------------------------------------------------------------- main */
 
 const args = process.argv.slice(2);
@@ -503,6 +569,7 @@ if (staticDir) {
   await mkdir(staticDir, { recursive: true });
   await writeBoth(staticDir, 'banner', (_, t) => bannerSvg(t));
   await writeBoth(staticDir, 'cta', (_, t) => ctaSvg(t));
+  await writeBoth(staticDir, 'whoami', (_, t) => whoamiSvg(t));
   console.log('static assets ->', staticDir);
 }
 

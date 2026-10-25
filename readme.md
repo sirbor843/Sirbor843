@@ -17,27 +17,15 @@
 
 ---
 
-### `$ whoami`
+### About
 
-```ts
-const dominic = {
-  role:    "Data & ML Systems Engineer",
-  base:    "New York, NY (ET) · mostly remote",
-  now:     "Data Engineer @ Labs Afrika: payment infrastructure on Stripe + M-Pesa",
-  builds:  ["real-time payment layers", "event pipelines", "production ML", "LLM workflows"],
-  impact:  { latency: "-50%", cloudSpend: "-35%", eventsPerDay: "1e6+" },
-  openTo:  ["data & ML infra", "event streaming", "payment layers", "mentorship"],
-};
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/readme/whoami-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="./assets/readme/whoami-light.svg" />
+  <img alt="whoami: Data and ML Systems Engineer based in New York, mostly remote, now at Labs Afrika on Stripe and M-Pesa payments. Impact: 50%+ lower serving latency, 35%+ lower cloud spend, a million-plus events per day, half the reconciliation errors." src="./assets/readme/whoami-dark.svg" width="100%" />
+</picture>
 
-I build data and ML systems that stay **fast**, **reliable**, and **cheap to run**. Across **fintech, gaming, and healthcare** I've shipped payment layers, event pipelines, and automated workflows. I like working directly with users: digging through messy requirements, stress-testing assumptions, and turning real-world edge cases into features that ship to production.
-
-| | Impact |
-|:---:|---|
-| ⚡ | **50%+** lower serving latency: Redis caching and Go service profiling on a Stripe + M-Pesa payment layer |
-| 💸 | **35%+** lower cloud spend: batch workloads moved to containerized AWS Lambda and Docker |
-| 🌊 | **Millions of events/day** turned into model-ready features with AWS Glue and PySpark |
-| 🧾 | **Half** the reconciliation discrepancies, thanks to PostgreSQL audit trails and validation checks |
+I build data and ML systems that stay **fast**, **reliable**, and **cheap to run**: real-time payment layers, event pipelines, and production models across **fintech, gaming, and healthcare**. I work best close to the people using the system, turning messy requirements and real-world edge cases into features that hold up in production.
 
 ### GitHub at a glance
 

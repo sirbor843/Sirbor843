@@ -6,7 +6,12 @@
 
   /* ------------------------------------------------------------ preloader */
 
-  // Real milestones (page parsed, fonts, all assets), min 600 ms, max 1.8 s.
+  // How long the intro stays up (ms). Visitors can skip it at any time.
+  const INTRO_MS = 15000;
+
+  // First visit per session: a real boot log (page parsed, fonts, assets),
+  // then the role types out while a countdown runs. Enter, Esc, a click,
+  // or the Skip button enters the site immediately.
   (function preloader() {
     const el = document.querySelector('[data-preloader]');
     if (!el || document.documentElement.getAttribute('data-boot') === 'skip') {
@@ -18,46 +23,64 @@
     } catch (e) {
       /* private mode */
     }
-    // The script runs right as the page first paints (both wait for CSS).
-    // If that's already late, a boot screen would only flash: skip it.
     const shownAt = performance.now();
-    if (shownAt > 1200) {
-      el.remove();
-      return;
-    }
     const bar = el.querySelector('[data-boot-bar]');
-    const steps = ['dom', 'fonts', 'assets'];
-    const done = new Set();
+    const ready = el.querySelector('[data-boot-ready]');
+    const tagline = el.querySelector('[data-boot-tagline]');
+    const skipBtn = el.querySelector('[data-boot-skip]');
+    const TEXT = 'Data & ML Systems Engineer. I build systems that stay fast, reliable, and cheap to run.';
+    let readyAt = null;
+    let closed = false;
+
     function mark(step) {
-      if (done.has(step)) return;
-      done.add(step);
-      const li = el.querySelector(`[data-step="${step}"]`);
+      const li = el.querySelector(`[data-step="${step}"]:not(.ok)`);
+      if (!li) return;
       li.classList.add('ok');
       li.querySelector('span').textContent = Math.round(performance.now()) + ' ms';
-      bar.style.transform = `scaleX(${done.size / steps.length})`;
-      if (done.size === steps.length) finish();
+      if (el.querySelectorAll('.preloader-log .ok').length === 3) readyAt = Math.round(performance.now());
     }
-    let finished = false;
-    function finish() {
-      if (finished) return;
-      finished = true;
-      // stay on screen at least 600 ms once visible
-      const wait = Math.max(0, shownAt + 600 - performance.now());
-      setTimeout(() => {
-        el.querySelector('[data-boot-ready]').textContent = `ready in ${Math.round(performance.now())} ms`;
-        setTimeout(() => {
-          el.classList.add('done');
-          el.addEventListener('transitionend', () => el.remove(), { once: true });
-          setTimeout(() => el.remove(), 900); // in case transitionend never fires
-        }, 260);
-      }, wait);
-    }
-    mark('dom'); // this script runs after the page has been parsed
+    mark('dom'); // this script runs once the page is parsed
     (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => mark('fonts'));
     if (document.readyState === 'complete') mark('assets');
     else addEventListener('load', () => mark('assets'), { once: true });
-    // hard cap: never hold the page past 1.8 s after navigation started
-    setTimeout(() => steps.forEach(mark), Math.max(0, 1800 - 860 - performance.now()));
+
+    // type the role, a character every ~45 ms
+    let i = 0;
+    const typer = setInterval(() => {
+      tagline.textContent = TEXT.slice(0, ++i);
+      if (i >= TEXT.length) clearInterval(typer);
+    }, 45);
+
+    // countdown bar + status line
+    let frame = 0;
+    (function tick() {
+      const p = Math.min(1, (performance.now() - shownAt) / INTRO_MS);
+      bar.style.transform = `scaleX(${p})`;
+      const left = Math.ceil((INTRO_MS - (performance.now() - shownAt)) / 1000);
+      ready.textContent = (readyAt ? `ready in ${readyAt} ms` : 'loading…') + ` · entering in ${Math.max(0, left)}s`;
+      if (p >= 1) return close();
+      frame = requestAnimationFrame(tick);
+    })();
+
+    function close() {
+      if (closed) return;
+      closed = true;
+      cancelAnimationFrame(frame);
+      clearInterval(typer);
+      removeEventListener('keydown', onKey, true);
+      el.classList.add('done');
+      el.addEventListener('transitionend', () => el.remove(), { once: true });
+      setTimeout(() => el.remove(), 900);
+    }
+    function onKey(e) {
+      if (['Enter', 'Escape', ' '].includes(e.key)) {
+        e.preventDefault();
+        close();
+      }
+    }
+    addEventListener('keydown', onKey, true);
+    el.addEventListener('click', close);
+    skipBtn.focus({ preventScroll: true });
   })();
 
   /* ---------------------------------------------------------------- utils */

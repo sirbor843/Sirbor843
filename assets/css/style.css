@@ -3870,7 +3870,8 @@ dialog::backdrop {
   background: radial-gradient(60vmax circle at 20% 0%, var(--glow), transparent 60%), var(--bg);
   transition: opacity 0.5s var(--ease), transform 0.6s var(--ease), visibility 0s linear 0.6s;
   /* failsafe: disappear by itself if the script never runs */
-  animation: preloader-failsafe 0.01s linear 3s forwards;
+  animation: preloader-failsafe 0.01s linear 16s forwards;
+  cursor: pointer;
 }
 
 :root[data-boot='skip'] .preloader {
@@ -3893,7 +3894,7 @@ dialog::backdrop {
 }
 
 .preloader-card {
-  width: min(320px, calc(100vw - 48px));
+  width: min(420px, calc(100vw - 48px));
   animation: fade-up 0.5s var(--ease) both;
 }
 
@@ -3959,27 +3960,55 @@ dialog::backdrop {
   display: block;
   height: 100%;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  transform: scaleX(0.08);
+  transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.35s var(--ease);
+}
+
+.preloader-card {
+  cursor: default;
+}
+
+.preloader-tagline {
+  min-height: 3.2em;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.preloader-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 12px;
 }
 
 .preloader-ready {
-  margin-top: 10px;
   font-size: 12px;
   color: var(--accent);
+  font-variant-numeric: tabular-nums;
 }
 
-/* reduced motion: no boot theatre, just a quick fade */
-@media (prefers-reduced-motion: reduce) {
-  .preloader-card {
-    display: none;
-  }
+.preloader-skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  font-size: 12px;
+  color: var(--text-2);
+  transition: border-color 0.2s, color 0.2s;
 }
 
-:root[data-motion='off'] .preloader-card {
-  display: none;
+.preloader-skip:hover,
+.preloader-skip:focus-visible {
+  border-color: var(--accent);
+  color: var(--text);
 }
+
 
 /* ---------- print: a one-document résumé ---------- */
 @media print {

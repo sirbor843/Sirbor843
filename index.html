@@ -76,7 +76,7 @@
   </head>
 
   <body>
-    <div class="preloader" data-preloader aria-hidden="true">
+    <div class="preloader" data-preloader role="dialog" aria-label="Intro">
       <div class="preloader-card">
         <p class="preloader-name">dominic<span>.bor</span></p>
         <ol class="preloader-log mono" data-boot-log>
@@ -84,8 +84,12 @@
           <li data-step="fonts">load fonts<span>…</span></li>
           <li data-step="assets">fetch assets<span>…</span></li>
         </ol>
+        <p class="preloader-tagline"><span data-boot-tagline></span><span class="caret" aria-hidden="true"></span></p>
         <div class="preloader-bar"><span data-boot-bar></span></div>
-        <p class="preloader-ready mono" data-boot-ready>&nbsp;</p>
+        <div class="preloader-foot">
+          <p class="preloader-ready mono" data-boot-ready>&nbsp;</p>
+          <button type="button" class="preloader-skip" data-boot-skip>Skip intro <kbd>Enter</kbd></button>
+        </div>
       </div>
     </div>
 
