@@ -117,10 +117,10 @@ I build data and ML systems that stay **fast**, **reliable**, and **cheap to run
 <summary><b>Data Engineer · Labs Afrika</b> &nbsp;<sub>Fintech · Payments · Mar 2025 to present</sub></summary>
 
 - Integrated **Stripe and M-Pesa** into a high-availability Go payment layer, working directly with merchants on edge cases and transaction flows
-- Cut validation and serving latency by **over 50%** with Redis caching, load distribution, and targeted service profiling
+- Cut validation and serving latency with **Redis caching**, load distribution, and targeted service profiling
 - Built real-time customer behavior pipelines in Python and **Kafka** to surface billing anomalies and churn risk early
-- Reduced cloud spend by **over 35%** by moving batch workloads to containerized AWS Lambda and Docker
-- Designed PostgreSQL audit trails and validation checks, **halving reconciliation discrepancies**
+- Reduced cloud spend by moving batch workloads to containerized **AWS Lambda and Docker**
+- Designed **PostgreSQL audit trails** and validation checks that sharply reduced reconciliation discrepancies
 
 </details>
 
@@ -129,7 +129,7 @@ I build data and ML systems that stay **fast**, **reliable**, and **cheap to run
 
 - Built high-throughput ETL with **AWS Glue and PySpark**, turning millions of daily gaming events into feature sets for model evals
 - Shipped real-time **churn and LTV models** with Python, FastAPI, and Docker
-- Automated workflow validation and alerting in **Airflow**, catching silent regressions in minutes rather than hours
+- Automated workflow validation and alerting in **Airflow**, catching silent regressions early
 
 </details>
 
@@ -153,7 +153,7 @@ I build data and ML systems that stay **fast**, **reliable**, and **cheap to run
 
 ### Writing
 
-- [Cutting serving latency by 50% with Redis caching and Go service profiling](https://kdbor.engineer)
+- [Cutting serving latency with Redis caching and Go service profiling](https://kdbor.engineer)
 - [Building resilient PySpark and AWS Glue pipelines for millions of daily events](https://kdbor.engineer)
 - [Automating workflow validation and alerting in Apache Airflow](https://kdbor.engineer)
 - [Writing a Unix shell from scratch in C](https://github.com/sirbor843/simple_shell)

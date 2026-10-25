@@ -56,10 +56,10 @@ window.SITE = {
       stack: ['Go', 'Redis', 'Stripe', 'M-Pesa', 'Python', 'Kafka', 'AWS Lambda', 'Docker', 'PostgreSQL'],
       bullets: [
         'Partnered directly with merchants to clarify messy edge cases and transaction flows, integrating Stripe and M-Pesa into a high-availability Go payment layer.',
-        'Cut validation and serving latency by over 50% through streamlined Redis caching, efficient load distribution, and targeted service profiling.',
+        'Cut validation and serving latency through streamlined Redis caching, efficient load distribution, and targeted service profiling.',
         'Built real-time customer behavior pipelines using Python and Kafka to surface billing anomalies early, flag churn risks, and drive product improvements.',
-        'Reduced cloud infrastructure spending by over 35% by migrating batch workloads to containerized AWS Lambda and Docker architectures scaling on demand.',
-        'Designed robust PostgreSQL audit trails and data validation checks, halving reconciliation discrepancies while keeping tracking clean and reproducible.',
+        'Reduced cloud infrastructure spending by migrating batch workloads to containerized AWS Lambda and Docker architectures scaling on demand.',
+        'Designed robust PostgreSQL audit trails and data validation checks, sharply reducing reconciliation discrepancies while keeping tracking clean and reproducible.',
         'Maintained a rapid shipping cadence, moving from PRDs and Linear tickets to tested, production-grade features using modern AI tooling.'
       ]
     },
@@ -74,7 +74,7 @@ window.SITE = {
       bullets: [
         'Built high-throughput ETL pipelines with AWS Glue and PySpark, transforming millions of daily gaming events into structured feature sets for model evals.',
         'Shipped real-time churn and lifetime value models using Python, FastAPI, and Docker, delivering high-freshness predictive signals directly to operational teams.',
-        'Automated workflow validation and alerting in Apache Airflow, catching silent pipeline regressions in minutes rather than hours.',
+        'Automated workflow validation and alerting in Apache Airflow, catching silent pipeline regressions early.',
         'Collaborated with non-technical stakeholders to test core assumptions, clarify product requirements, and turn analytical findings into production features.'
       ]
     },
@@ -272,7 +272,7 @@ window.SITE = {
 
   writing: [
     {
-      title: 'Cutting Serving Latency by 50% with Redis Caching and Go Service Profiling',
+      title: 'Cutting Serving Latency with Redis Caching and Go Service Profiling',
       category: 'Systems & Performance',
       date: '2025-03-12',
       summary: 'Streamlining transaction validation layers, eliminating redundant round-trips, and profiling Go payment microservices.',
@@ -325,9 +325,9 @@ window.SITE = {
       period: 'Mar 2025 — Present',
       summary: 'Unifying Stripe and M-Pesa behind one Go service, then making it fast, auditable, and cheaper to run.',
       metrics: [
-        ['50%+', 'lower validation and serving latency'],
-        ['35%+', 'lower cloud infrastructure spend'],
-        ['½', 'the reconciliation discrepancies']
+        ['Faster', 'validation and serving on the payment path'],
+        ['Leaner', 'cloud spend, scaling on demand'],
+        ['Cleaner', 'reconciliation and audit trails']
       ],
       context:
         'Merchants needed to take both card payments (Stripe) and mobile money (M-Pesa) through one reliable layer. Each rail has its own flows, callbacks, and failure modes, and the edge cases only show up in real transactions.',
@@ -348,9 +348,9 @@ window.SITE = {
       ],
       architecture: 'payments',
       results: [
-        'Validation and serving latency cut by over 50%.',
-        'Cloud infrastructure spend reduced by over 35%.',
-        'Reconciliation discrepancies halved.',
+        'Faster validation and serving on the payment path.',
+        'Lower cloud infrastructure spend, with batch work scaling on demand.',
+        'Far fewer reconciliation discrepancies, with clean, reproducible tracking.',
         'Billing anomalies and churn risks surfaced early, feeding product improvements.'
       ],
       stack: ['Go', 'Redis', 'Stripe', 'M-Pesa', 'PostgreSQL', 'Python', 'Kafka', 'AWS Lambda', 'Docker']
@@ -363,9 +363,9 @@ window.SITE = {
       period: 'Nov 2023 — Feb 2025',
       summary: 'High-throughput ETL that turns raw gaming telemetry into model-ready features, and models that reach the teams who act on them.',
       metrics: [
-        ['10⁶+', 'gaming events processed per day'],
+        ['High-volume', 'daily gaming event pipelines'],
         ['Real-time', 'churn and LTV signals for operations'],
-        ['Minutes', 'to catch silent pipeline regressions, not hours']
+        ['Early', 'alerts on silent pipeline regressions']
       ],
       context:
         'A gaming and casino platform generated millions of events a day. Operational teams wanted to know which players were likely to churn and what they were worth, while it still mattered.',
@@ -377,7 +377,7 @@ window.SITE = {
       approach: [
         ['High-throughput ETL', 'Built AWS Glue and PySpark pipelines that transform millions of daily gaming events into structured feature sets for model evaluation.'],
         ['Models as services', 'Shipped real-time churn and lifetime-value models with Python and FastAPI, packaged in Docker.'],
-        ['Fail loudly', 'Automated workflow validation and alerting in Apache Airflow so regressions surface in minutes.'],
+        ['Fail loudly', 'Automated workflow validation and alerting in Apache Airflow so regressions surface fast.'],
         ['Test assumptions with the people who use it', 'Worked with non-technical stakeholders to test core assumptions, clarify requirements, and turn analysis into production features.']
       ],
       flow: [
@@ -390,7 +390,7 @@ window.SITE = {
       results: [
         'Millions of daily events turned into model-ready features.',
         'Fresh churn and LTV signals delivered directly to operational teams.',
-        'Silent pipeline regressions caught in minutes rather than hours.'
+        'Silent pipeline regressions caught early instead of going unnoticed.'
       ],
       stack: ['AWS Glue', 'PySpark', 'Python', 'FastAPI', 'Docker', 'Airflow']
     }
@@ -408,14 +408,14 @@ window.SITE = {
         ] },
         { name: 'Service', nodes: [
           { id: 'go', label: 'Go payment API', detail: 'Stateless Go service: validates, routes and profiles every request. Horizontal scaling behind a load balancer.' },
-          { id: 'redis', label: 'Redis', detail: 'Cache for merchant config, idempotency keys and hot lookups — the main lever behind the 50%+ latency cut.' }
+          { id: 'redis', label: 'Redis', detail: 'Cache for merchant config, idempotency keys and hot lookups — the main lever behind the latency cut.' }
         ] },
         { name: 'Rails', nodes: [
           { id: 'stripe', label: 'Stripe', detail: 'Card payments. Webhooks verified by signature and de-duplicated before they touch state.' },
           { id: 'mpesa', label: 'M-Pesa', detail: 'Mobile money via Daraja (STK push + callbacks), normalized to the same internal event shape as Stripe.' }
         ] },
         { name: 'Ledger', nodes: [
-          { id: 'pg', label: 'PostgreSQL audit trail', detail: 'Append-only audit records and validation checks — halved reconciliation discrepancies.' }
+          { id: 'pg', label: 'PostgreSQL audit trail', detail: 'Append-only audit records and validation checks — sharply reduced reconciliation discrepancies.' }
         ] },
         { name: 'Signals', nodes: [
           { id: 'kafka', label: 'Kafka → anomaly alerts', detail: 'Behavioral events stream to Python consumers that flag billing anomalies and churn risk early.' }

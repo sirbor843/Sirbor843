@@ -450,10 +450,10 @@ ${roleText}
   <text x="1094" y="86" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#0ca30c">healthy</text>
   <text x="780" y="134" class="sans" font-size="11" fill="${t.muted}">p99 latency</text>
   <text x="780" y="158" class="mono" font-size="20" font-weight="600" fill="${t.text}">42<tspan font-size="11" fill="${t.muted}"> ms</tspan></text>
-  <text x="900" y="134" class="sans" font-size="11" fill="${t.muted}">latency cut</text>
-  <text x="900" y="158" class="mono" font-size="20" font-weight="600" fill="${t.text}">-50%</text>
-  <text x="1010" y="134" class="sans" font-size="11" fill="${t.muted}">cloud spend</text>
-  <text x="1010" y="158" class="mono" font-size="20" font-weight="600" fill="${t.text}">-35%</text>
+  <text x="900" y="134" class="sans" font-size="11" fill="${t.muted}">throughput</text>
+  <text x="900" y="158" class="mono" font-size="20" font-weight="600" fill="${t.text}">1.2k<tspan font-size="11" fill="${t.muted}"> req/s</tspan></text>
+  <text x="1010" y="134" class="sans" font-size="11" fill="${t.muted}">cache hit</text>
+  <text x="1010" y="158" class="mono" font-size="20" font-weight="600" fill="${t.text}">96<tspan font-size="11" fill="${t.muted}"> %</tspan></text>
   <path d="${path} L${sx(47)} 262 L${sx(0)} 262 Z" fill="url(#area)" class="in" style="animation-delay:1.4s"/>
   <path d="${path}" fill="none" stroke="${t.accent}" stroke-width="2" stroke-linejoin="round" class="line"/>
   <text x="780" y="276" class="mono" font-size="10" fill="${t.muted}">illustrative telemetry</text>

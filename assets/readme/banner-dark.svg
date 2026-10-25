@@ -50,10 +50,10 @@
   <text x="1094" y="86" text-anchor="end" class="sans" font-size="12" font-weight="600" fill="#0ca30c">healthy</text>
   <text x="780" y="134" class="sans" font-size="11" fill="#8b93a1">p99 latency</text>
   <text x="780" y="158" class="mono" font-size="20" font-weight="600" fill="#e8eaed">42<tspan font-size="11" fill="#8b93a1"> ms</tspan></text>
-  <text x="900" y="134" class="sans" font-size="11" fill="#8b93a1">latency cut</text>
-  <text x="900" y="158" class="mono" font-size="20" font-weight="600" fill="#e8eaed">-50%</text>
-  <text x="1010" y="134" class="sans" font-size="11" fill="#8b93a1">cloud spend</text>
-  <text x="1010" y="158" class="mono" font-size="20" font-weight="600" fill="#e8eaed">-35%</text>
+  <text x="900" y="134" class="sans" font-size="11" fill="#8b93a1">throughput</text>
+  <text x="900" y="158" class="mono" font-size="20" font-weight="600" fill="#e8eaed">1.2k<tspan font-size="11" fill="#8b93a1"> req/s</tspan></text>
+  <text x="1010" y="134" class="sans" font-size="11" fill="#8b93a1">cache hit</text>
+  <text x="1010" y="158" class="mono" font-size="20" font-weight="600" fill="#e8eaed">96<tspan font-size="11" fill="#8b93a1"> %</tspan></text>
   <path d="M780.0 227.6 L787.2 228.7 L794.5 228.7 L801.7 225.2 L808.9 228.3 L816.2 233.5 L823.4 231.8 L830.6 231.4 L837.9 234.1 L845.1 230.4 L852.3 225.5 L859.6 227.9 L866.8 228.9 L874.0 199.6 L881.3 230.9 L888.5 235.2 L895.7 231.9 L903.0 230.5 L910.2 232.1 L917.4 227.9 L924.7 224.5 L931.9 228.7 L939.1 230.4 L946.4 228.9 L953.6 217.0 L960.9 235.4 L968.1 230.4 L975.3 228.6 L982.6 230.2 L989.8 226.5 L997.0 225.2 L1004.3 230.8 L1011.5 232.3 L1018.7 230.5 L1026.0 206.4 L1033.2 234.0 L1040.4 228.0 L1047.7 226.9 L1054.9 229.2 L1062.1 226.7 L1069.4 227.2 L1076.6 233.2 L1083.8 233.6 L1091.1 230.7 L1098.3 232.7 L1105.5 231.6 L1112.8 225.7 L1120.0 226.3 L1120 262 L780 262 Z" fill="url(#area)" class="in" style="animation-delay:1.4s"/>
   <path d="M780.0 227.6 L787.2 228.7 L794.5 228.7 L801.7 225.2 L808.9 228.3 L816.2 233.5 L823.4 231.8 L830.6 231.4 L837.9 234.1 L845.1 230.4 L852.3 225.5 L859.6 227.9 L866.8 228.9 L874.0 199.6 L881.3 230.9 L888.5 235.2 L895.7 231.9 L903.0 230.5 L910.2 232.1 L917.4 227.9 L924.7 224.5 L931.9 228.7 L939.1 230.4 L946.4 228.9 L953.6 217.0 L960.9 235.4 L968.1 230.4 L975.3 228.6 L982.6 230.2 L989.8 226.5 L997.0 225.2 L1004.3 230.8 L1011.5 232.3 L1018.7 230.5 L1026.0 206.4 L1033.2 234.0 L1040.4 228.0 L1047.7 226.9 L1054.9 229.2 L1062.1 226.7 L1069.4 227.2 L1076.6 233.2 L1083.8 233.6 L1091.1 230.7 L1098.3 232.7 L1105.5 231.6 L1112.8 225.7 L1120.0 226.3" fill="none" stroke="#34d3b4" stroke-width="2" stroke-linejoin="round" class="line"/>
   <text x="780" y="276" class="mono" font-size="10" fill="#8b93a1">illustrative telemetry</text>
