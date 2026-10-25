@@ -117,7 +117,7 @@ window.SITE = {
       id: 'payments',
       title: 'High-Availability Payment System',
       category: 'systems',
-      image: 'project-finje.png',
+      image: 'project-finje.webp',
       stack: ['Go', 'Redis', 'Stripe', 'M-Pesa'],
       summary: 'Low-latency payment validation and settlement across card and mobile-money rails.',
       highlights: [
@@ -157,7 +157,7 @@ window.SITE = {
       id: 'gis',
       title: 'Property GIS Land Valuation',
       category: 'data',
-      image: 'project-keja.png',
+      image: 'project-keja.webp',
       stack: ['Python', 'GeoPandas', 'PostGIS', 'scikit-learn'],
       summary: 'Spatial valuation model turning registry and coordinate data into pricing insight.',
       highlights: [
@@ -212,7 +212,7 @@ window.SITE = {
       id: 'jikoni',
       title: 'Jikoni',
       category: 'apps',
-      image: 'project-jikoni.png',
+      image: 'project-jikoni.webp',
       stack: ['Swift', 'SwiftUI'],
       summary: 'iOS restaurant discovery and appointment booking app.',
       highlights: [
@@ -302,6 +302,87 @@ window.SITE = {
       date: '2024-01-20',
       summary: 'Fork-exec process cycles, file descriptor piping, signal handling, and memory safety fundamentals in POSIX C.',
       url: 'https://github.com/sirbor843/simple_shell'
+    }
+  ],
+
+  /* Case studies: long-form write-ups, built only from the experience above. */
+  caseStudies: [
+    {
+      id: 'payments',
+      title: 'A high-availability payment layer for card and mobile money',
+      org: 'Labs Afrika',
+      role: 'Data Engineer',
+      period: 'Mar 2025 — Present',
+      summary: 'Unifying Stripe and M-Pesa behind one Go service, then making it fast, auditable, and cheaper to run.',
+      metrics: [
+        ['50%+', 'lower validation and serving latency'],
+        ['35%+', 'lower cloud infrastructure spend'],
+        ['½', 'the reconciliation discrepancies']
+      ],
+      context:
+        'Merchants needed to take both card payments (Stripe) and mobile money (M-Pesa) through one reliable layer. Each rail has its own flows, callbacks, and failure modes, and the edge cases only show up in real transactions.',
+      problem: [
+        'Validation and serving latency on the payment path was too high.',
+        'Reconciliation between payment records and ledgers produced discrepancies.',
+        'Batch workloads ran on infrastructure that cost more than it needed to.',
+        'Billing anomalies and churn signals surfaced late.'
+      ],
+      approach: [
+        ['Work the edge cases with merchants', 'Partnered directly with merchants to clarify messy edge cases and transaction flows before encoding them in the service.'],
+        ['One Go payment layer, two rails', 'Integrated Stripe and M-Pesa into a single high-availability Go service, with webhooks and callbacks normalized to one internal event shape.'],
+        ['Cache-first validation', 'Streamlined Redis caching for merchant config, idempotency keys, and hot lookups, plus load distribution and targeted service profiling.'],
+        ['Idempotency everywhere', 'Payment intents carry idempotency keys and webhooks are verified and de-duplicated, so retries are always safe.'],
+        ['Audit trails you can trust', 'Designed PostgreSQL audit trails and data validation checks that keep tracking clean and reproducible.'],
+        ['Signals, not surprises', 'Built real-time customer behavior pipelines in Python and Kafka to flag billing anomalies and churn risk early.'],
+        ['Pay for what runs', 'Migrated batch workloads to containerized AWS Lambda and Docker so they scale on demand.']
+      ],
+      architecture: 'payments',
+      results: [
+        'Validation and serving latency cut by over 50%.',
+        'Cloud infrastructure spend reduced by over 35%.',
+        'Reconciliation discrepancies halved.',
+        'Billing anomalies and churn risks surfaced early, feeding product improvements.'
+      ],
+      stack: ['Go', 'Redis', 'Stripe', 'M-Pesa', 'PostgreSQL', 'Python', 'Kafka', 'AWS Lambda', 'Docker']
+    },
+    {
+      id: 'gaming',
+      title: 'From millions of daily game events to fresh churn and LTV predictions',
+      org: 'Rapid Research',
+      role: 'Data Engineer',
+      period: 'Nov 2023 — Feb 2025',
+      summary: 'High-throughput ETL that turns raw gaming telemetry into model-ready features, and models that reach the teams who act on them.',
+      metrics: [
+        ['10⁶+', 'gaming events processed per day'],
+        ['Real-time', 'churn and LTV signals for operations'],
+        ['Minutes', 'to catch silent pipeline regressions, not hours']
+      ],
+      context:
+        'A gaming and casino platform generated millions of events a day. Operational teams wanted to know which players were likely to churn and what they were worth, while it still mattered.',
+      problem: [
+        'Raw event streams were not in a shape models could learn from.',
+        'Predictions had to stay fresh enough to act on.',
+        'Silent pipeline regressions could go unnoticed for hours.'
+      ],
+      approach: [
+        ['High-throughput ETL', 'Built AWS Glue and PySpark pipelines that transform millions of daily gaming events into structured feature sets for model evaluation.'],
+        ['Models as services', 'Shipped real-time churn and lifetime-value models with Python and FastAPI, packaged in Docker.'],
+        ['Fail loudly', 'Automated workflow validation and alerting in Apache Airflow so regressions surface in minutes.'],
+        ['Test assumptions with the people who use it', 'Worked with non-technical stakeholders to test core assumptions, clarify requirements, and turn analysis into production features.']
+      ],
+      flow: [
+        ['Game events', 'Millions of daily player and session events.'],
+        ['AWS Glue + PySpark', 'Clean, transform, and aggregate into feature sets.'],
+        ['Feature sets', 'Structured inputs for model evaluation.'],
+        ['Churn + LTV models', 'Python, FastAPI, Docker.'],
+        ['Operational teams', 'High-freshness predictive signals.']
+      ],
+      results: [
+        'Millions of daily events turned into model-ready features.',
+        'Fresh churn and LTV signals delivered directly to operational teams.',
+        'Silent pipeline regressions caught in minutes rather than hours.'
+      ],
+      stack: ['AWS Glue', 'PySpark', 'Python', 'FastAPI', 'Docker', 'Airflow']
     }
   ],
 

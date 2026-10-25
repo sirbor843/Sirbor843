@@ -103,6 +103,7 @@
           <nav class="side-nav" aria-label="Sections" data-nav>
             <a href="#about" data-nav-link><span class="nav-line"></span>About</a>
             <a href="#experience" data-nav-link><span class="nav-line"></span>Experience</a>
+            <a href="#cases" data-nav-link><span class="nav-line"></span>Case studies</a>
             <a href="#work" data-nav-link><span class="nav-line"></span>Projects</a>
             <a href="#systems" data-nav-link><span class="nav-line"></span>Systems</a>
             <a href="#github" data-nav-link><span class="nav-line"></span>Open source</a>
@@ -310,6 +311,15 @@
           </div>
         </section>
 
+        <!-- ============ CASE STUDIES ============ -->
+        <section class="section" id="cases">
+          <header class="section-head">
+            <h2 class="section-title">Case studies</h2>
+            <p class="section-lede">Two systems in depth: the problem, the decisions, the architecture, and what changed.</p>
+          </header>
+          <ul class="cases" data-cases></ul>
+        </section>
+
         <!-- ============ WORK ============ -->
         <section class="section" id="work">
           <header class="section-head">
@@ -432,6 +442,49 @@
               </form>
             </div>
           </div>
+        </section>
+
+        <!-- ============ COLOPHON ============ -->
+        <section class="section" id="colophon">
+          <header class="section-head">
+            <h2 class="section-title">How this site works</h2>
+            <p class="section-lede">No framework, no build step, no backend of its own. Measured in your browser just now:</p>
+          </header>
+          <div class="vitals" data-vitals aria-live="polite">
+            <div class="vital"><span class="vital-value" data-vital="load">--</span><span class="vital-label">page load</span></div>
+            <div class="vital"><span class="vital-value" data-vital="kb">--</span><span class="vital-label">transferred</span></div>
+            <div class="vital"><span class="vital-value" data-vital="requests">--</span><span class="vital-label">requests</span></div>
+            <div class="vital"><span class="vital-value">0</span><span class="vital-label">npm dependencies</span></div>
+          </div>
+          <dl class="colophon">
+            <div class="card">
+              <dt><ion-icon name="code-slash-outline"></ion-icon> Built with</dt>
+              <dd>Hand-written HTML, CSS, and JavaScript. Content lives in one data file; the page renders from it.</dd>
+            </div>
+            <div class="card">
+              <dt><ion-icon name="calendar-outline"></ion-icon> Booking</dt>
+              <dd>Cal.com API v2, called straight from the browser: live availability and bookings, with the Cal.com embed as fallback.</dd>
+            </div>
+            <div class="card">
+              <dt><ion-icon name="logo-github"></ion-icon> Live data</dt>
+              <dd>GitHub REST API for stats, languages, and the build log, cached per visit. A daily GitHub Action renders the profile README cards.</dd>
+            </div>
+            <div class="card">
+              <dt><ion-icon name="cloud-upload-outline"></ion-icon> Hosting</dt>
+              <dd>Static files on Vercel, deployed on every push to main. The README cards publish to their own branch.</dd>
+            </div>
+            <div class="card">
+              <dt><ion-icon name="color-palette-outline"></ion-icon> Design</dt>
+              <dd>Glass surfaces over an aurora backdrop, dark and light themes, five accents, reduced-motion support, and a print-to-résumé stylesheet.</dd>
+            </div>
+            <div class="card">
+              <dt><ion-icon name="text-outline"></ion-icon> Type</dt>
+              <dd>Space Grotesk for display, Inter for text, JetBrains Mono for code. Icons by Ionicons.</dd>
+            </div>
+          </dl>
+          <a class="arrow-link" href="https://github.com/sirbor843/Sirbor843" target="_blank" rel="noopener noreferrer">
+            Read the source <ion-icon name="arrow-forward-outline"></ion-icon>
+          </a>
         </section>
 
         <!-- ============ CONTACT ============ -->
@@ -608,6 +661,14 @@
         <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
         <span><kbd>↵</kbd> select</span>
       </div>
+    </dialog>
+
+    <!-- ============ CASE STUDY READER ============ -->
+    <dialog class="modal case-reader" data-case-modal aria-labelledby="case-title">
+      <button class="icon-btn modal-close" type="button" data-case-close aria-label="Close">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <article data-case-body></article>
     </dialog>
 
     <!-- ============ PROJECT MODAL ============ -->

@@ -707,6 +707,96 @@
     }
   });
 
+  /* -------------------------------------------------------- case studies */
+
+  const caseModal = $('[data-case-modal]');
+  const caseBody = $('[data-case-body]');
+
+  $('[data-cases]').innerHTML = S.caseStudies
+    .map(
+      (c) => `
+    <li>
+      <button type="button" class="card case-card" data-open-case="${c.id}">
+        <p class="case-meta mono">${esc(c.org)} · ${esc(c.period)}</p>
+        <h3>${esc(c.title)}</h3>
+        <p class="case-summary">${esc(c.summary)}</p>
+        <div class="case-metrics">${c.metrics
+          .map(([v, l]) => `<div><span class="case-metric">${esc(v)}</span><span class="case-metric-label">${esc(l)}</span></div>`)
+          .join('')}</div>
+        <span class="arrow-link">Read the case study <ion-icon name="arrow-forward-outline"></ion-icon></span>
+      </button>
+    </li>`
+    )
+    .join('');
+
+  // the architecture is drawn from the explorer's data when one exists
+  function caseFlow(c) {
+    const stages = c.architecture
+      ? S.architectures.find((a) => a.id === c.architecture).stages.map((st) => [st.name, st.nodes.map((n) => n.label).join(' · ')])
+      : c.flow;
+    return `<ol class="case-flow">${stages
+      .map(([name, detail], i) => `<li><span class="case-flow-step mono">${String(i + 1).padStart(2, '0')}</span><div><strong>${esc(name)}</strong><span>${esc(detail)}</span></div></li>`)
+      .join('')}</ol>`;
+  }
+
+  function openCase(id) {
+    const c = S.caseStudies.find((x) => x.id === id);
+    if (!c) return;
+    history.replaceState(null, '', '#case/' + c.id);
+    caseBody.innerHTML = `
+      <header class="case-head">
+        <p class="case-meta mono">Case study · ${esc(c.org)} · ${esc(c.role)} · ${esc(c.period)}</p>
+        <h2 id="case-title">${esc(c.title)}</h2>
+        <p class="case-lede">${esc(c.summary)}</p>
+        <div class="case-metrics">${c.metrics
+          .map(([v, l]) => `<div><span class="case-metric">${esc(v)}</span><span class="case-metric-label">${esc(l)}</span></div>`)
+          .join('')}</div>
+      </header>
+      <section><h3>Context</h3><p>${esc(c.context)}</p></section>
+      <section><h3>The problem</h3><ul>${c.problem.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+      <section><h3>Approach</h3><ol class="case-steps">${c.approach
+        .map(([t, d]) => `<li><strong>${esc(t)}</strong><p>${esc(d)}</p></li>`)
+        .join('')}</ol></section>
+      <section><h3>Architecture</h3>${caseFlow(c)}</section>
+      <section><h3>Results</h3><ul class="case-results">${c.results.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+      <section><h3>Stack</h3><div class="tags">${c.stack.map((t) => `<span class="tag">${esc(t)}</span>`).join('')}</div></section>
+      <footer class="case-foot">
+        <a class="btn btn-primary" href="#contact" data-case-contact><ion-icon name="chatbubbles-outline"></ion-icon> Talk about a system like this</a>
+      </footer>`;
+    caseModal.showModal();
+    caseModal.scrollTop = 0;
+  }
+
+  $('[data-cases]').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-open-case]');
+    if (b) openCase(b.dataset.openCase);
+  });
+  $('[data-case-close]').addEventListener('click', () => caseModal.close());
+  caseModal.addEventListener('click', (e) => {
+    if (e.target === caseModal || e.target.closest('[data-case-contact]')) caseModal.close();
+  });
+  caseModal.addEventListener('close', () => {
+    if (location.hash.startsWith('#case/')) history.replaceState(null, '', '#cases');
+  });
+
+  /* ------------------------------------------------------ colophon vitals */
+
+  // real numbers from this visit: navigation + every resource fetched so far
+  function measureVitals() {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const res = performance.getEntriesByType('resource');
+    const load = nav && nav.loadEventEnd ? nav.loadEventEnd - nav.startTime : performance.now();
+    const bytes = (nav ? nav.transferSize : 0) + res.reduce((s, r) => s + (r.transferSize || 0), 0);
+    $('[data-vital="load"]').textContent = load >= 1000 ? (load / 1000).toFixed(2) + ' s' : Math.round(load) + ' ms';
+    $('[data-vital="kb"]').textContent = bytes ? Math.round(bytes / 1024) + ' KB' : 'cached';
+    $('[data-vital="requests"]').textContent = String(res.length + 1);
+  }
+  new IntersectionObserver((entries, obs) => {
+    if (!entries.some((e) => e.isIntersecting)) return;
+    obs.disconnect();
+    measureVitals();
+  }).observe($('[data-vitals]'));
+
   /* -------------------------------------------------------------- skills */
 
   const skillPanel = $('[data-skill-panel]');
@@ -1560,6 +1650,7 @@
           ['experience', 'work history'],
           ['projects [query]', 'list projects, optionally filtered'],
           ['open <id>', 'open a project, e.g. open payments'],
+          ['cases / case <id>', 'case studies, e.g. case gaming'],
           ['skills', 'tech stack by group'],
           ['writing', 'technical posts'],
           ['github', 'live GitHub stats'],
@@ -1592,6 +1683,15 @@
         if (!p) return '<span class="err">open: no such project. Try `projects`.</span>';
         openProject(p.id);
         return 'Opening ' + esc(p.title) + '…';
+      },
+      cases: () =>
+        S.caseStudies.map((c) => `<span class="hl">${c.id.padEnd(10)}</span>${esc(c.title)} <span class="muted">(${esc(c.org)})</span>`).join('\n') +
+        '\n\nRun <span class="hl">case &lt;id&gt;</span> to read one.',
+      case: (args) => {
+        const c = S.caseStudies.find((x) => x.id === args[0]);
+        if (!c) return '<span class="err">case: unknown id. Try `cases`.</span>';
+        openCase(c.id);
+        return 'Opening ' + esc(c.title) + '…';
       },
       skills: () => S.skills.map((g) => `<span class="hl">${esc(g.group.padEnd(18))}</span>${esc(g.items.join(' · '))}`).join('\n'),
       writing: () => S.writing.map((w) => `<span class="muted">${formatDate(w.date)}</span>  ${link(w.url, w.title)}`).join('\n'),
@@ -1734,6 +1834,7 @@
       ...[
         ['top', 'Home', 'home-outline'],
         ['about', 'About', 'person-outline'],
+        ['cases', 'Case studies', 'reader-outline'],
         ['work', 'Projects', 'grid-outline'],
         ['systems', 'Architecture explorer', 'git-network-outline'],
         ['experience', 'Experience', 'briefcase-outline'],
@@ -1760,6 +1861,7 @@
       { group: 'Actions', label: 'GitHub profile', icon: 'logo-github', hint: '@' + P.handle, run: ext(P.github) },
       { group: 'Actions', label: 'LinkedIn profile', icon: 'logo-linkedin', run: ext(P.linkedin) },
       { group: 'Actions', label: 'Goodreads: what I\'m reading', icon: 'book-outline', keywords: 'books reading', run: ext(P.goodreads) },
+      ...S.caseStudies.map((c) => ({ group: 'Case studies', label: c.title, icon: 'reader-outline', hint: c.org, keywords: c.stack.join(' '), run: () => openCase(c.id) })),
       ...S.projects.map((p) => ({ group: 'Projects', label: p.title, icon: 'cube-outline', hint: p.stack.slice(0, 2).join(' · '), keywords: p.stack.join(' '), run: () => openProject(p.id) })),
       ...S.writing.map((w) => ({ group: 'Writing', label: w.title, icon: 'reader-outline', hint: formatDate(w.date), keywords: w.category, run: ext(w.url) }))
     ];
@@ -1858,6 +1960,12 @@
   /* -------------------------------------------------------------- reveal */
 
   renderProjects();
+
+  const caseLink = location.hash.match(/^#case\/([\w-]+)$/);
+  if (caseLink && S.caseStudies.some((c) => c.id === caseLink[1])) {
+    scrollToId('cases');
+    openCase(caseLink[1]);
+  }
 
   const deepLink = location.hash.match(/^#project\/([\w-]+)$/);
   if (deepLink && S.projects.some((p) => p.id === deepLink[1])) {
