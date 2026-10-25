@@ -33,6 +33,12 @@
         try { t = localStorage.getItem('theme'); } catch (e) {}
         if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', t);
+        // preloader: first visit per session only, never on deep links
+        try {
+          if (sessionStorage.getItem('booted') || /^#(case|project)\//.test(location.hash)) {
+            document.documentElement.setAttribute('data-boot', 'skip');
+          }
+        } catch (e) {}
         try {
           var a = localStorage.getItem('accent'), m = localStorage.getItem('motion');
           if (a) document.documentElement.setAttribute('data-accent', a);
@@ -70,6 +76,19 @@
   </head>
 
   <body>
+    <div class="preloader" data-preloader aria-hidden="true">
+      <div class="preloader-card">
+        <p class="preloader-name">dominic<span>.bor</span></p>
+        <ol class="preloader-log mono" data-boot-log>
+          <li data-step="dom">parse page<span>…</span></li>
+          <li data-step="fonts">load fonts<span>…</span></li>
+          <li data-step="assets">fetch assets<span>…</span></li>
+        </ol>
+        <div class="preloader-bar"><span data-boot-bar></span></div>
+        <p class="preloader-ready mono" data-boot-ready>&nbsp;</p>
+      </div>
+    </div>
+
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
     <div class="spotlight" data-spotlight aria-hidden="true"></div>

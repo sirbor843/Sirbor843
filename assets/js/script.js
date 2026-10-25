@@ -4,6 +4,62 @@
   const S = window.SITE;
   const P = S.profile;
 
+  /* ------------------------------------------------------------ preloader */
+
+  // Real milestones (page parsed, fonts, all assets), min 600 ms, max 1.8 s.
+  (function preloader() {
+    const el = document.querySelector('[data-preloader]');
+    if (!el || document.documentElement.getAttribute('data-boot') === 'skip') {
+      if (el) el.remove();
+      return;
+    }
+    try {
+      sessionStorage.setItem('booted', '1');
+    } catch (e) {
+      /* private mode */
+    }
+    // The script runs right as the page first paints (both wait for CSS).
+    // If that's already late, a boot screen would only flash: skip it.
+    const shownAt = performance.now();
+    if (shownAt > 1200) {
+      el.remove();
+      return;
+    }
+    const bar = el.querySelector('[data-boot-bar]');
+    const steps = ['dom', 'fonts', 'assets'];
+    const done = new Set();
+    function mark(step) {
+      if (done.has(step)) return;
+      done.add(step);
+      const li = el.querySelector(`[data-step="${step}"]`);
+      li.classList.add('ok');
+      li.querySelector('span').textContent = Math.round(performance.now()) + ' ms';
+      bar.style.transform = `scaleX(${done.size / steps.length})`;
+      if (done.size === steps.length) finish();
+    }
+    let finished = false;
+    function finish() {
+      if (finished) return;
+      finished = true;
+      // stay on screen at least 600 ms once visible
+      const wait = Math.max(0, shownAt + 600 - performance.now());
+      setTimeout(() => {
+        el.querySelector('[data-boot-ready]').textContent = `ready in ${Math.round(performance.now())} ms`;
+        setTimeout(() => {
+          el.classList.add('done');
+          el.addEventListener('transitionend', () => el.remove(), { once: true });
+          setTimeout(() => el.remove(), 900); // in case transitionend never fires
+        }, 260);
+      }, wait);
+    }
+    mark('dom'); // this script runs after the page has been parsed
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => mark('fonts'));
+    if (document.readyState === 'complete') mark('assets');
+    else addEventListener('load', () => mark('assets'), { once: true });
+    // hard cap: never hold the page past 1.8 s after navigation started
+    setTimeout(() => steps.forEach(mark), Math.max(0, 1800 - 860 - performance.now()));
+  })();
+
   /* ---------------------------------------------------------------- utils */
 
   const $ = (sel, root = document) => root.querySelector(sel);
