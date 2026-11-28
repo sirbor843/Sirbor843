@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="210" viewBox="0 0 480 210" role="img" aria-label="GitHub at a glance">
+<title>GitHub at a glance</title>
+<style>
+  .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace; }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .rise { opacity: 0; animation: rise .6s cubic-bezier(.22,1,.36,1) forwards; }
+  .fade { opacity: 0; animation: fade .5s ease forwards; }
+  @media (prefers-reduced-motion: reduce) { .rise, .fade { animation: none; opacity: 1; } }
+</style>
+<rect x="0.5" y="0.5" width="479" height="209" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+  <text x="24" y="34" class="mono" font-size="11" font-weight="600" letter-spacing="1.6" fill="#59636e">GITHUB AT A GLANCE</text>
+  <text x="456" y="34" text-anchor="end" class="mono" font-size="11" fill="#59636e">on GitHub 5y</text>
+  <line x1="24" y1="48" x2="456" y2="48" stroke="#d0d7de"/>
+  <g class="rise" style="animation-delay:0s">
+        <text x="24" y="92" class="sans" font-size="26" font-weight="700" fill="#0d1117">94</text>
+        <text x="24" y="112" class="sans" font-size="12" fill="#59636e">contributions · 12 mo</text>
+      </g><g class="rise" style="animation-delay:0.08s">
+        <text x="174" y="92" class="sans" font-size="26" font-weight="700" fill="#0d1117">82</text>
+        <text x="174" y="112" class="sans" font-size="12" fill="#59636e">commits · 12 mo</text>
+      </g><g class="rise" style="animation-delay:0.16s">
+        <text x="324" y="92" class="sans" font-size="26" font-weight="700" fill="#0d1117">7</text>
+        <text x="324" y="112" class="sans" font-size="12" fill="#59636e">pull requests · 12 mo</text>
+      </g><g class="rise" style="animation-delay:0.24s">
+        <text x="24" y="154" class="sans" font-size="26" font-weight="700" fill="#0d1117">36</text>
+        <text x="24" y="174" class="sans" font-size="12" fill="#59636e">public repositories</text>
+      </g><g class="rise" style="animation-delay:0.32s">
+        <text x="174" y="154" class="sans" font-size="26" font-weight="700" fill="#0d1117">29</text>
+        <text x="174" y="174" class="sans" font-size="12" fill="#59636e">languages used</text>
+      </g><g class="rise" style="animation-delay:0.4s">
+        <text x="324" y="154" class="sans" font-size="26" font-weight="700" fill="#0d1117">3d</text>
+        <text x="324" y="174" class="sans" font-size="12" fill="#59636e">longest streak</text>
+      </g>
+</svg>
